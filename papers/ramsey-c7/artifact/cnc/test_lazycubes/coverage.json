@@ -1,0 +1,1 @@
+{"result": "UNSAT", "solve_secs": 0.0, "proof_bytes": 3031, "proof_sha256": "ba7261b3c1c621ed370d6b7d73c2594bdc394a425784e43ce61fed1ff18842e9", "check_secs": 0.0, "cake_lpr": "s VERIFIED UNSAT", "kind": "negated cubes alone"}

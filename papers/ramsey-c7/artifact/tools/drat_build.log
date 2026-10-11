@@ -1,0 +1,6 @@
+gcc drat-trim.c -std=c99 -O2 -o drat-trim
+drat-trim.c: In function ‘read_lit’:
+drat-trim.c:986:10: error: implicit declaration of function ‘getc_unlocked’ [-Wimplicit-function-declaration]
+  986 |     lc = getc_unlocked (S->proofFile);
+      |          ^~~~~~~~~~~~~
+make: *** [Makefile:6: drat-trim] Error 1

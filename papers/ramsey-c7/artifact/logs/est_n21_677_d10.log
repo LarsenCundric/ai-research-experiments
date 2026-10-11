@@ -1,0 +1,5 @@
+./sample_est.sh: line 9: 160027 Segmentation fault      $R/tools/CnC/march_cu/march_cu $W/warm.cnf -o $W/cubes -d $d > $W/march.log 2>&1
+grep: /workspace/ramsey-c7/prop/est_n21_677_d10/cubes: No such file or directory
+cubes= march_secs=3
+shuf: invalid input range: ‘0--1’
+sampled=0 timeouts=0 sat=0 mean=-nans  est_total_cpu=-nans (-nan core-days)

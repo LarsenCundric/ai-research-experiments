@@ -1,0 +1,10 @@
+== R467_n13 Thu Oct  8 17:17:03 PDT 2026  cnf=cnf/A_n13_467_tradj_amo.cnf sha256=82edcd12637ce650
+s UNSATISFIABLE
+cadical exit=20 secs=1018.7 proof_bytes=2251703712
+s VERIFIED UNSAT
+cake_lpr exit=0 secs=129.7
+c VERIFIED
+lrat-check exit=0 secs=36.9
+s UNSATISFIABLE
+kissat exit=20 secs=820.2 proof_bytes=1254747676
+drat-trim exit=0 secs=1532.7 verdict=s VERIFIED

@@ -1,0 +1,11 @@
+{
+ "cubes": 56,
+ "certified_unsat": 56,
+ "sat": [],
+ "unfinished_or_failed": [],
+ "coverage": "s VERIFIED UNSAT",
+ "wall_secs_this_run": 87.2,
+ "cpu_solve_secs_total": 77.2,
+ "cpu_check_secs_total": 95.1,
+ "VERDICT": "FORMULA UNSAT (certified: coverage + all cubes checked by cake_lpr)"
+}

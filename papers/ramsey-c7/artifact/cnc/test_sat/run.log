@@ -1,0 +1,9 @@
+2026-10-08 17:21:44 start F=/workspace/ramsey-c7/cnf/A_n11_447_tradj_amo.cnf jobs=3
+2026-10-08 17:21:48 march_cu depth 4: 4.1s
+2026-10-08 17:21:48 cubes=15 sha256=7f800d2a9d2fce32
+2026-10-08 17:21:48 coverage: {'result': 'UNSAT', 'solve_secs': 0.0, 'proof_bytes': 267, 'proof_sha256': 'f4c2355d80a378cdffa2675ecb38661ea335c45269b20593630bce8e7400c389', 'check_secs': 0.0, 'cake_lpr': 's VERIFIED UNSAT'}
+2026-10-08 17:21:48 already certified: 0  to do: 15
+2026-10-08 17:21:48 cube 1: SAT solve=0.1s check=Nones  [1/15]
+2026-10-08 17:21:48 cube 0: SAT solve=0.2s check=Nones  [14/15]
+2026-10-08 17:21:48 cube 2: SAT solve=0.2s check=Nones  [15/15]
+2026-10-08 17:21:48 SUMMARY {"cubes": 15, "certified_unsat": 0, "sat": [1, 0, 2], "unfinished_or_failed": [3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14], "coverage": "s VERIFIED UNSAT", "wall_secs_this_run": 0.2, "cpu_solve_secs_total": 0.5, "cpu_check_secs_total": 0, "VERDICT": "SAT cube found"}

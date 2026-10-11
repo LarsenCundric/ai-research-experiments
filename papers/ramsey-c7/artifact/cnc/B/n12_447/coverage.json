@@ -1,0 +1,1 @@
+{"offline_result": "UNSAT", "offline_secs": 0.0, "proof_bytes": 898, "proof_sha256": "25f0bb6a06d141673b58734852adcd85e48ca1d7dacb65fec324249ef46a4619", "check_secs": 0.1, "drat_trim": "s VERIFIED", "kind": "negated cubes alone", "cake_lpr": "s VERIFIED UNSAT"}

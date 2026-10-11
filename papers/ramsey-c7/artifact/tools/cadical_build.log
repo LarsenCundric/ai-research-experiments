@@ -1,0 +1,120 @@
+configure: reusing default 'build' directory
+configure: building in default '/workspace/ramsey-c7/tools/cadical/build'
+configure: root directory '/workspace/ramsey-c7/tools/cadical'
+configure: source directory '/workspace/ramsey-c7/tools/cadical/src'
+configure: compiler supports all required C99/C++11 extensions
+configure: compiler configuration supports flexible array members
+configure: unlocked IO with '{putc,getc}_unlocked' seems to work
+configure: 'closefrom' seems to be working
+configure: no 'libcadical.so' shared library generated (without '-shared')
+configure: no 'cadical-dynamic' dynamically linked binary generated (without '-shared')
+configure: compiling C++ with 'g++ -Wall -Wextra -O3 -DNDEBUG'
+configure: compiling C with 'gcc -Wall -Wextra -O3 -DNDEBUG'
+configure: generated 'build/makefile' from '../makefile.in'
+configure: generated '../makefile' as proxy to ...
+configure: ... '/workspace/ramsey-c7/tools/cadical/build/makefile'
+configure: linking '/workspace/ramsey-c7/tools/cadical/makefile'
+configure: now run 'make' to compile CaDiCaL
+configure: optionally run 'make test'
+make -C "/workspace/ramsey-c7/tools/cadical/build"
+make[1]: Entering directory '/workspace/ramsey-c7/tools/cadical/build'
+g++ -Wall -Wextra -O3 -DNDEBUG -I../build -I../src -c ../src/analyze.cpp
+g++ -Wall -Wextra -O3 -DNDEBUG -I../build -I../src -c ../src/arena.cpp
+g++ -Wall -Wextra -O3 -DNDEBUG -I../build -I../src -c ../src/assume.cpp
+g++ -Wall -Wextra -O3 -DNDEBUG -I../build -I../src -c ../src/averages.cpp
+g++ -Wall -Wextra -O3 -DNDEBUG -I../build -I../src -c ../src/backbone.cpp
+g++ -Wall -Wextra -O3 -DNDEBUG -I../build -I../src -c ../src/backtrack.cpp
+g++ -Wall -Wextra -O3 -DNDEBUG -I../build -I../src -c ../src/backward.cpp
+g++ -Wall -Wextra -O3 -DNDEBUG -I../build -I../src -c ../src/bins.cpp
+g++ -Wall -Wextra -O3 -DNDEBUG -I../build -I../src -c ../src/block.cpp
+g++ -Wall -Wextra -O3 -DNDEBUG -I../build -I../src -c ../src/ccadical.cpp
+g++ -Wall -Wextra -O3 -DNDEBUG -I../build -I../src -c ../src/checker.cpp
+g++ -Wall -Wextra -O3 -DNDEBUG -I../build -I../src -c ../src/clause.cpp
+g++ -Wall -Wextra -O3 -DNDEBUG -I../build -I../src -c ../src/collect.cpp
+g++ -Wall -Wextra -O3 -DNDEBUG -I../build -I../src -c ../src/compact.cpp
+g++ -Wall -Wextra -O3 -DNDEBUG -I../build -I../src -c ../src/condition.cpp
+g++ -Wall -Wextra -O3 -DNDEBUG -I../build -I../src -c ../src/config.cpp
+g++ -Wall -Wextra -O3 -DNDEBUG -I../build -I../src -c ../src/congruence.cpp
+g++ -Wall -Wextra -O3 -DNDEBUG -I../build -I../src -c ../src/constrain.cpp
+g++ -Wall -Wextra -O3 -DNDEBUG -I../build -I../src -c ../src/contract.cpp
+g++ -Wall -Wextra -O3 -DNDEBUG -I../build -I../src -c ../src/cover.cpp
+g++ -Wall -Wextra -O3 -DNDEBUG -I../build -I../src -c ../src/decide.cpp
+g++ -Wall -Wextra -O3 -DNDEBUG -I../build -I../src -c ../src/decompose.cpp
+g++ -Wall -Wextra -O3 -DNDEBUG -I../build -I../src -c ../src/deduplicate.cpp
+g++ -Wall -Wextra -O3 -DNDEBUG -I../build -I../src -c ../src/definition.cpp
+g++ -Wall -Wextra -O3 -DNDEBUG -I../build -I../src -c ../src/drattracer.cpp
+g++ -Wall -Wextra -O3 -DNDEBUG -I../build -I../src -c ../src/elim.cpp
+g++ -Wall -Wextra -O3 -DNDEBUG -I../build -I../src -c ../src/elimfast.cpp
+g++ -Wall -Wextra -O3 -DNDEBUG -I../build -I../src -c ../src/ema.cpp
+g++ -Wall -Wextra -O3 -DNDEBUG -I../build -I../src -c ../src/extend.cpp
+g++ -Wall -Wextra -O3 -DNDEBUG -I../build -I../src -c ../src/external.cpp
+g++ -Wall -Wextra -O3 -DNDEBUG -I../build -I../src -c ../src/external_propagate.cpp
+g++ -Wall -Wextra -O3 -DNDEBUG -I../build -I../src -c ../src/factor.cpp
+g++ -Wall -Wextra -O3 -DNDEBUG -I../build -I../src -c ../src/file.cpp
+g++ -Wall -Wextra -O3 -DNDEBUG -I../build -I../src -c ../src/flags.cpp
+g++ -Wall -Wextra -O3 -DNDEBUG -I../build -I../src -c ../src/flip.cpp
+g++ -Wall -Wextra -O3 -DNDEBUG -I../build -I../src -c ../src/format.cpp
+g++ -Wall -Wextra -O3 -DNDEBUG -I../build -I../src -c ../src/frattracer.cpp
+g++ -Wall -Wextra -O3 -DNDEBUG -I../build -I../src -c ../src/gates.cpp
+g++ -Wall -Wextra -O3 -DNDEBUG -I../build -I../src -c ../src/idruptracer.cpp
+g++ -Wall -Wextra -O3 -DNDEBUG -I../build -I../src -c ../src/instantiate.cpp
+g++ -Wall -Wextra -O3 -DNDEBUG -I../build -I../src -c ../src/internal.cpp
+g++ -Wall -Wextra -O3 -DNDEBUG -I../build -I../src -c ../src/ipasir.cpp
+g++ -Wall -Wextra -O3 -DNDEBUG -I../build -I../src -c ../src/lidruptracer.cpp
+g++ -Wall -Wextra -O3 -DNDEBUG -I../build -I../src -c ../src/limit.cpp
+g++ -Wall -Wextra -O3 -DNDEBUG -I../build -I../src -c ../src/logging.cpp
+g++ -Wall -Wextra -O3 -DNDEBUG -I../build -I../src -c ../src/lookahead.cpp
+g++ -Wall -Wextra -O3 -DNDEBUG -I../build -I../src -c ../src/lratchecker.cpp
+g++ -Wall -Wextra -O3 -DNDEBUG -I../build -I../src -c ../src/lrattracer.cpp
+g++ -Wall -Wextra -O3 -DNDEBUG -I../build -I../src -c ../src/lucky.cpp
+g++ -Wall -Wextra -O3 -DNDEBUG -I../build -I../src -c ../src/message.cpp
+g++ -Wall -Wextra -O3 -DNDEBUG -I../build -I../src -c ../src/minimize.cpp
+g++ -Wall -Wextra -O3 -DNDEBUG -I../build -I../src -c ../src/occs.cpp
+g++ -Wall -Wextra -O3 -DNDEBUG -I../build -I../src -c ../src/options.cpp
+g++ -Wall -Wextra -O3 -DNDEBUG -I../build -I../src -c ../src/parse.cpp
+g++ -Wall -Wextra -O3 -DNDEBUG -I../build -I../src -c ../src/phases.cpp
+g++ -Wall -Wextra -O3 -DNDEBUG -I../build -I../src -c ../src/probe.cpp
+g++ -Wall -Wextra -O3 -DNDEBUG -I../build -I../src -c ../src/profile.cpp
+g++ -Wall -Wextra -O3 -DNDEBUG -I../build -I../src -c ../src/proof.cpp
+g++ -Wall -Wextra -O3 -DNDEBUG -I../build -I../src -c ../src/propagate.cpp
+g++ -Wall -Wextra -O3 -DNDEBUG -I../build -I../src -c ../src/queue.cpp
+g++ -Wall -Wextra -O3 -DNDEBUG -I../build -I../src -c ../src/random.cpp
+g++ -Wall -Wextra -O3 -DNDEBUG -I../build -I../src -c ../src/reap.cpp
+g++ -Wall -Wextra -O3 -DNDEBUG -I../build -I../src -c ../src/reduce.cpp
+g++ -Wall -Wextra -O3 -DNDEBUG -I../build -I../src -c ../src/rephase.cpp
+g++ -Wall -Wextra -O3 -DNDEBUG -I../build -I../src -c ../src/report.cpp
+g++ -Wall -Wextra -O3 -DNDEBUG -I../build -I../src -c ../src/resources.cpp
+g++ -Wall -Wextra -O3 -DNDEBUG -I../build -I../src -c ../src/restart.cpp
+g++ -Wall -Wextra -O3 -DNDEBUG -I../build -I../src -c ../src/restore.cpp
+g++ -Wall -Wextra -O3 -DNDEBUG -I../build -I../src -c ../src/score.cpp
+g++ -Wall -Wextra -O3 -DNDEBUG -I../build -I../src -c ../src/shrink.cpp
+g++ -Wall -Wextra -O3 -DNDEBUG -I../build -I../src -c ../src/signal.cpp
+g++ -Wall -Wextra -O3 -DNDEBUG -I../build -I../src -c ../src/solution.cpp
+g++ -Wall -Wextra -O3 -DNDEBUG -I../build -I../src -c ../src/solver.cpp
+g++ -Wall -Wextra -O3 -DNDEBUG -I../build -I../src -c ../src/stable.cpp
+g++ -Wall -Wextra -O3 -DNDEBUG -I../build -I../src -c ../src/stats.cpp
+g++ -Wall -Wextra -O3 -DNDEBUG -I../build -I../src -c ../src/subsume.cpp
+g++ -Wall -Wextra -O3 -DNDEBUG -I../build -I../src -c ../src/sweep.cpp
+g++ -Wall -Wextra -O3 -DNDEBUG -I../build -I../src -c ../src/terminal.cpp
+g++ -Wall -Wextra -O3 -DNDEBUG -I../build -I../src -c ../src/ternary.cpp
+g++ -Wall -Wextra -O3 -DNDEBUG -I../build -I../src -c ../src/tier.cpp
+g++ -Wall -Wextra -O3 -DNDEBUG -I../build -I../src -c ../src/transred.cpp
+g++ -Wall -Wextra -O3 -DNDEBUG -I../build -I../src -c ../src/unstable.cpp
+g++ -Wall -Wextra -O3 -DNDEBUG -I../build -I../src -c ../src/util.cpp
+g++ -Wall -Wextra -O3 -DNDEBUG -I../build -I../src -c ../src/var.cpp
+g++ -Wall -Wextra -O3 -DNDEBUG -I../build -I../src -c ../src/veripbtracer.cpp
+../scripts/make-build-header.sh > build.hpp
+g++ -Wall -Wextra -O3 -DNDEBUG -I../build -I../src -c ../src/vivify.cpp
+g++ -Wall -Wextra -O3 -DNDEBUG -I../build -I../src -c ../src/walk.cpp
+g++ -Wall -Wextra -O3 -DNDEBUG -I../build -I../src -c ../src/walk_full_occs.cpp
+g++ -Wall -Wextra -O3 -DNDEBUG -I../build -I../src -c ../src/warmup.cpp
+g++ -Wall -Wextra -O3 -DNDEBUG -I../build -I../src -c ../src/watch.cpp
+g++ -Wall -Wextra -O3 -DNDEBUG -I../build -I../src -c ../contrib/craigtracer.cpp
+gcc -Wall -Wextra -O3 -DNDEBUG -I../build -I../src -x c -c ../src/kitten.c -o kitten.o
+g++ -Wall -Wextra -O3 -DNDEBUG -I../build -I../src -c ../src/cadical.cpp
+g++ -Wall -Wextra -O3 -DNDEBUG -I../build -I../src -c ../src/mobical.cpp
+g++ -Wall -Wextra -O3 -DNDEBUG -I../build -I../src -c ../src/version.cpp
+ar rc libcadical.a analyze.o arena.o assume.o averages.o backbone.o backtrack.o backward.o bins.o block.o ccadical.o checker.o clause.o collect.o compact.o condition.o config.o congruence.o constrain.o contract.o cover.o decide.o decompose.o deduplicate.o definition.o drattracer.o elim.o elimfast.o ema.o extend.o external.o external_propagate.o factor.o file.o flags.o flip.o format.o frattracer.o gates.o idruptracer.o instantiate.o internal.o ipasir.o lidruptracer.o limit.o logging.o lookahead.o lratchecker.o lrattracer.o lucky.o message.o minimize.o occs.o options.o parse.o phases.o probe.o profile.o proof.o propagate.o queue.o random.o reap.o reduce.o rephase.o report.o resources.o restart.o restore.o score.o shrink.o signal.o solution.o solver.o stable.o stats.o subsume.o sweep.o terminal.o ternary.o tier.o transred.o unstable.o util.o var.o veripbtracer.o version.o vivify.o walk.o walk_full_occs.o warmup.o watch.o craigtracer.o kitten.o
+g++ -Wall -Wextra -O3 -DNDEBUG -I../build -I../src -o cadical cadical.o -L. libcadical.a 
+g++ -Wall -Wextra -O3 -DNDEBUG -I../build -I../src -o mobical mobical.o -L. libcadical.a
+make[1]: Leaving directory '/workspace/ramsey-c7/tools/cadical/build'

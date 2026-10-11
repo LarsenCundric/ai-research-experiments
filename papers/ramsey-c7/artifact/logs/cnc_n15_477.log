@@ -1,0 +1,21 @@
+2026-10-08 18:21:23 start F=/workspace/ramsey-c7/cnf/A_n15_477_tradj_amo.cnf jobs=3
+2026-10-08 18:22:01 check_cnf: CNF CHECK PASS
+2026-10-08 18:22:01 cubes=988 sha256=c419081880b15d11
+2026-10-08 18:22:02 coverage: {'result': 'UNSAT', 'solve_secs': 0.0, 'proof_bytes': 46930, 'proof_sha256': '7ba2274acccf63294650a040ff49996d45d4fcb379391b93a0c29a9e11450155', 'check_secs': 0.0, 'cake_lpr': 's VERIFIED UNSAT', 'kind': 'negated cubes alone'}
+2026-10-08 18:22:02 already certified: 0  to do: 988
+2026-10-08 18:22:33 cube 2: UNSAT solve=2.6s check=28.5s FAIL:  [1/988]
+2026-10-08 18:22:41 cube 0: UNSAT solve=2.8s check=36.7s FAIL:  [2/988]
+2026-10-08 18:22:49 cube 1: UNSAT solve=2.3s check=44.6s FAIL:  [3/988]
+2026-10-08 18:22:53 cube 3: UNSAT solve=9.4s check=9.6s FAIL:  [4/988]
+2026-10-08 18:22:57 cube 4: UNSAT solve=2.6s check=12.9s FAIL:  [5/988]
+2026-10-08 18:23:02 cube 5: UNSAT solve=4.4s check=7.8s FAIL:  [6/988]
+2026-10-08 18:23:09 cube 6: UNSAT solve=2.9s check=13.3s FAIL:  [7/988]
+2026-10-08 18:23:14 cube 7: UNSAT solve=5.2s check=11.4s FAIL:  [8/988]
+2026-10-08 18:23:24 cube 8: UNSAT solve=3.0s check=19.2s FAIL:  [9/988]
+2026-10-08 18:23:27 cube 9: UNSAT solve=7.6s check=10.4s FAIL:  [10/988]
+2026-10-08 18:23:33 cube 10: UNSAT solve=3.1s check=15.0s FAIL:  [11/988]
+2026-10-08 18:23:36 cube 11: UNSAT solve=5.0s check=6.7s FAIL:  [12/988]
+2026-10-08 18:23:42 cube 12: UNSAT solve=3.1s check=10.9s FAIL:  [13/988]
+2026-10-08 18:23:45 cube 13: UNSAT solve=4.4s check=7.9s FAIL:  [14/988]
+2026-10-08 18:23:56 cube 14: UNSAT solve=5.2s check=14.0s FAIL:  [15/988]
+2026-10-08 18:24:03 cube 15: UNSAT solve=4.6s check=17.0s FAIL:  [16/988]

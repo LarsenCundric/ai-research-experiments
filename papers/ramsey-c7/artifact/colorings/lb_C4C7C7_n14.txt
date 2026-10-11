@@ -1,0 +1,17 @@
+# Lower bound R(C4,C7,C7) >= 15: K14. A=0..5, B=6..11 color1 inside (2 x K6), A-B color 2;
+# s1=12: s1-A color 0, s1-B color 2; s2=13: s2-B color 0, s2-A color 2; s1-s2 color 2.
+# color0 = two disjoint stars K1,6 (no C4); color2 bipartite (A+s1 | B+s2); color1 = 2 x K6.
+x1111122222202
+1x111122222202
+11x11122222202
+111x1122222202
+1111x122222202
+11111x22222202
+222222x1111120
+2222221x111120
+22222211x11120
+222222111x1120
+2222221111x120
+22222211111x20
+000000222222x2
+2222220000002x

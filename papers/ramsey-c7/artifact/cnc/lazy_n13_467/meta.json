@@ -1,0 +1,13 @@
+{
+ "base": "/workspace/ramsey-c7/cnf/L_n13_467_tradj_amo.cnf",
+ "base_sha256": "c118c9c8c1a4bd2034441cf2d28e1f7cf7dadaed9d942b1df3fc48d74cdd4780",
+ "cubes_sha256": "96dd1d46e83f1d876f67e254b7bf616648490745254d0cfeb58b2e5ec6b283b1",
+ "n": 13,
+ "L": [
+  4,
+  6,
+  7
+ ],
+ "sb": "tradj",
+ "started": "Thu Oct  8 18:27:30 2026"
+}

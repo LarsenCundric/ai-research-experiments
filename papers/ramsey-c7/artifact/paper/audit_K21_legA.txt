@@ -1,0 +1,10 @@
+Sun Oct 11 09:19:06 PDT 2026
+OK   base sha256 unchanged
+OK   cubes sha256 unchanged
+OK   base formula legitimacy check PASS
+OK   top coverage cake_lpr (negated cubes alone)
+OK   top coverage re-proved here (kissat DRAT + drat-trim, negated cubes alone)
+OK   all 15 verified splits re-checked (files, literal containment, coverage re-proved)
+OK   all 1961 certified leaf records consistent (literals, offline UNSAT, proof verified, cycle clauses legit) []
+OK   top-level cubes certified (directly or via splits): 1016/1016
+AUDIT PASS

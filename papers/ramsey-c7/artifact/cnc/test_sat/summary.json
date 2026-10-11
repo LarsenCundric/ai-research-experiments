@@ -1,0 +1,28 @@
+{
+ "cubes": 15,
+ "certified_unsat": 0,
+ "sat": [
+  1,
+  0,
+  2
+ ],
+ "unfinished_or_failed": [
+  3,
+  4,
+  5,
+  6,
+  7,
+  8,
+  9,
+  10,
+  11,
+  12,
+  13,
+  14
+ ],
+ "coverage": "s VERIFIED UNSAT",
+ "wall_secs_this_run": 0.2,
+ "cpu_solve_secs_total": 0.5,
+ "cpu_check_secs_total": 0,
+ "VERDICT": "SAT cube found"
+}

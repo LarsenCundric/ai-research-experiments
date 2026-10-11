@@ -1,0 +1,3 @@
+warm: {"result": "TIMEOUT", "secs": 63.78, "iterations": 278, "ext_clauses": 87459} used=87459 cubes=1022 -> cnc/cubes/B_n15_477_d10.cubes
+c number of cubes 1022, including 3 refuted leaves
+c average weight cubes 754.533, average weights leaves 399.667

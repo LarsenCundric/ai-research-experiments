@@ -1,0 +1,20 @@
+note: If you believe this is a mistake, please contact your Python installation or OS distribution provider. You can override this, at the risk of breaking your Python installation or OS, by passing --break-system-packages.
+hint: See PEP 668 for the detailed specification.
+HOL
+LICENSE
+Makefile
+README.md
+basis_ffi.c
+cake_lpr.S
+cake_lpr.sha256
+cake_lpr_arm8.S
+cakeml
+comproof
+example.cnf
+example.lpr
+experiments
+update.sh
+ls: cannot access 'cadical/build/cadical': No such file or directory
+ls: cannot access 'kissat/build/kissat': No such file or directory
+ls: cannot access 'drat-trim/drat-trim': No such file or directory
+ls: cannot access 'drat-trim/lrat-check': No such file or directory

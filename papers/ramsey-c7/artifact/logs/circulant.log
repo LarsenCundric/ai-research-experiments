@@ -1,0 +1,11 @@
+n=14 L=(4, 7, 7) circulant solutions found: 0 (cap 3), nodes=10
+n=15 L=(4, 7, 7) circulant solutions found: 0 (cap 3), nodes=16
+n=20 L=(6, 7, 7) circulant solutions found: 2 (cap 3), nodes=38
+  distance classes: [[4, 8], [1, 3, 5, 7, 9], [2, 6, 10]]
+n=21 L=(6, 7, 7) circulant solutions found: 0 (cap 3), nodes=12
+n=24 L=(3, 7, 7) circulant solutions found: 3 (cap 3), nodes=63
+  distance classes: [[1, 3, 5, 7, 9, 11], [2, 6, 10], [4, 8, 12]]
+n=25 L=(3, 7, 7) circulant solutions found: 0 (cap 3), nodes=64
+n=24 L=(5, 7, 7) circulant solutions found: 3 (cap 3), nodes=39
+  distance classes: [[1, 3, 5, 7, 9, 11], [2, 6, 10], [4, 8, 12]]
+n=25 L=(5, 7, 7) circulant solutions found: 0 (cap 3), nodes=30

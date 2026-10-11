@@ -1,0 +1,13 @@
+{
+ "leg": "B",
+ "base": "/workspace/ramsey-c7/cnf/B_n12_447_sb_lazy.cnf",
+ "base_sha256": "ebb3af9a987b04831612fa093f16cd2474adb2a16cd50e070154e8c55e50190b",
+ "cubes_sha256": "ecaefb4556aa6dc928b5420629518d228a56adf6f095d4f7ee607904412757b0",
+ "n": 12,
+ "L": [
+  4,
+  4,
+  7
+ ],
+ "started": "Thu Oct  8 19:05:39 2026"
+}

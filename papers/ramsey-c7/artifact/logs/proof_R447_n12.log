@@ -1,0 +1,10 @@
+== R447_n12 Thu Oct  8 16:45:09 PDT 2026  cnf=cnf/A_n12_447_tradj_amo.cnf sha256=1d1e6f820a2929f8
+s UNSATISFIABLE
+cadical exit=20 secs=148.6 proof_bytes=533633838
+s VERIFIED UNSAT
+cake_lpr exit=0 secs=32.4
+c VERIFIED
+lrat-check exit=0 secs=8.4
+s UNSATISFIABLE
+kissat exit=20 secs=121.2 proof_bytes=298806726
+drat-trim exit=0 secs=292.8 verdict=s VERIFIED

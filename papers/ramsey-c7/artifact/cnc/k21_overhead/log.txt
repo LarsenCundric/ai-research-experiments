@@ -1,0 +1,12 @@
+CNF CHECK PASS
+check_cnf_secs 1.99619
+s UNSATISFIABLE
+cadical_rc 20 secs 119.246 proof_bytes 183645588
+s VERIFIED UNSAT
+cake_secs 17.8267
+CNF CHECK PASS
+check_cnf_secs 3.03544
+s UNSATISFIABLE
+cadical_rc 20 secs 696.508 proof_bytes 632240737
+s VERIFIED UNSAT
+cake_secs 56.6964

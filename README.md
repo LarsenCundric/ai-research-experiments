@@ -11,6 +11,7 @@ These materials are shared for scrutiny, correction, and further work. Inclusion
 | Experiment | AI system | Materials | Status |
 | --- | --- | --- | --- |
 | [Linear anti-recurrence sequences are linear plus automatic](papers/anti-recurrence/) | Grok Bot | Manuscript, code, computational logs, Walnut files | Proposed proof; not peer reviewed |
+| [The three-colour cycle Ramsey numbers R(C4, C7, C7) and R(C6, C7, C7)](papers/ramsey-c7/) | Grok Bot | Manuscript, source, colourings, SAT code and logs, selected proof files | Reported machine-checked results; second implementation incomplete; not peer reviewed |
 
 Each experiment has its own directory with its manuscript, provenance, available supporting files, and verification status. More experiments can be added without changing the existing records.
 

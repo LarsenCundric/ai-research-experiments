@@ -1,0 +1,24 @@
+== lb_C3C7C7_n24.txt
+n=24 RESULT: GOOD
+color 0: 144 edges, C3 present: False
+color 1: 60 edges, C7 present: False
+color 2: 72 edges, C7 present: False
+n=24 RESULT: GOOD (no forbidden monochromatic cycle)
+== lb_C5C7C7_n24.txt
+n=24 RESULT: GOOD
+color 0: 144 edges, C5 present: False
+color 1: 60 edges, C7 present: False
+color 2: 72 edges, C7 present: False
+n=24 RESULT: GOOD (no forbidden monochromatic cycle)
+== lb_C6C7C7_n20.txt
+n=20 RESULT: GOOD
+color 0: 40 edges, C6 present: False
+color 1: 100 edges, C7 present: False
+color 2: 50 edges, C7 present: False
+n=20 RESULT: GOOD (no forbidden monochromatic cycle)
+== lb_C4C7C7_n14.txt
+n=14 RESULT: GOOD
+color 0: 12 edges, C4 present: False
+color 1: 30 edges, C7 present: False
+color 2: 49 edges, C7 present: False
+n=14 RESULT: GOOD (no forbidden monochromatic cycle)

@@ -1,0 +1,7 @@
+  iter 50 lazy=91905 t=3.0s
+  iter 100 lazy=182489 t=10.8s
+  iter 150 lazy=282314 t=18.2s
+  iter 200 lazy=381502 t=32.7s
+  iter 250 lazy=481502 t=79.8s
+  iter 300 lazy=578929 t=274.0s
+  iter 350 lazy=678929 t=712.4s

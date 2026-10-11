@@ -1,0 +1,14 @@
+{
+ "cubes": 887,
+ "certified_unsat": 887,
+ "sat": [],
+ "unfinished_or_failed": [],
+ "n_unfinished": 0,
+ "coverage": "s VERIFIED UNSAT",
+ "coverage_kind": "negated cubes alone",
+ "wall_secs_this_run": 582.4,
+ "cpu_solve": 279.9,
+ "cpu_offline": 153.0,
+ "cpu_check": 84.0,
+ "VERDICT": "UNSAT CERTIFIED (base legit, coverage + every cube: cycle clauses legit, LRAT checked by cake_lpr)"
+}

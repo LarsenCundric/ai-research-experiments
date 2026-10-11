@@ -1,0 +1,1 @@
+gcc -O2 basis_ffi.c cake_lpr.S -o cake_lpr -std=c99

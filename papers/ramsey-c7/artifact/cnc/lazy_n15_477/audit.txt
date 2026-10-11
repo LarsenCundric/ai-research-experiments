@@ -1,0 +1,10 @@
+OK   base sha256 unchanged
+OK   cubes sha256 unchanged
+OK   certified records for all 988 cubes (have 988)
+OK   record literals == cube file literals
+OK   every cube: CaDiCaL UNSAT and cake_lpr VERIFIED
+OK   every cube: added clauses all genuine forbidden cycles
+OK   base formula legitimacy check PASS
+OK   coverage cake_lpr (negated cubes alone)
+OK   coverage re-proved independently: kissat DRAT + drat-trim (negated cubes alone UNSAT)
+AUDIT PASS

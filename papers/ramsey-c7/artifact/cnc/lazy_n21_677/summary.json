@@ -1,0 +1,10 @@
+{
+ "leg": "A",
+ "top_cubes": 1016,
+ "top_certified": 1016,
+ "splits": 15,
+ "leaves_certified": 1961,
+ "sat": [],
+ "wall_secs_this_run": 26970.9,
+ "VERDICT": "UNSAT CERTIFIED (tree: every top-level cube certified directly or via verified splits)"
+}

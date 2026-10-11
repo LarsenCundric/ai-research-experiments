@@ -1,0 +1,10 @@
+== R333_n17 Thu Oct  8 16:32:27 PDT 2026  cnf=../cnf/n17_C3C3C3_sbtradj.cnf sha256=ddd469d664bbe4e1
+s UNSATISFIABLE
+cadical exit=20 secs=0.0 proof_bytes=116733
+s VERIFIED UNSAT
+cake_lpr exit=0 secs=0.0
+c verification time = 0.02 secs
+lrat-check exit=0 secs=0.0
+s UNSATISFIABLE
+kissat exit=20 secs=0.0 proof_bytes=29734
+drat-trim exit=0 secs=0.1 verdict=s VERIFIED
