@@ -1,0 +1,66 @@
+poli2026 
+   DOI 10.1038/s41467-026-71541-6 | Poli, Piero; Ardhuin, Fabrice; Takano, Tomoya; Tarantino, Stefania | 2026 | Swell-driven bursts of 26 s and 16 s seismic spectral peaks in the Gulf of Guinea | Nature Communications | vol 17 | p 4234
+xia2013 
+   DOI 10.1093/gji/ggt076 | Xia, Yingjie; Ni, Sidao; Zeng, Xiangfang | 2013 | Twin enigmatic microseismic sources in the Gulf of Guinea observed on intercontinental seismic stations | Geophysical Journal International | vol 194 | p 362-366
+xia2024 
+   DOI 10.1093/gji/ggae090 | Xia, Yingjie; Feng, Xuping; Chen, Xiaofei | 2024 | Unravelling the excitation mechanism of very long-period (VLP) tremors in the Gulf of Guinea: evidence for vibrations of thin surface crustal plates | Geophysical Journal International | vol 237 | p 1079-1092
+oliver1962 
+   DOI 10.1785/bssa0520030507 | Oliver, Jack | 1962 | A worldwide storm of microseisms with periods of about 27 seconds | Bulletin of the Seismological Society of America | vol 52 | p 507-517
+   DOI 10.1785/bssa0530030681 | Oliver, Jack | 1963 | Additional evidence relating to “A worldwide storm of microseisms with periods of about 27 seconds” | Bulletin of the Seismological Society of America | vol 53 | p 681-685
+holcomb1980 
+   DOI 10.1785/bssa0700041055 | Holcomb, L. Gary | 1980 | Microseisms: A twenty-six-second spectral line in long-period earth motion | Bulletin of the Seismological Society of America | vol 70 | p 1055-1070
+   DOI 10.21236/ada000026 | Rygg, Elvind; Bruland, Leif | 1974 | Long Period Microseisms in Southern Norway |  | vol None | p None
+holcomb1998 
+   DOI 10.1785/bssa0880030744 | Holcomb, L. Gary | 1998 | Spectral structure in the earth's microseismic background between 20 and 40 seconds | Bulletin of the Seismological Society of America | vol 88 | p 744-757
+   DOI 10.1088/1755-1315/262/1/012004 | Azarov, AV; Serdyukov, AS | 2019 | Locating harmonic microseismic sources using phases of signals and spectral transformations | IOP Conference Series: Earth and Environmental Science | vol 262 | p 012004
+shapiro2006 
+   DOI 10.1029/2006gl027010 | Shapiro, N. M.; Ritzwoller, M. H.; Bensen, G. D. | 2006 | Source location of the 26 sec microseism from cross‐correlations of ambient seismic noise | Geophysical Research Letters | vol 33 | p 2006GL027010
+   DOI 10.1126/science.1108339 | Shapiro, Nikolai M.; Campillo, Michel; Stehly, Laurent; Ritzwoller, Michael H. | 2005 | High-Resolution Surface-Wave Tomography from Ambient Seismic Noise | Science | vol 307 | p 1615-1618
+chen2022 
+   DOI 10.1016/j.epsl.2021.117334 | Chen, Yongyan; Xie, Jun; Ni, SiDao | 2022 | Generation mechanism of the 26 s and 28 s tremors in the Gulf of Guinea from statistical analysis of magnitudes and event intervals | Earth and Planetary Science Letters | vol 578 | p 117334
+   DOI 10.1038/s43247-023-00837-y | Bruland, Charlotte; Hadziioannou, Celine | 2023 | Gliding tremors associated with the 26 second microseism in the Gulf of Guinea | Communications Earth &amp; Environment | vol 4 | p 176
+ardhuin2018 
+   DOI 10.1029/2018gl078855 | Ardhuin, Fabrice | 2018 | Large‐Scale Forces Under Surface Gravity Waves at a Wavy Bottom: A Mechanism for the Generation of Primary Microseisms | Geophysical Research Letters | vol 45 | p 8173-8181
+   DOI 10.5194/os-2017-48 | Peureux, Charles; Benetazzo, Alvise; Ardhuin, Fabrice | 2017 | Note on the directional properties of meter-scale gravity waves |  | vol None | p None
+hasselmann1963 
+   DOI 10.1029/rg001i002p00177 | Hasselmann, K. | 1963 | A statistical analysis of the generation of microseisms | Reviews of Geophysics | vol 1 | p 177-210
+   DOI 10.1029/rg007i003p00539 | Haubrich, Richard A.; McCamy, Keith | 1969 | Microseisms: Coastal and pelagic sources | Reviews of Geophysics | vol 7 | p 539-571
+longuet1950 
+   DOI 10.1098/rsta.1950.0012 | Longuet-Higgins, Michael Selwyn | 1950 | A theory of the origin of microseisms | Philosophical Transactions of the Royal Society of London. Series A, Mathematical and Physical Sciences | vol 243 | p 1-35
+   DOI 10.1029/jz066i003p00994-01 | Longuet-Higgins, M. S. | 1961 | Discussion of paper by J. N. Nanda, “The origin of microseisms” | Journal of Geophysical Research | vol 66 | p 994-994
+rubinstein2008 
+   DOI 10.1126/science.1150558 | Rubinstein, Justin L.; La Rocca, Mario; Vidale, John E.; Creager, Kenneth C.; Wech, Aaron G. | 2008 | Tidal Modulation of Nonvolcanic Tremor | Science | vol 319 | p 186-189
+   DOI 10.1126/science.1149164 | Gomberg, Joan; Rubinstein, Justin L.; Peng, Zhigang; Creager, Kenneth C.; Vidale, John E.; Bodin, Paul | 2008 | Widespread Triggering of Nonvolcanic Tremor in California | Science | vol 319 | p 173-173
+takano2025 
+   DOI 10.1029/2024gl113290 | Takano, Tomoya; Poli, Piero | 2025 | Coherence‐Based Characterization of a Long‐Period Monochromatic Seismic Signal | Geophysical Research Letters | vol 52 | p e2024GL113290
+   DOI 10.1029/2024gl114211 | Poli, Piero; Majstorović, Josipa; Mikesell, T. Dylan; Lott, Martin | 2025 | Toward Unraveling Sub‐Seismic Frequency Signals Using Stacked Global Broadband Seismological Data | Geophysical Research Letters | vol 52 | p e2024GL114211
+xia2020 
+   DOI 10.1029/2020gl088103 | Xia, Zhiyang; Chen, Lunjin; Zhima, Zeren; Parrot, Michel | 2020 | Spectral Broadening of NWC Transmitter Signals in the Ionosphere | Geophysical Research Letters | vol 47 | p e2020GL088103
+   DOI 10.1029/2020gl090165 | Gu, Wenyao; Chen, Lunjin; Xia, Zhiyang; An, Xin; Horne, Richard B. | 2020 | Alpha Transmitter Signal Reflection and Triggered Emissions | Geophysical Research Letters | vol 47 | p e2020GL090165
+bruland2023 
+   DOI 10.1038/s43247-023-00837-y | Bruland, Charlotte; Hadziioannou, Celine | 2023 | Gliding tremors associated with the 26 second microseism in the Gulf of Guinea | Communications Earth &amp; Environment | vol 4 | p 176
+   DOI 10.5194/egusphere-egu2020-11314 | Bruland, Charlotte; Mader, Sarah; Hadziioannou, Céline | 2020 | Source location and evolution of the 26 s microseism from 3-C beamforming |  | vol None | p None
+beyreuther2010 
+   DOI 10.1785/gssrl.81.3.530 | Beyreuther, M.; Barsch, R.; Krischer, L.; Megies, T.; Behr, Y.; Wassermann, J. | 2010 | ObsPy: A Python Toolbox for Seismology | Seismological Research Letters | vol 81 | p 530-533
+   DOI 10.1088/1749-4699/8/1/014003 | Krischer, Lion; Megies, Tobias; Barsch, Robert; Beyreuther, Moritz; Lecocq, Thomas; Caudron, Corentin; Wassermann, Joachim | 2015 | ObsPy: a bridge for seismology into the scientific Python ecosystem | Computational Science &amp; Discovery | vol 8 | p 014003
+hersbach2020 
+   DOI 10.5194/essd-2020-28 | Cucchi, Marco; Weedon, Graham P.; Amici, Alessandro; Bellouin, Nicolas; Lange, Stefan; Schmied, Hannes Müller; Hersbach, Hans; Buontempo, Carlo | 2020 | WFDE5: bias adjusted ERA5 reanalysis data for impact studies |  | vol None | p None
+   DOI 10.5194/egusphere-egu2020-10375 | Hersbach, Hans; Bell, Bill; Berrisford, Paul; Dahlgren, Per; Horányi, András; Muñoz-Sabater, Joaquı́n; Nicolas, Julien; Radu, Raluca | 2020 | The ERA5 Global Reanalysis: achieving a detailed record of the climate and weather for the past 70 years. |  | vol None | p None
+kunsch1989 
+   DOI 10.1214/aos/1176347265 | Kunsch, Hans R. | 1989 | The Jackknife and the Bootstrap for General Stationary Observations | The Annals of Statistics | vol 17 | p None
+   DOI 10.1214/aos/1176346395 | Beran, Rudolf | 1984 | Jackknife Approximations to Bootstrap Estimates | The Annals of Statistics | vol 12 | p None
+theiler1992 
+   DOI 10.1016/0167-2789(92)90102-s | Theiler, James; Eubank, Stephen; Longtin, André; Galdrikian, Bryan; Doyne Farmer, J. | 1992 | Testing for nonlinearity in time series: the method of surrogate data | Physica D: Nonlinear Phenomena | vol 58 | p 77-94
+   DOI 10.1090/fic/011/07 | Theiler, James; Prichard, Dean | 2006 | Using "Surrogate Surrogate Data" to calibrate the actual rate of false positives in tests for nonlinearity in time series | Nonlinear Dynamics and Time Series | vol None | p 99-113
+bernard1990 
+   DOI 10.1016/0031-9201(90)90022-p | Bernard, Pierre; Martel, Louis | 1990 | A possible origin of 26 s microseisms | Physics of the Earth and Planetary Interiors | vol 63 | p 229-231
+   DOI 10.1016/0031-9201(90)90013-n | Bernard, Pierre | 1990 | Historical sketch of microseisms from past to future | Physics of the Earth and Planetary Interiors | vol 63 | p 145-150
+pawlowicz2002 
+   DOI 10.1016/s0098-3004(02)00013-4 | Pawlowicz, Rich; Beardsley, Bob; Lentz, Steve | 2002 | Classical tidal harmonic analysis including error estimates in MATLAB using T_TIDE | Computers &amp; Geosciences | vol 28 | p 929-937
+   DOI 10.1029/01eo00004 | Pawlowicz, Rich; Beardsley, Bob; Lentz, Steve; Dever, Ed; Anis, Ayal | 2001 | Software simplifies air‐sea data estimates | Eos, Transactions American Geophysical Union | vol 82 | p 2-2
+DATACITE 10.18715/GEOSCOPE.G | GEOSCOPE, French Global Network of broad band seismic stations | Institut de physique du globe de Paris, Université Paris Cité | 1982 | Institut de physique du globe de Paris (IPGP) ; École et Observatoire des sciences de la Terre de Strasbourg (EOST)
+DATACITE 10.7914/SN/II | Global Seismograph Network - II | International Federation of Digital Seismograph Networks | 1986 | EarthScope Consortium
+DATACITE 10.14470/TR560404 | GEOFON Seismic Network | GFZ Data Services | 1993 | GEOFON Data Centre
+DATACITE 10.7289/V5V40S7W | Sea level measured by tide gauges from global oceans as part of the Joint Archive for Sea Level (JASL) since 1846 | NOAA National Centers for Environmental Information | 2001 | Caldwell, Patrick C.; Merrifield, Mark A.; Thompson, Philip R.
+extra DOI 10.1029/2020gl088137 | Xia, Yingjie; Chen, Xiaofei | 2020 | Observation of a New Long‐Period (16‐s) Persistent Tremor Originating in the Gulf of Guinea | Geophysical Research Letters | vol 47 | p e2020GL088137
+extra DOI 10.1002/qj.3803 | Hersbach, Hans; Bell, Bill; Berrisford, Paul; Hirahara, Shoji; Horányi, András; Muñoz‐Sabater, Joaquín | 2020 | The ERA5 global reanalysis | Quarterly Journal of the Royal Meteorological Society | vol 146 | p 1999-2049

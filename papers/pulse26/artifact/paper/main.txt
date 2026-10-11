@@ -1,0 +1,455 @@
+1      Ocean tides modulate the 26-second Gulf of Guinea microseism
+             [TODO: Author names, aﬃliations, ORCID iDs and corresponding-author
+2            e-mail. Personal project: no institutional/work aﬃliation or work e-mail to
+                            be used unless the authors decide otherwise.]
+3              Draft manuscript for Geophysical Research Letters — October 10, 2026
+
+
+
+4    Key Points
+5      • The 26 s Gulf of Guinea microseism is tidally modulated: its power rises by about 11% (0.47
+6        dB) 1.6 h after M2 high water
+
+7      • Five stations 240–3670 km from the source share one tidal phase, about 1.8 h after high
+8        water, so the modulation arises at the source
+
+9      • Linear tidal water-depth eﬀects at shelf depths are 4–40 times too weak; very shallow coupling
+10       or a nonlinear source is indicated
+
+
+11   Plain Language Summary
+12   For more than sixty years seismometers around the world have recorded a faint, almost pure
+13   seismic “hum” with a period of about 26 seconds coming from the Gulf of Guinea, oﬀ West Africa.
+14   Nobody knows for sure what produces it. We looked at seven years of recordings to see whether
+15   the hum responds to the ocean tide. It does: it is about 11% stronger in power roughly one and
+16   a half to two hours after high tide than near low tide. Stations in Cameroon, Algeria, Uganda,
+17   St Helena and Cape Verde all see the same timing, so the eﬀect happens where the hum is made,
+18   not near the seismometers. The rise and fall of the sea surface over the continental shelf is far
+19   too small to explain such a large change through the simple wave physics we tested. The source
+20   is therefore either in very shallow water near the coast or it responds to the tide in a strongly
+21   nonlinear way. The tidal response gives a new, quantitative test for any proposed explanation of
+22   this long-standing puzzle.
+
+23                                                  Abstract
+
+24        A narrow 26 s seismic line radiated from the Gulf of Guinea has been observed since the 1960s,
+25        but its source remains unexplained. Using 7.4 years of continuous data at station G.EDA
+26        (Cameroon) and six more distant stations, we show that the line is modulated by the ocean
+27        tide. At EDA, line power corrected for background noise varies with an M2 amplitude of 0.47
+28        dB (95% conﬁdence interval 0.42–0.53 dB, about ±11% in power), peaking 1.6 h after high
+29        water at Limbe. The modulation survives conservative block-resampled null tests (p ≤ 0.001)
+30        and appears with a common lag (1.8 h; 1.5–2.1 h) at ﬁve stations 240–3670 km away, so it
+31        originates at the source. Its amplitude grows with tidal range, consistent with, but not proof
+32        of, proportional scaling. Linear tidal changes in water depth at shelf depths are 4–40 times too
+33        weak, which points to very shallow coupling or a nonlinear source.
+
+
+                                                         1
+34   1     Introduction
+35   A persistent, nearly monochromatic seismic line near 26 s period (0.038 Hz) is radiated from the
+36   Gulf of Guinea. Long-period microseisms of 26–27 s were ﬁrst reported as a worldwide “storm”
+37   by Oliver (1962); Holcomb (1980, 1998) showed that a 26 s spectral line is a recurrent feature of
+38   the long-period background, and Shapiro et al. (2006) located its source in the Bight of Bonny
+39   using ambient-noise cross-correlations. Xia et al. (2013) identiﬁed two distinct persistent sources,
+40   near 0.038 Hz and 0.036 Hz, and a related 16 s persistent tremor has since been described (Xia
+41   and Chen, 2020; Takano and Poli, 2025). The source of the 26 s line has also been associated with
+42   gliding tremors (Bruland and Hadziioannou, 2023).
+43        The generation mechanism is debated. Early work linked 26 s microseisms to long-period swell
+44   and primary-microseism coupling in shallow water (Bernard and Martel, 1990), the standard mech-
+45   anism for primary microseisms (Hasselmann, 1963; Ardhuin, 2018), while the classical secondary
+46   mechanism operates at half the wave period (Longuet-Higgins, 1950). Others have argued for a
+47   solid-Earth source: magnitude–frequency and inter-event statistics consistent with a crack network
+48   driven by random processes (Chen et al., 2022), or vibration of thin crustal plates above magmatic
+49   sills (Xia et al., 2024). Most recently, Poli et al. (2026) showed that bursts of 26 s and 16 s energy
+50   follow the arrival of long-period swell from Southern Ocean storms, and proposed that swells excite
+51   a resonant structure.
+52        Tidal modulation is a classical probe of how a seismic source responds to small, known stresses
+53   (e.g., Rubinstein et al., 2008), but to our knowledge it has not been tested for the 26 s line. In the
+54   peer-review ﬁle of Poli et al. (2026) the authors argued that the small tidal changes in water depth
+55   should not matter for the propagation of very long swells in tens of metres of water, while noting
+56   that tides could modulate surf-zone properties. Here we test for tidal modulation directly, using
+57   multi-year continuous records at a near-source station and six distant stations, and we compare
+58   its size and timing with simple physical expectations.
+
+
+59   2     Data and Methods
+60   2.1   Seismic data and line metric
+61   We use vertical long-period (LHZ, 1 sample/s) records from G.EDA (Cameroon; 240 km from a
+62   nominal source point at 4◦ N, 8◦ E) for 2019-05-04 to 2026-09-28, and G.TAM (Algeria; 2096 km)
+63   for 2022-03 to 2026-09. For a common period, 2022-03 to 2024-02, we add II.MBAR (Uganda;
+64   2580 km), II.SHEL (St Helena; 2677 km), II.ASCN (Ascension; 2812 km), GE.WIN (Namibia;
+65   3101 km) and II.SACV (Cape Verde; 3670 km) (Figure 1). Instrument responses were removed
+66   with ObsPy (Beyreuther et al., 2010).
+67       Spectra were computed in 3-h windows with a 1-h step (Hann-tapered periodograms, and Welch
+68   spectra from 1-h segments). Windows contaminated by earthquakes or glitches were rejected when
+69   20–30 mHz power exceeded ﬁve times its 15-day running median or when the peak-to-median
+70   absolute amplitude ratio exceeded 30; at EDA 38,888 of 52,547 windows (74.0%) pass. The line
+71   is “detected” when its Welch signal-to-noise ratio (SNR) exceeds the 99th percentile of the same
+72   statistic in a line-free control band (30–32.5 mHz), i.e. at a 1% false-alarm rate. Our tidal metric
+73   does not depend on detection: it is the mean power in a ﬁxed band on the line (37.5–38.6 mHz,
+74   in dB), minus a linear regression on the power in two background bands (20–24 s and 29–34
+75   s), computed for every quality-controlled hour (“line minus background”, LMB). The regression
+
+
+                                                       2
+76    removes site, weather and propagation noise common to the line and its spectral neighbourhood
+77    (EDA coeﬃcients 0.24 and 0.49). Because the 29–34 s band at the strongest stations is itself
+78    weakly modulated near the line phase (full span: 0.21 dB at +0.2 h at EDA, 0.17 dB at +1.1 h
+79    at TAM), the LMB amplitude is a conservative estimate (raw line power: 0.548 dB at EDA, 0.473
+80    dB at TAM).
+
+81    2.2   Tides
+82    The tide reference is the UHSLC research-quality hourly record at Port Sonara (Limbe, Cameroon;
+83    4.01◦ N, 9.13◦ E) for 2008-06 to 2011-06 (Caldwell et al., 2001). A harmonic ﬁt with UTide (Codiga,
+84    2011; Pawlowicz et al., 2002) explains 98.9% of the variance (M2 amplitude 0.59 m, S2 0.21 m)
+85    and was used to predict the tide for 2019–2026; no contemporaneous gauge record is available.
+86    Fits at São Tomé and Lagos give M2 high water within −0.18 and +0.29 h of Port Sonara. Lags
+87    below are hours after predicted M2 high water at Port Sonara.
+
+88    2.3   Statistics
+89    Each hourly series was high-passed with a 72-h running median and regressed jointly on M2,
+90    S2, N2, K1, O1, Q1, M4, S1 and S3; the modulation amplitude is the modulus of the complex
+91    coeﬃcient (dB, half the peak-to-trough range) and the lag is the time of maximum. Conﬁdence
+92    intervals come from a moving-block bootstrap with 30-day blocks (Künsch, 1989) (15-day blocks
+93    give the same results). Signiﬁcance was assessed against three nulls of increasing conservatism:
+94    phase-randomised surrogates (Theiler et al., 1992) and, most conservatively, random-start block
+95    resampling, in which 15- or 30-day blocks of data are moved to random tidal phases while the design
+96    matrix is ﬁxed (1000 realisations each). Multi-station phases were combined by inverse-variance
+97    weighting with a joint (same-block) bootstrap that preserves inter-station correlation.
+98        To test how the response scales with tidal range we (i) ﬁtted the in-phase M2-band response
+99    within ﬁve quantile bins of the semidiurnal tidal envelope E(t), and (ii) ﬁtted the envelope model
+100   y = Re[(P + Qe) eiθ ], with e = E/Ē − 1 and tidal phase θ, so that γ = Re(Q/P ) is 0 for constant
+101   amplitude and 1 for amplitude proportional to tidal range. Constituent admittances (e.g. the
+102   S2/M2 ratio of the seismic response divided by that of the gauge) provide an independent version
+103   of the same test.
+
+104   2.4   Toy model
+105   To gauge the expected size of linear depth eﬀects we computed the M2 modulation of several
+106   quantities for 26 s swell under an M2 tide of 0.59 m: bottom pressure and bed orbital velocity
+107   (Airy waves with shoaling), primary-microseism forcing with a wavy-bottom spectrum FB ∝ k −2 or
+108   k −3 (Hasselmann, 1963; Ardhuin, 2018), depth-limited (breaking-type) forcing, and wave–current
+109   interaction for a standing tide.
+
+
+110   3     Results
+111   3.1   A tidal line in the 26 s power
+112   The line is detected in 31.0% of quality-controlled hours at EDA (median period 26.341 s, 95%
+113   CI 26.336–26.347 s; Figure 1c) and in 14.1% at TAM. In the LMB periodogram the M2 frequency
+114   stands out at both stations, with peak-to-median power ratios of 147 (EDA) and 130 (TAM) against
+
+                                                      3
+115   95% surrogate band maxima of 8.7 and 6.6 (Figure 2a,b). At EDA the M2 amplitude is 0.473 dB
+116   (95% CI 0.422–0.529 dB) with a lag of +1.63 h (1.46–1.82 h). None of the 1000 block-resampled
+117   surrogates reaches this amplitude for either block length (p ≤ 0.001; z = 17.3 and 13.5 for 15- and
+118   30-day blocks), nor do any of 500 phase-randomised surrogates. The bootstrap variance-inﬂation
+119   factor is 2.24, i.e. an eﬀective sample of 17,336 hours. TAM gives 0.398 dB (0.346–0.455 dB) at
+120   +1.66 h (1.45–1.89 h). Power binned by tidal phase shows a smooth, nearly sinusoidal cycle at
+121   EDA, TAM and SACV (Figure 2c).
+122       The result does not depend on the metric: the raw ﬁxed-band line power (0.548 dB, +1.3 h),
+123   the Welch SNR (0.391 dB, +1.7 h) and the detection fraction, which rises from about 26% near
+124   low water to 36% near high water (M2 amplitude 5.5 percentage points), all show it. S2 (0.168
+125   dB, +2.2 h) and N2 (0.075 dB, +2.4 h) are also signiﬁcant under block resampling; M4 is small
+126   (0.033 dB). Dropping any one calendar year changes the EDA amplitude to 0.448–0.492 dB and
+127   the lag to 1.57–1.67 h. Single-year amplitudes range from 0.284 to 0.602 dB and are lowest in
+128   2024–2026, while single-year lags stay within 1.33–1.85 h. Adding ERA5 signiﬁcant wave height
+129   and peak period (Hersbach et al., 2020) as covariates leaves the M2 term unchanged (0.473 dB).
+
+130   3.2   Same phase at ﬁve stations: a source eﬀect
+131   Over the common period the M2 term passes all three nulls at EDA, TAM, MBAR, SHEL and
+132   SACV (Figure 3). The lags are +1.75 h (95% CI 1.31–2.14 h) at EDA, +1.75 h (1.47–2.10 h)
+133   at TAM, +2.40 h (1.00–3.57 h) at MBAR, +1.99 h (0.96–2.82 h) at SHEL and +1.82 h (1.25–
+134   2.41 h) at SACV, with amplitudes of 0.513, 0.445, 0.109, 0.159 and 0.274 dB. MBAR is marginal
+135   (p ≈ 0.03 under block resampling). The ﬁve lags are statistically homogeneous (p = 0.88) with a
+136   weighted mean of +1.80 h (1.49–2.10 h). These stations span 240–3670 km and azimuths from 96◦
+137   to 353◦ , and their local tides, oceanic settings and noise diﬀer. The 20–24 s background bands, in
+138   contrast, peak 6.0–8.0 h after high water at all seven stations, and the 29–34 s bands peak 6–10
+139   h after high water at MBAR, SHEL, ASCN and SACV (Figure 3). A common phase of the line
+140   at these distances, absent in the background, places the modulation at the source rather than at
+141   the receivers or along the paths. II.ASCN and GE.WIN detect the line in only about 2% and
+142   3% of hours and show no signiﬁcant M2 term (p ≈ 0.3–0.4): they are uninformative rather than
+143   contradictory.
+
+144   3.3   Scaling with tidal range
+145   The response grows from neap to spring tides (Figure 4a). Across ﬁve envelope bins (mean envelope
+146   0.34–0.84 m) the EDA in-phase amplitude rises from 0.35 to 0.66 dB; a constant amplitude is
+147   rejected (p = 4 × 10−4 ; TAM p = 7 × 10−4 ) and proportional scaling is acceptable (p = 0.32;
+148   TAM 0.28). The envelope model gives γ = 0.70 (0.41–0.99) at EDA and 0.68 (0.35–1.05) at TAM
+149   over the full spans, and 0.96 (0.56–1.37) at EDA for the spring–neap (M2+S2) envelope alone.
+150   Consistently, the S2 admittance relative to M2 is 0.99 (0.70–1.30) at EDA, i.e. the S2/M2 ratio of
+151   the seismic response (0.355) matches that of the tide (0.360). In short, γ ≈ 0.7–1, and proportional
+152   scaling is not excluded.
+153       We do not regard the shortfall below 1 as robust. It is metric-dependent (raw line power gives
+154   γ = 1.01 at EDA but 0.32 at TAM), it comes mostly from the weak perigean (N2) leg of the
+155   envelope, and plausible errors in the predicted envelope bias γ by only about 6–12% (Supporting
+156   Information). A purely lunar test is weak because the lunar-only envelope varies by only about
+157   ±20%: with a complete lunar envelope it gives γ = 0.88 (0.07–1.72) at TAM, consistent with
+
+                                                       4
+158   proportionality, and 0.45 (−0.20 to 1.16) at EDA, inconclusive. In 2-yr windows γ is poorly
+159   constrained (standard deviation 0.27–0.32 at EDA and TAM, 0.44–0.50 at SACV). The 2022–2024
+160   values are low at all three stations (SACV −0.26, −0.88 to 0.52), partly because the stations share
+161   noise; we cannot distinguish this from a modest real change in the source’s tidal sensitivity.
+
+162   3.4   Spectral structure
+163   The 28 s line is also modulated, more weakly and slightly later (0.16 dB at +2.5 h at EDA and
+164   0.17 dB at +2.3 h at TAM, after local-background removal). Both components of the 26 s doublet
+165   are modulated by the same amount (EDA 0.61 and 0.63 dB in raw power). We ﬁnd no robust
+166   tidal modulation of the line frequency. An apparent M2 frequency term (14 µHz at EDA, 38 µHz
+167   at TAM) peaks in antiphase with the line SNR, is larger at the lower-SNR station, and is not
+168   signiﬁcant for high-SNR detections at EDA (p = 0.17) or at EDA in 2022–2026 (p = 0.5). We
+169   attribute it to an SNR-dependent bias of the peak-frequency estimate, but cannot exclude a real
+170   modulation of ∼10–15 µHz (Supporting Information).
+
+
+171   4     Discussion
+172   4.1   How large should a tidal eﬀect be?
+173   At EDA the modulation is about ±11% in power. Linear depth eﬀects of a 0.59 m M2 tide on
+174   26 s swell are much smaller at shelf depths (Figure 4b). Primary-microseism forcing over a wavy
+175   bottom changes by 0.011–0.112 dB at 20–50 m depth, 4–40 times less than observed; bottom
+176   pressure and bed orbital velocity are modulated with the wrong sign (larger at low water); wave–
+177   current interaction gives ≤0.07 dB at 20–50 m and peaks 3.1 h after high water. Reaching ∼0.45
+178   dB with these linear mechanisms requires water only ∼3–8 m deep. Depth-limited (breaking-type)
+179   forcing reaches 0.51 dB at 10 m mean depth, but applies only in the surf zone. This agrees with the
+180   expectation of Poli et al. (2026, peer-review ﬁle) that depth changes of the order of a metre should
+181   not aﬀect swell in tens of metres of water, and means that the tidal signal must arise either where
+182   the water is very shallow (surf zone, estuaries, tidal ﬂats) or through a strongly nonlinear source.
+183   For example, a source whose output depends exponentially on bottom pressure, ∝ exp(∆p/p0 ),
+184   needs p0 ≈ 47–64 kPa for the observed 0.40–0.55 dB, given a tidal bottom-pressure amplitude of
+185   5.9 kPa.
+
+186   4.2   Constraints on the nonlinearity
+187   The harmonic content limits the form of a nonlinear response. The observed M4/M2 ratio at
+188   EDA (0.071) is close to that of the tide itself (0.054). One-sided thresholds or clipping of a tide-
+189   driven forcing produce M4/M2 of 0.14–0.32 and are excluded, while a gently saturating symmetric
+190   response (e.g. tanh(h/0.6 m) of tidal height h) gives γ = 0.70 with M4/M2 of 0.046 and is allowed.
+191   Measuring in dB a response that is linear in power, or a response to tidal current rather than
+192   height, gives γ ≥ 1 and cannot explain γ < 1; but, as noted, γ < 1 itself is not robust.
+
+193   4.3   The lag
+194   Maximum line power 1.6–1.8 h after M2 high water at Limbe is not explained by tidal height alone.
+195   The tide in the Bight of Bonny is nearly in phase over the gauges we examined (within ±0.3 h),
+196   so the lag must come from the source physics or from a local delay. A sum of a height-driven
+
+                                                       5
+197   term and an opposing-current term (peaking at +3.1 h for a standing tide) reproduces it if their
+198   amplitudes are in the ratio 1.16–1.60. Tidal propagation into estuaries and creeks, which lags the
+199   open coast, or a delayed (e.g. poroelastic) response are alternatives we cannot test without regional
+200   tidal-current data.
+
+201   4.4   Implications and tests
+202   Any mechanism for the 26 s line must now explain a source-side modulation of about ±11% in
+203   power that scales roughly with tidal range and lags high water by 1.6–1.8 h, together with the swell
+204   control demonstrated by Poli et al. (2026). Swell interacting with very shallow coastal topography
+205   would naturally provide both, but a nonlinear, swell-triggered resonator remains possible. Decisive
+206   tests include (i) the phase relative to tidal currents from a validated regional tide model, (ii) the
+207   modulation of swell-driven bursts as a function of incident swell height, and (iii) coastal or ocean-
+208   bottom pressure records near the proposed source. As a side remark, both components of the
+209   26 s doublet—whose splitting was already suggested by Holcomb (1998)—share the same tidal
+210   modulation, and the dominant component switched from ∼26.3 s to ∼26.5 s in 2025 (Supporting
+211   Information).
+
+212   4.5   Limitations
+213   The tide reference is a harmonic prediction from a single gauge record (2008–2011) rather than
+214   contemporaneous observations. Modulation amplitudes at distant stations are small (0.1–0.3 dB)
+215   and MBAR is marginal; station noise is correlated (hourly LMB correlation ∼0.5), so stations
+216   are not independent replicates for second-order tests. The near-line background is itself weakly
+217   modulated at EDA and TAM, and the scaling index γ depends on how background is removed.
+218   The toy model is linear and deliberately simple.
+
+
+219   5     Conclusions
+220   The 26 s Gulf of Guinea microseism is modulated by the ocean tide. At the near-source station
+221   EDA the line power varies by 0.47 dB (about ±11%) with a maximum 1.6 h after M2 high water,
+222   a result that survives conservative block-resampling nulls, leave-one-year-out tests and changes of
+223   metric. The same phase is found at four further stations up to 3670 km away, so the modulation is
+224   a property of the source. Its amplitude grows with tidal range (γ ≈ 0.7–1; proportional scaling not
+225   excluded). Linear depth eﬀects at shelf depths are 4–40 times too small, pointing to coupling in
+226   very shallow water or to a nonlinear, mildly saturating source; threshold-like clipping is excluded
+227   by the weak M4 response.
+
+
+228   Open Research
+229   Seismic data were obtained through FDSN web services: network G (GEOSCOPE; Institut de
+230   physique du globe de Paris (IPGP) and École et Observatoire des sciences de la Terre de Strasbourg
+231   (EOST), 1982; stations EDA and TAM, location 00, channel LHZ) from RESIF (https://ws.
+232   resif.fr); network II (EarthScope Consortium, 1986; MBAR, SHEL, ASCN, SACV, location
+233   00, LHZ) from EarthScope (https://service.earthscope.org); and network GE (GEOFON;
+234   GEOFON Data Centre, 1993; WIN, LHZ) from GEOFON (https://geofon.gfz.de). Hourly
+235   research-quality sea level for Port Sonara (UHSLC station 816), São Tomé (225), Lagos (233)
+
+                                                       6
+236   and Praia (222) is from the University of Hawaii Sea Level Center (Caldwell et al., 2001). ERA5
+237   wave parameters (Hersbach et al., 2020) at 3◦ N, 8◦ E and 15◦ N, 23.5◦ W were obtained through
+238   the Open-Meteo API (Zippenfenig, 2024). Coastlines are from Natural Earth (Natural Earth,
+239   2026). Processing used ObsPy (Beyreuther et al., 2010), the Python UTide package (Codiga,
+240   2011), NumPy, SciPy and Matplotlib. [TODO: Software citations for NumPy, SciPy, Matplotlib
+241   and the Python UTide port; deposit the analysis scripts and derived hourly series in a public
+242   repository (e.g. Zenodo) and cite its DOI here.]
+
+
+243   Acknowledgments
+244   [TODO: Acknowledgments and funding statement. No institutional aﬃliation or funding is to be
+245   stated unless the authors decide otherwise.]
+
+
+246   AI-use disclosure
+247   [TODO: Placeholder, to be ﬁnalised by the authors.] The data analysis, ﬁgures and text of this
+248   draft were produced with the assistance of an AI system. They have not yet been checked by a
+249   domain expert. All numbers and references must be independently veriﬁed before submission.
+
+
+250   References
+251   Fabrice Ardhuin. Large-scale forces under surface gravity waves at a wavy bottom: A mechanism
+252     for the generation of primary microseisms. Geophysical Research Letters, 45:8173–8181, 2018.
+253     doi: 10.1029/2018GL078855.
+
+254   Pierre Bernard and Louis Martel. A possible origin of 26 s microseisms. Physics of the Earth and
+255     Planetary Interiors, 63:229–231, 1990. doi: 10.1016/0031-9201(90)90022-P.
+
+256   Moritz Beyreuther, Robert Barsch, Lion Krischer, Tobias Megies, Yannik Behr, and Joachim
+257    Wassermann. ObsPy: A Python toolbox for seismology. Seismological Research Letters, 81(3):
+258    530–533, 2010. doi: 10.1785/gssrl.81.3.530.
+
+259   Charlotte Bruland and Céline Hadziioannou. Gliding tremors associated with the 26 second mi-
+260     croseism in the Gulf of Guinea. Communications Earth & Environment, 4:176, 2023. doi:
+261     10.1038/s43247-023-00837-y.
+
+262   Patrick C. Caldwell, Mark A. Merriﬁeld, and Philip R. Thompson. Sea level measured by tide
+263     gauges from global oceans as part of the Joint Archive for Sea Level (JASL) since 1846. Dataset,
+264     2001.
+
+265   Yongyan Chen, Jun Xie, and Sidao Ni. Generation mechanism of the 26 s and 28 s tremors in the
+266     Gulf of Guinea from statistical analysis of magnitudes and event intervals. Earth and Planetary
+267     Science Letters, 578:117334, 2022. doi: 10.1016/j.epsl.2021.117334.
+
+268   Daniel L. Codiga. Uniﬁed tidal analysis and prediction using the UTide Matlab functions. Technical
+269    Report 2011-01, Graduate School of Oceanography, University of Rhode Island, Narragansett,
+270    RI, 2011. 59 pp., https://www.po.gso.uri.edu/~codiga/utide/2011Codiga-UTide-Report.
+271    pdf.
+
+
+                                                      7
+272   EarthScope Consortium. Global seismograph network – II. Seismic network (FDSN code II), 1986.
+273     Creator string as returned by DataCite; TODO: conﬁrm the preferred citation on the FDSN
+274     network page.
+
+275   GEOFON Data Centre. GEOFON seismic network. Seismic network (FDSN code GE), 1993.
+
+276   K. Hasselmann. A statistical analysis of the generation of microseisms. Reviews of Geophysics, 1
+277     (2):177–210, 1963. doi: 10.1029/RG001i002p00177.
+
+278   Hans Hersbach, Bill Bell, Paul Berrisford, Shoji Hirahara, András Horányi, Joaquín Muñoz-
+279     Sabater, et al. The ERA5 global reanalysis. Quarterly Journal of the Royal Meteorological
+280     Society, 146:1999–2049, 2020. doi: 10.1002/qj.3803.
+
+281   L. Gary Holcomb. Microseisms: A twenty-six-second spectral line in long-period earth mo-
+282     tion. Bulletin of the Seismological Society of America, 70(4):1055–1070, 1980. doi: 10.1785/
+283     BSSA0700041055.
+
+284   L. Gary Holcomb. Spectral structure in the earth’s microseismic background between 20 and 40
+285     seconds. Bulletin of the Seismological Society of America, 88(3):744–757, 1998. doi: 10.1785/
+286     BSSA0880030744.
+
+287   Institut de physique du globe de Paris (IPGP) and École et Observatoire des sciences de la Terre
+288     de Strasbourg (EOST). GEOSCOPE, french global network of broad band seismic stations.
+289     Seismic network (FDSN code G), 1982.
+
+290   Hans R. Künsch. The jackknife and the bootstrap for general stationary observations. The Annals
+291     of Statistics, 17(3), 1989. doi: 10.1214/aos/1176347265.
+
+292   M. S. Longuet-Higgins. A theory of the origin of microseisms. Philosophical Transactions of the
+293    Royal Society of London. Series A, Mathematical and Physical Sciences, 243:1–35, 1950. doi:
+294    10.1098/rsta.1950.0012.
+
+295   Natural Earth. 1:50m coastline (public-domain map dataset). https://www.naturalearthdata.
+296     com, 2026. Accessed 10 October 2026.
+
+297   Jack Oliver. A worldwide storm of microseisms with periods of about 27 seconds. Bulletin of the
+298     Seismological Society of America, 52(3):507–517, 1962. doi: 10.1785/BSSA0520030507.
+
+299   Rich Pawlowicz, Bob Beardsley, and Steve Lentz. Classical tidal harmonic analysis including
+300     error estimates in MATLAB using T_TIDE. Computers & Geosciences, 28:929–937, 2002. doi:
+301     10.1016/S0098-3004(02)00013-4.
+
+302   Piero Poli, Fabrice Ardhuin, Tomoya Takano, and Stefania Tarantino. Swell-driven bursts of 26 s
+303     and 16 s seismic spectral peaks in the Gulf of Guinea. Nature Communications, 17:4234, 2026.
+304     doi: 10.1038/s41467-026-71541-6.
+
+305   Justin L. Rubinstein, Mario La Rocca, John E. Vidale, Kenneth C. Creager, and Aaron G. Wech.
+306     Tidal modulation of nonvolcanic tremor. Science, 319:186–189, 2008. doi: 10.1126/science.
+307     1150558.
+
+308   N. M. Shapiro, M. H. Ritzwoller, and G. D. Bensen. Source location of the 26 sec microseism from
+309     cross-correlations of ambient seismic noise. Geophysical Research Letters, 33:L18310, 2006. doi:
+310     10.1029/2006GL027010.
+
+                                                      8
+311   Tomoya Takano and Piero Poli. Coherence-based characterization of a long-period monochro-
+312     matic seismic signal. Geophysical Research Letters, 52:e2024GL113290, 2025. doi: 10.1029/
+313     2024GL113290.
+
+314   James Theiler, Stephen Eubank, André Longtin, Bryan Galdrikian, and J. Doyne Farmer. Testing
+315     for nonlinearity in time series: the method of surrogate data. Physica D: Nonlinear Phenomena,
+316     58:77–94, 1992. doi: 10.1016/0167-2789(92)90102-S.
+
+317   Yingjie Xia and Xiaofei Chen. Observation of a new long-period (16-s) persistent tremor originating
+318     in the Gulf of Guinea. Geophysical Research Letters, 47:e2020GL088137, 2020. doi: 10.1029/
+319     2020GL088137.
+
+320   Yingjie Xia, Sidao Ni, and Xiangfang Zeng. Twin enigmatic microseismic sources in the Gulf of
+321     Guinea observed on intercontinental seismic stations. Geophysical Journal International, 194
+322     (1):362–366, 2013. doi: 10.1093/gji/ggt076.
+
+323   Yingjie Xia, Xuping Feng, and Xiaofei Chen. Unravelling the excitation mechanism of very long-
+324     period (VLP) tremors in the Gulf of Guinea: evidence for vibrations of thin surface crustal
+325     plates. Geophysical Journal International, 237:1079–1092, 2024. doi: 10.1093/gji/ggae090.
+
+326   Patrick Zippenfenig. Open-Meteo.com weather API. Software, Zenodo, 2024.
+
+
+
+
+                                                      9
+Figure 1: (a) Stations used. Red triangles: stations where the M2 modulation is detected; open
+triangles: stations where the 26 s line is rarely detected; green circles: UHSLC tide gauges. (b)
+Zoom on the Gulf of Guinea with the Port Sonara (Limbe), São Tomé and Lagos gauges and the
+0.038 Hz and 0.036 Hz source locations of Xia et al. (2013). (c) July 2023 spectrogram at G.EDA
+(3-h Hann windows, 1-h step) showing the 26 s line near 38 mHz, and the Welch SNR of the line
+with detections at the 1% control-band false-alarm level (dashed).
+
+
+
+
+                                               10
+Figure 2: Tidal modulation of the line-minus-background (LMB) power. (a, b) Periodograms of the
+LMB series at EDA (2019–2026) and TAM (2022–2026) around the semidiurnal band, normalised
+by the band median; horizontal lines are the 95% and 99% band maxima of 200 phase-randomised
+surrogates. (c) LMB power binned by M2 phase (hours after M2 high water at Port Sonara; 12
+bins, ±1 standard error with the sample size divided by 3 for autocorrelation) at EDA, TAM and
+SACV (2022–2024), and the two EDA background bands.
+
+
+
+
+                                              11
+Figure 3: M2 phasors of the LMB power over the common period 2022-03 to 2024-02. Angle: lag
+after M2 high water at Port Sonara; radius: amplitude (dB). Filled circles with arcs: LMB with
+95% 30-day block-bootstrap intervals in amplitude and lag; open triangles: the 20–24 s and 29–34
+s background bands of each station. Star: inverse-variance weighted mean lag of the ﬁve signiﬁcant
+stations, +1.80 h (1.49–2.10 h).
+
+
+
+
+                                               12
+Figure 4: (a) In-phase M2-band response of the LMB power in ﬁve bins of the semidiurnal tidal
+envelope at EDA (2019–2026) and TAM (2022–2026), with ±1.96 standard errors and proportional
+ﬁts (dashed). (b) Toy-model M2 modulation for 26 s swell under a 0.59 m M2 tide as a function
+of mean water depth at the coupling site (positive: maximum at high water); the shaded band is
+the observed 0.40–0.55 dB range.
+
+
+
+
+                                             13
+

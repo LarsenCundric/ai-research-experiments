@@ -1,0 +1,128 @@
+Port Sonara tide (UTide prediction, joint fit on grid): M2 0.561 m, S2 0.202 m, N2 0.121 m; S2/M2 0.360 (equilibrium 0.466), N2/M2 0.215 (equilibrium 0.191)
+envelope 'full': mean 0.587 m, 5-95% 0.310-0.879 m
+envelope 'M2+S2': mean 0.580 m, 5-95% 0.365-0.760 m
+envelope 'M2+N2': mean 0.567 m, 5-95% 0.443-0.680 m
+EDA: {'lat': 3.778868, 'lon': 10.153427, 'dist_km': 240.4165134672716, 'az': 95.76387957896276, 'qc_common': 9187, 'det_common': 3147, 'qc_all': 38888, 'det_all': 12044, 'span': '2019-05-04..2026-09-28'}
+TAM: {'lat': 22.79149, 'lon': 5.52838, 'dist_km': 2096.126427908475, 'az': 352.92000245864097, 'qc_common': 12534, 'det_common': 1848, 'qc_all': 28984, 'det_all': 4083, 'span': '2022-03-01..2026-09-30'}
+MBAR: {'lat': -0.6019, 'lon': 30.7382, 'dist_km': 2580.08307806386, 'az': 100.8801291270937, 'qc_common': 12778, 'det_common': 679, 'qc_all': 12778, 'det_all': 679, 'span': '2022-03-01..2024-02-29'}
+SHEL: {'lat': -15.9594, 'lon': -5.7455, 'dist_km': 2676.69624286045, 'az': 214.1174820598398, 'qc_common': 13574, 'det_common': 455, 'qc_all': 13574, 'det_all': 455, 'span': '2022-03-01..2024-02-29'}
+ASCN: {'lat': -7.9327, 'lon': -14.3601, 'dist_km': 2811.955653687894, 'az': 242.0136837837014, 'qc_common': 15296, 'det_common': 302, 'qc_all': 15296, 'det_all': 302, 'span': '2022-03-10..2024-02-29'}
+WIN: {'lat': -22.5691, 'lon': 17.0915, 'dist_km': 3101.106741535508, 'az': 161.7911883063125, 'qc_common': 14478, 'det_common': 377, 'qc_all': 14478, 'det_all': 377, 'span': '2022-03-01..2024-02-29'}
+SACV: {'lat': 14.9702, 'lon': -23.6085, 'dist_km': 3670.23799294859, 'az': 291.46700673003056, 'qc_common': 12158, 'det_common': 939, 'qc_all': 12158, 'det_all': 939, 'span': '2022-03-26..2024-02-06'}
+
+==== 1. SPRING-NEAP / AMPLITUDE-SCALING TESTS (LMB, dB) [0.1 min]
+gamma = Re(Q/P) in y = Re[(P + Q e(t)) exp(i theta)], e = E/mean(E) - 1:  gamma=1 proportional to tidal range, gamma=0 constant amplitude
+  EDA   full   no ctrl                gamma=+0.70 [+0.41,+0.99] (quad -0.12) P(H0 gamma=0): block-surr p=0.0010, phase-surr p=0.0040; boot P(gamma>=1)=0.023; H1-injection gamma 0.96±0.18; A=0.497 dB @ +1.69 h; e 5-95% -0.47..+0.51
+  EDA   M2+S2  no ctrl                gamma=+0.96 [+0.56,+1.37] (quad -0.19) P(H0 gamma=0): block-surr p=0.0010, phase-surr p=0.0040; boot P(gamma>=1)=0.413; H1-injection gamma 1.02±0.24; A=0.485 dB @ +1.68 h; e 5-95% -0.37..+0.32
+  EDA   M2+N2  no ctrl                gamma=+0.21 [-0.38,+0.84] (quad -0.26) P(H0 gamma=0): block-surr p=0.2857, phase-surr p=0.2390; boot P(gamma>=1)=0.008; H1-injection gamma 1.01±0.30; A=0.480 dB @ +1.64 h; e 5-95% -0.22..+0.20
+  EDA   full   linestrength+swell     gamma=+0.67 [+0.37,+0.97] (quad -0.12) P(H0 gamma=0): block-surr p=0.0010, phase-surr p=0.0040; boot P(gamma>=1)=0.018; H1-injection gamma 0.99±0.16; A=0.497 dB @ +1.69 h; e 5-95% -0.47..+0.51
+  EDA   M2+N2  linestrength+swell     gamma=+0.21 [-0.38,+0.81] (quad -0.26) P(H0 gamma=0): block-surr p=0.2308, phase-surr p=0.2789; boot P(gamma>=1)=0.006; H1-injection gamma 0.98±0.31; A=0.480 dB @ +1.64 h; e 5-95% -0.22..+0.20
+  EDA   full   3 bins: E_k(m)=0.39,0.58,0.79 | in-phase A_k(dB)=0.394±0.040,0.488±0.042,0.608±0.046 | lag_k(h)=1.7,1.6,1.8 | top/bottom 1.54 (E ratio 2.04); chi2 prop 4.9 (p=0.087) vs const 13.8 (p=0.001) [2 dof]; dlnA/dlnE 0.63
+  EDA   full   5 bins: E_k(m)=0.34,0.47,0.58,0.69,0.84 | in-phase A_k(dB)=0.351±0.047,0.462±0.057,0.457±0.052,0.552±0.060,0.664±0.056 | lag_k(h)=1.4,1.8,1.8,1.5,1.9 | top/bottom 1.90 (E ratio 2.46); chi2 prop 4.7 (p=0.324) vs const 20.5 (p=0.000396) [4 dof]; dlnA/dlnE 0.70
+  EDA   M2+S2  5 bins: E_k(m)=0.38,0.47,0.59,0.69,0.75 | in-phase A_k(dB)=0.320±0.057,0.379±0.056,0.566±0.047,0.447±0.057,0.708±0.054 | lag_k(h)=1.4,1.8,1.6,1.5,1.9 | top/bottom 2.21 (E ratio 1.98); chi2 prop 11.8 (p=0.019) vs const 33.3 (p=1.03e-06) [4 dof]; dlnA/dlnE 0.92
+  EDA   M2+N2  3 bins: E_k(m)=0.47,0.57,0.66 | in-phase A_k(dB)=0.481±0.037,0.441±0.048,0.514±0.047 | lag_k(h)=1.5,1.8,1.7 | top/bottom 1.07 (E ratio 1.43); chi2 prop 8.1 (p=0.017) vs const 1.4 (p=0.507) [2 dof]; dlnA/dlnE 0.14
+  EDA   M2+N2  5 bins: E_k(m)=0.45,0.50,0.57,0.64,0.67 | in-phase A_k(dB)=0.495±0.041,0.452±0.053,0.399±0.060,0.539±0.059,0.504±0.055 | lag_k(h)=1.7,1.3,2.0,1.7,1.6 | top/bottom 1.02 (E ratio 1.50); chi2 prop 12.3 (p=0.015) vs const 4.4 (p=0.36) [4 dof]; dlnA/dlnE 0.16
+  EDA confounds by full-envelope tercile (neap->spring): mean 5-d log10 SNR 0.660, 0.658, 0.644; mean ERA5 Hs 1.143 m, 1.154 m, 1.160 m; detection rate 0.322, 0.312, 0.295; corr(e, slow lineSNR) -0.039
+  TAM   full   no ctrl                gamma=+0.68 [+0.35,+1.05] (quad -0.64) P(H0 gamma=0): block-surr p=0.0010, phase-surr p=0.0040; boot P(gamma>=1)=0.045; H1-injection gamma 1.00±0.20; A=0.424 dB @ +1.70 h; e 5-95% -0.49..+0.50
+  TAM   M2+S2  no ctrl                gamma=+0.85 [+0.43,+1.25] (quad -0.80) P(H0 gamma=0): block-surr p=0.0030, phase-surr p=0.0040; boot P(gamma>=1)=0.220; H1-injection gamma 1.01±0.27; A=0.412 dB @ +1.67 h; e 5-95% -0.37..+0.32
+  TAM   M2+N2  no ctrl                gamma=+0.62 [-0.11,+1.40] (quad -0.87) P(H0 gamma=0): block-surr p=0.0679, phase-surr p=0.0558; boot P(gamma>=1)=0.189; H1-injection gamma 1.01±0.49; A=0.404 dB @ +1.65 h; e 5-95% -0.22..+0.20
+  TAM   full   linestrength+swell     gamma=+0.67 [+0.37,+1.02] (quad -0.65) P(H0 gamma=0): block-surr p=0.0010, phase-surr p=0.0040; boot P(gamma>=1)=0.032; H1-injection gamma 0.99±0.19; A=0.424 dB @ +1.70 h; e 5-95% -0.49..+0.50
+  TAM   M2+N2  linestrength+swell     gamma=+0.63 [-0.09,+1.44] (quad -0.88) P(H0 gamma=0): block-surr p=0.0579, phase-surr p=0.0757; boot P(gamma>=1)=0.190; H1-injection gamma 0.96±0.44; A=0.404 dB @ +1.65 h; e 5-95% -0.22..+0.20
+  TAM   full   3 bins: E_k(m)=0.38,0.58,0.78 | in-phase A_k(dB)=0.292±0.043,0.482±0.045,0.499±0.042 | lag_k(h)=1.0,1.8,2.0 | top/bottom 1.71 (E ratio 2.07); chi2 prop 5.6 (p=0.060) vs const 16.1 (p=0.00032) [2 dof]; dlnA/dlnE 0.70
+  TAM   full   5 bins: E_k(m)=0.33,0.46,0.58,0.69,0.83 | in-phase A_k(dB)=0.253±0.050,0.376±0.055,0.480±0.054,0.509±0.056,0.500±0.062 | lag_k(h)=0.7,1.6,1.8,1.6,2.3 | top/bottom 1.98 (E ratio 2.51); chi2 prop 5.1 (p=0.282) vs const 19.1 (p=0.000739) [4 dof]; dlnA/dlnE 0.72
+  TAM   M2+S2  5 bins: E_k(m)=0.38,0.47,0.59,0.69,0.75 | in-phase A_k(dB)=0.322±0.049,0.265±0.060,0.485±0.061,0.499±0.060,0.485±0.049 | lag_k(h)=0.8,1.6,1.9,1.9,1.9 | top/bottom 1.51 (E ratio 1.98); chi2 prop 4.2 (p=0.378) vs const 23.5 (p=0.000101) [4 dof]; dlnA/dlnE 0.89
+  TAM   M2+N2  3 bins: E_k(m)=0.47,0.57,0.66 | in-phase A_k(dB)=0.390±0.045,0.384±0.043,0.438±0.047 | lag_k(h)=1.3,1.8,1.9 | top/bottom 1.12 (E ratio 1.42); chi2 prop 2.9 (p=0.238) vs const 1.0 (p=0.608) [2 dof]; dlnA/dlnE 0.33
+  TAM   M2+N2  5 bins: E_k(m)=0.45,0.50,0.57,0.64,0.67 | in-phase A_k(dB)=0.314±0.060,0.446±0.057,0.362±0.063,0.410±0.058,0.490±0.057 | lag_k(h)=0.8,1.7,1.8,2.2,1.6 | top/bottom 1.56 (E ratio 1.50); chi2 prop 3.3 (p=0.509) vs const 5.3 (p=0.257) [4 dof]; dlnA/dlnE 0.67
+  TAM confounds by full-envelope tercile (neap->spring): mean 5-d log10 SNR 0.563, 0.565, 0.557; mean ERA5 Hs 1.156 m, 1.159 m, 1.162 m; detection rate 0.142, 0.144, 0.137; corr(e, slow lineSNR) -0.016
+  -- common period 2022-03..2024-02, all stations [0.8 min]
+  EDA   full   no ctrl                gamma=+0.46 [-0.15,+0.92] (quad -0.40) P(H0 gamma=0): block-surr p=0.0797, phase-surr p=0.0794; boot P(gamma>=1)=0.013; H1-injection gamma 0.97±0.27; A=0.566 dB @ +1.69 h; e 5-95% -0.49..+0.49
+  EDA   M2+N2  no ctrl                gamma=+0.41 [-0.52,+1.18] (quad +0.66) P(H0 gamma=0): block-surr p=0.2669, phase-surr p=0.2540; boot P(gamma>=1)=0.069; H1-injection gamma 1.15±0.65; A=0.519 dB @ +1.77 h; e 5-95% -0.21..+0.21
+  TAM   full   no ctrl                gamma=+0.33 [-0.07,+0.75] (quad -1.00) P(H0 gamma=0): block-surr p=0.1195, phase-surr p=0.1270; boot P(gamma>=1)=0.001; H1-injection gamma 1.06±0.29; A=0.498 dB @ +1.69 h; e 5-95% -0.49..+0.49
+  TAM   M2+N2  no ctrl                gamma=+0.19 [-0.86,+1.41] (quad -0.51) P(H0 gamma=0): block-surr p=0.4422, phase-surr p=0.4286; boot P(gamma>=1)=0.084; H1-injection gamma 0.80±0.58; A=0.456 dB @ +1.76 h; e 5-95% -0.22..+0.20
+  MBAR  full   no ctrl                gamma=+0.24 [-1.83,+3.29] (quad -2.56) P(H0 gamma=0): block-surr p=0.3904, phase-surr p=0.5238; boot P(gamma>=1)=0.233; H1-injection gamma 0.71±0.80; A=0.128 dB @ +1.99 h; e 5-95% -0.48..+0.48
+  MBAR  M2+N2  no ctrl                gamma=+1.68 [-4.13,+5.80] (quad -3.75) P(H0 gamma=0): block-surr p=0.2470, phase-surr p=0.2381; boot P(gamma>=1)=0.424; H1-injection gamma 2.19±3.46; A=0.115 dB @ +2.30 h; e 5-95% -0.22..+0.20
+  SHEL  full   no ctrl                gamma=+0.95 [-0.29,+2.41] (quad -0.61) P(H0 gamma=0): block-surr p=0.1076, phase-surr p=0.1111; boot P(gamma>=1)=0.468; H1-injection gamma 1.00±0.86; A=0.177 dB @ +1.87 h; e 5-95% -0.49..+0.48
+  SHEL  M2+N2  no ctrl                gamma=-0.86 [-3.81,+2.47] (quad -1.68) P(H0 gamma=0): block-surr p=0.6773, phase-surr p=0.7460; boot P(gamma>=1)=0.126; H1-injection gamma 0.91±1.83; A=0.171 dB @ +1.97 h; e 5-95% -0.22..+0.20
+  ASCN  full   no ctrl                gamma=-3.46 [-10.51,+8.29] (quad +2.87) P(H0 gamma=0): block-surr p=0.8566, phase-surr p=0.9206; boot P(gamma>=1)=0.172; H1-injection gamma 0.06±2.25; A=0.039 dB @ +7.48 h; e 5-95% -0.49..+0.49
+  ASCN  M2+N2  no ctrl                gamma=-7.89 [-20.74,+6.45] (quad +1.56) P(H0 gamma=0): block-surr p=0.9442, phase-surr p=0.9365; boot P(gamma>=1)=0.079; H1-injection gamma 0.00±5.72; A=0.046 dB @ +7.90 h; e 5-95% -0.22..+0.20
+  WIN   full   no ctrl                gamma=-2.66 [-8.37,+8.47] (quad +2.35) P(H0 gamma=0): block-surr p=0.8765, phase-surr p=0.9048; boot P(gamma>=1)=0.251; H1-injection gamma 0.96±4.94; A=0.041 dB @ +2.00 h; e 5-95% -0.49..+0.48
+  WIN   M2+N2  no ctrl                gamma=-3.90 [-15.87,+16.36] (quad -3.86) P(H0 gamma=0): block-surr p=0.8247, phase-surr p=0.8413; boot P(gamma>=1)=0.331; H1-injection gamma 2.23±9.17; A=0.048 dB @ +1.42 h; e 5-95% -0.22..+0.20
+  SACV  full   no ctrl                gamma=-0.26 [-0.88,+0.52] (quad -0.69) P(H0 gamma=0): block-surr p=0.7131, phase-surr p=0.8095; boot P(gamma>=1)=0.002; H1-injection gamma 0.94±0.49; A=0.303 dB @ +1.74 h; e 5-95% -0.48..+0.48
+  SACV  M2+N2  no ctrl                gamma=+0.41 [-1.23,+2.13] (quad +1.20) P(H0 gamma=0): block-surr p=0.3267, phase-surr p=0.3651; boot P(gamma>=1)=0.252; H1-injection gamma 1.04±0.85; A=0.287 dB @ +1.81 h; e 5-95% -0.22..+0.20
+  combined gamma (full; inverse-variance, treats stations as independent -> optimistic): +0.60 ± 0.11
+  combined gamma (M2+N2; inverse-variance, treats stations as independent -> optimistic): +0.34 ± 0.23
+
+==== 2. BLOCK BOOTSTRAP AND CONSERVATIVE SIGNIFICANCE (LMB M2) [1.0 min]
+  EDA 2019-05..2026-09       n= 38888 M2 0.473 dB [0.422,0.529] lag +1.63 h [1.46,1.82] (30-d blocks; 15-d: [1.47,1.83] h); VIF 2.24 n_eff 17336; z_boot 16.6
+      nulls: blockres15d: p=0.0010 (0/1000 exceed, null95 0.090 dB, z=17.3); blockres30d: p=0.0010 (0/1000 exceed, null95 0.115 dB, z=13.5); phaserand: p=0.0020 (0/500 exceed, null95 0.060 dB, z=27.3)
+      block-resampled nulls for S2: p15=0.0010, p30=0.0010; N2: p15=0.0350, p30=0.0150
+      S2 0.168 dB (+2.20 h), N2 0.075 dB (+2.38 h), S1 0.053, M4 0.033; S2/M2 0.355 [0.251,0.468] (gauge 0.360, equil 0.466); N2/M2 0.159 [0.071,0.248] (gauge 0.215, equil 0.191)
+      admittance rel. to M2 (1 = proportional to gauge tide): S2 0.99 [0.70,1.30] extra phase lag +19 deg [+1,+35]; N2 0.74 [0.33,1.15] extra phase lag +20 deg [-25,+58]
+  TAM 2022-03..2026-09       n= 28984 M2 0.398 dB [0.346,0.455] lag +1.66 h [1.45,1.89] (30-d blocks; 15-d: [1.44,1.90] h); VIF 1.96 n_eff 14771; z_boot 14.2
+      nulls: blockres15d: p=0.0010 (0/1000 exceed, null95 0.091 dB, z=14.0); blockres30d: p=0.0010 (0/1000 exceed, null95 0.110 dB, z=11.3); phaserand: p=0.0020 (0/500 exceed, null95 0.062 dB, z=22.6)
+      block-resampled nulls for S2: p15=0.0010, p30=0.0010; N2: p15=0.0210, p30=0.0060
+      S2 0.155 dB (+2.48 h), N2 0.090 dB (+2.55 h), S1 0.134, M4 0.039; S2/M2 0.391 [0.281,0.512] (gauge 0.360, equil 0.466); N2/M2 0.227 [0.125,0.364] (gauge 0.215, equil 0.191)
+      admittance rel. to M2 (1 = proportional to gauge tide): S2 1.09 [0.78,1.42] extra phase lag +26 deg [+6,+48]; N2 1.06 [0.58,1.69] extra phase lag +25 deg [-8,+55]
+  EDA common 2022-03..2024-02 n=  9187 M2 0.513 dB [0.407,0.635] lag +1.75 h [1.30,2.14] (30-d blocks; 15-d: [1.35,2.16] h); VIF 2.54 n_eff 3621; z_boot 8.9
+      nulls: blockres15d: p=0.0010 (0/1000 exceed, null95 0.192 dB, z=8.2); blockres30d: p=0.0010 (0/1000 exceed, null95 0.240 dB, z=5.9); phaserand: p=0.0020 (0/500 exceed, null95 0.134 dB, z=12.0)
+      block-resampled nulls for S2: p15=0.0060, p30=0.0170; N2: p15=0.3187, p30=0.1728
+      S2 0.201 dB (+1.85 h), N2 0.091 dB (+1.22 h), S1 0.083, M4 0.077; S2/M2 0.392 [0.191,0.664] (gauge 0.360, equil 0.466); N2/M2 0.178 [0.058,0.327] (gauge 0.215, equil 0.191)
+      admittance rel. to M2 (1 = proportional to gauge tide): S2 1.09 [0.53,1.85] extra phase lag +5 deg [-25,+44]; N2 0.83 [0.27,1.52] extra phase lag -16 deg [-84,+70]
+  TAM common 2022-03..2024-02 n= 12534 M2 0.445 dB [0.381,0.526] lag +1.75 h [1.46,2.11] (30-d blocks; 15-d: [1.48,2.09] h); VIF 1.71 n_eff 7344; z_boot 11.7
+      nulls: blockres15d: p=0.0010 (0/1000 exceed, null95 0.152 dB, z=9.0); blockres30d: p=0.0010 (0/1000 exceed, null95 0.186 dB, z=7.1); phaserand: p=0.0020 (0/500 exceed, null95 0.095 dB, z=15.3)
+      block-resampled nulls for S2: p15=0.0010, p30=0.0010; N2: p15=0.1119, p30=0.0619
+      S2 0.203 dB (+2.51 h), N2 0.105 dB (+2.50 h), S1 0.155, M4 0.035; S2/M2 0.457 [0.302,0.631] (gauge 0.360, equil 0.466); N2/M2 0.236 [0.094,0.450] (gauge 0.215, equil 0.191)
+      admittance rel. to M2 (1 = proportional to gauge tide): S2 1.27 [0.84,1.75] extra phase lag +25 deg [-1,+52]; N2 1.10 [0.44,2.09] extra phase lag +20 deg [-28,+55]
+  MBAR common 2022-03..2024-02 n= 12778 M2 0.109 dB [0.059,0.213] lag +2.40 h [1.13,3.58] (30-d blocks; 15-d: [0.96,3.98] h); VIF 1.90 n_eff 6714; z_boot 2.7
+      nulls: blockres15d: p=0.0360 (35/1000 exceed, null95 0.104 dB, z=2.0); blockres30d: p=0.0340 (33/1000 exceed, null95 0.101 dB, z=2.1); phaserand: p=0.0279 (13/500 exceed, null95 0.099 dB, z=2.2)
+      block-resampled nulls for S2: p15=0.5994, p30=0.6314; N2: p15=0.3487, p30=0.3726
+      S2 0.036 dB (+2.08 h), N2 0.061 dB (+3.04 h), S1 0.082, M4 0.011; S2/M2 0.328 [0.062,1.217] (gauge 0.360, equil 0.466); N2/M2 0.562 [0.080,1.710] (gauge 0.215, equil 0.191)
+      admittance rel. to M2 (1 = proportional to gauge tide): S2 0.91 [0.17,3.38] extra phase lag -7 deg [-157,+162]; N2 2.61 [0.37,7.96] extra phase lag +17 deg [-135,+145]
+  SHEL common 2022-03..2024-02 n= 13574 M2 0.159 dB [0.090,0.238] lag +1.99 h [1.00,2.82] (30-d blocks; 15-d: [0.91,2.99] h); VIF 2.00 n_eff 6782; z_boot 4.3
+      nulls: blockres15d: p=0.0020 (1/1000 exceed, null95 0.112 dB, z=3.5); blockres30d: p=0.0040 (3/1000 exceed, null95 0.109 dB, z=3.6); phaserand: p=0.0020 (0/500 exceed, null95 0.106 dB, z=3.8)
+      block-resampled nulls for S2: p15=0.1678, p30=0.1319; N2: p15=0.4895, p30=0.4805
+      S2 0.075 dB (+1.78 h), N2 0.051 dB (+2.98 h), S1 0.029, M4 0.017; S2/M2 0.468 [0.186,1.147] (gauge 0.360, equil 0.466); N2/M2 0.321 [0.075,1.121] (gauge 0.215, equil 0.191)
+      admittance rel. to M2 (1 = proportional to gauge tide): S2 1.30 [0.52,3.19] extra phase lag -4 deg [-60,+65]; N2 1.50 [0.35,5.22] extra phase lag +27 deg [-141,+155]
+  ASCN common 2022-03..2024-02 n= 15296 M2 0.045 dB [0.015,0.118] lag +7.72 h [4.98,10.92] (30-d blocks; 15-d: [5.11,10.99] h); VIF 2.18 n_eff 7019; z_boot 1.5
+      nulls: blockres15d: p=0.4026 (402/1000 exceed, null95 0.080 dB, z=0.2); blockres30d: p=0.4106 (410/1000 exceed, null95 0.080 dB, z=0.2); phaserand: p=0.3772 (188/500 exceed, null95 0.071 dB, z=0.3)
+      block-resampled nulls for S2: p15=0.3676, p30=0.4016; N2: p15=0.6384, p30=0.6264
+      S2 0.044 dB (+2.61 h), N2 0.033 dB (+0.93 h), S1 0.069, M4 0.046; S2/M2 0.981 [0.149,4.779] (gauge 0.360, equil 0.466); N2/M2 0.734 [0.174,3.553] (gauge 0.215, equil 0.191)
+      admittance rel. to M2 (1 = proportional to gauge tide): S2 2.73 [0.41,13.29] extra phase lag -145 deg [-174,+174]; N2 3.42 [0.81,16.54] extra phase lag +163 deg [-175,+176]
+  WIN common 2022-03..2024-02 n= 14478 M2 0.057 dB [0.013,0.140] lag +1.51 h [-2.12,6.11] (30-d blocks; 15-d: [-1.53,5.26] h); VIF 2.79 n_eff 5193; z_boot 1.3
+      nulls: blockres15d: p=0.3177 (317/1000 exceed, null95 0.092 dB, z=0.4); blockres30d: p=0.3946 (394/1000 exceed, null95 0.102 dB, z=0.2); phaserand: p=0.3194 (159/500 exceed, null95 0.089 dB, z=0.4)
+      block-resampled nulls for S2: p15=0.6304, p30=0.6484; N2: p15=0.3227, p30=0.3267
+      S2 0.034 dB (+7.50 h), N2 0.057 dB (+7.42 h), S1 0.098, M4 0.047; S2/M2 0.595 [0.136,4.358] (gauge 0.360, equil 0.466); N2/M2 1.013 [0.179,4.664] (gauge 0.215, equil 0.191)
+      admittance rel. to M2 (1 = proportional to gauge tide): S2 1.65 [0.38,12.12] extra phase lag -179 deg [-174,+174]; N2 4.71 [0.83,21.71] extra phase lag +167 deg [-175,+175]
+  SACV common 2022-03..2024-02 n= 12158 M2 0.274 dB [0.202,0.341] lag +1.82 h [1.21,2.45] (30-d blocks; 15-d: [1.22,2.41] h); VIF 1.81 n_eff 6713; z_boot 7.7
+      nulls: blockres15d: p=0.0010 (0/1000 exceed, null95 0.118 dB, z=6.9); blockres30d: p=0.0010 (0/1000 exceed, null95 0.128 dB, z=6.1); phaserand: p=0.0020 (0/500 exceed, null95 0.094 dB, z=8.9)
+      block-resampled nulls for S2: p15=0.1409, p30=0.1259; N2: p15=0.0849, p30=0.0390
+      S2 0.073 dB (+3.29 h), N2 0.099 dB (+0.97 h), S1 0.079, M4 0.054; S2/M2 0.268 [0.072,0.550] (gauge 0.360, equil 0.466); N2/M2 0.363 [0.138,0.764] (gauge 0.215, equil 0.191)
+      admittance rel. to M2 (1 = proportional to gauge tide): S2 0.74 [0.20,1.53] extra phase lag +46 deg [-26,+117]; N2 1.69 [0.64,3.56] extra phase lag -25 deg [-83,+22]
+  EDA with K2 added (lunisolar; separable from S2 over 7.4 yr): K2 0.046 dB [0.014,0.100] (p vs 0 from bootstrap covariance 0.171); gauge K2/M2 0.115 -> expected if proportional 0.054 dB; K2 admittance rel. M2 0.85 [0.25,1.84], extra lag +14 deg; S2 then 0.167 dB, M2 0.474 dB
+  EDA with additive ERA5 covariates (72-h high-passed log Hs, Tp): M2 0.473 dB at +1.63 h
+
+  joint (same-block) bootstrap, common period, 30-d blocks [1.6 min]
+  EDA   LMB M2 0.513 dB [0.410,0.636] lag +1.75 h [1.31,2.14] | bg20-24 0.130 dB +7.9 h [5.0,9.8] | bg29-34 0.168 dB +1.2 h [-0.7,3.2]
+  TAM   LMB M2 0.445 dB [0.381,0.531] lag +1.75 h [1.47,2.10] | bg20-24 0.143 dB +7.1 h [5.1,9.3] | bg29-34 0.027 dB +2.5 h [-2.8,7.6]
+  MBAR  LMB M2 0.109 dB [0.055,0.208] lag +2.40 h [1.00,3.57] | bg20-24 0.240 dB +8.0 h [6.7,9.1] | bg29-34 0.173 dB +8.5 h [6.1,10.1]
+  SHEL  LMB M2 0.159 dB [0.090,0.239] lag +1.99 h [0.96,2.82] | bg20-24 0.127 dB +8.0 h [5.4,9.5] | bg29-34 0.161 dB +8.0 h [5.6,9.4]
+  ASCN  LMB M2 0.045 dB [0.013,0.121] lag +7.72 h [4.87,11.13] | bg20-24 0.049 dB +7.7 h [2.0,13.0] | bg29-34 0.130 dB +9.8 h [8.0,12.5]
+  WIN   LMB M2 0.057 dB [0.013,0.144] lag +1.51 h [-2.69,6.46] | bg20-24 0.105 dB +6.0 h [2.1,9.8] | bg29-34 0.047 dB +2.8 h [-2.6,7.9]
+  SACV  LMB M2 0.274 dB [0.214,0.350] lag +1.82 h [1.25,2.41] | bg20-24 0.078 dB +6.6 h [2.2,11.3] | bg29-34 0.067 dB +6.1 h [1.3,11.4]
+  stations whose common-period M2 passes all three nulls at p<0.05: ['EDA', 'TAM', 'MBAR', 'SHEL', 'SACV']
+  combined_orig4: mean lag +1.79 h [95% 1.48,2.10] (joint-bootstrap); homogeneity Q=1.21, dof 3, p=0.75; weights {'EDA': 0.318, 'TAM': 0.579, 'MBAR': 0.038, 'SHEL': 0.065}
+  combined_all: mean lag +1.80 h [95% 1.49,2.10] (joint-bootstrap); homogeneity Q=15.43, dof 6, p=0.02; weights {'EDA': 0.269, 'TAM': 0.49, 'MBAR': 0.032, 'SHEL': 0.055, 'ASCN': 0.005, 'WIN': 0.003, 'SACV': 0.147}
+  combined_noEDA: mean lag +1.81 h [95% 1.51,2.15] (joint-bootstrap); homogeneity Q=15.30, dof 5, p=0.01; weights {'TAM': 0.669, 'MBAR': 0.044, 'SHEL': 0.075, 'ASCN': 0.007, 'WIN': 0.004, 'SACV': 0.2}
+  combined_significant: mean lag +1.80 h [95% 1.49,2.10] (joint-bootstrap); homogeneity Q=1.21, dof 4, p=0.88; weights {'EDA': 0.271, 'TAM': 0.494, 'MBAR': 0.032, 'SHEL': 0.055, 'SACV': 0.148}
+  combined_significant_noEDA: mean lag +1.81 h [95% 1.52,2.14] (joint-bootstrap); homogeneity Q=1.16, dof 3, p=0.76; weights {'TAM': 0.677, 'MBAR': 0.044, 'SHEL': 0.076, 'SACV': 0.203}
+
+==== 4. LEAVE-ONE-YEAR-OUT / SINGLE-YEAR (EDA LMB M2) [1.6 min]
+  2019: drop -> 0.464 dB +1.67 h; only -> 0.547 dB +1.33 h (n=4368)
+  2020: drop -> 0.448 dB +1.57 h; only -> 0.602 dB +1.85 h (n=6650)
+  2021: drop -> 0.471 dB +1.65 h; only -> 0.483 dB +1.54 h (n=6396)
+  2022: drop -> 0.457 dB +1.60 h; only -> 0.561 dB +1.76 h (n=5981)
+  2023: drop -> 0.475 dB +1.64 h; only -> 0.450 dB +1.62 h (n=3499)
+  2024: drop -> 0.482 dB +1.63 h; only -> 0.387 dB +1.70 h (n=3370)
+  2025: drop -> 0.492 dB +1.66 h; only -> 0.356 dB +1.41 h (n=5099)
+  2026: drop -> 0.492 dB +1.64 h; only -> 0.284 dB +1.52 h (n=3525)
+  LOYO range: amplitude 0.448-0.492 dB, lag 1.57-1.67 h; single years: amplitude 0.284-0.602 dB, lag 1.33-1.85 h

@@ -1,0 +1,32 @@
+fig4 done
+Port Sonara tide (UTide prediction, joint fit on grid): M2 0.561 m, S2 0.202 m, N2 0.121 m; S2/M2 0.360 (equilibrium 0.466), N2/M2 0.215 (equilibrium 0.191)
+envelope 'full': mean 0.587 m, 5-95% 0.310-0.879 m
+envelope 'M2+S2': mean 0.580 m, 5-95% 0.365-0.760 m
+envelope 'M2+N2': mean 0.567 m, 5-95% 0.443-0.680 m
+/workspace/research2/pulse26/tidelib.py:28: RuntimeWarning: All-NaN slice encountered
+  with np.errstate(all="ignore"): out[s:s + 8192] = np.nanmedian(swv(p[s:s + 8192 + 2 * hw], 2 * hw + 1), axis=1)
+/workspace/research2/pulse26/tidelib.py:28: RuntimeWarning: All-NaN slice encountered
+  with np.errstate(all="ignore"): out[s:s + 8192] = np.nanmedian(swv(p[s:s + 8192 + 2 * hw], 2 * hw + 1), axis=1)
+EDA: {'lat': 3.778868, 'lon': 10.153427, 'dist_km': 240.4165134672716, 'az': 95.76387957896276, 'qc_common': 9187, 'det_common': 3147, 'qc_all': 38888, 'det_all': 12044, 'span': '2019-05-04..2026-09-28'}
+/workspace/research2/pulse26/tidelib.py:28: RuntimeWarning: All-NaN slice encountered
+  with np.errstate(all="ignore"): out[s:s + 8192] = np.nanmedian(swv(p[s:s + 8192 + 2 * hw], 2 * hw + 1), axis=1)
+TAM: {'lat': 22.79149, 'lon': 5.52838, 'dist_km': 2096.126427908475, 'az': 352.92000245864097, 'qc_common': 12534, 'det_common': 1848, 'qc_all': 28984, 'det_all': 4083, 'span': '2022-03-01..2026-09-30'}
+/workspace/research2/pulse26/tidelib.py:28: RuntimeWarning: All-NaN slice encountered
+  with np.errstate(all="ignore"): out[s:s + 8192] = np.nanmedian(swv(p[s:s + 8192 + 2 * hw], 2 * hw + 1), axis=1)
+MBAR: {'lat': -0.6019, 'lon': 30.7382, 'dist_km': 2580.08307806386, 'az': 100.8801291270937, 'qc_common': 12778, 'det_common': 679, 'qc_all': 12778, 'det_all': 679, 'span': '2022-03-01..2024-02-29'}
+/workspace/research2/pulse26/tidelib.py:28: RuntimeWarning: All-NaN slice encountered
+  with np.errstate(all="ignore"): out[s:s + 8192] = np.nanmedian(swv(p[s:s + 8192 + 2 * hw], 2 * hw + 1), axis=1)
+SHEL: {'lat': -15.9594, 'lon': -5.7455, 'dist_km': 2676.69624286045, 'az': 214.1174820598398, 'qc_common': 13574, 'det_common': 455, 'qc_all': 13574, 'det_all': 455, 'span': '2022-03-01..2024-02-29'}
+/workspace/research2/pulse26/tidelib.py:28: RuntimeWarning: All-NaN slice encountered
+  with np.errstate(all="ignore"): out[s:s + 8192] = np.nanmedian(swv(p[s:s + 8192 + 2 * hw], 2 * hw + 1), axis=1)
+ASCN: {'lat': -7.9327, 'lon': -14.3601, 'dist_km': 2811.955653687894, 'az': 242.0136837837014, 'qc_common': 15296, 'det_common': 302, 'qc_all': 15296, 'det_all': 302, 'span': '2022-03-10..2024-02-29'}
+/workspace/research2/pulse26/tidelib.py:28: RuntimeWarning: All-NaN slice encountered
+  with np.errstate(all="ignore"): out[s:s + 8192] = np.nanmedian(swv(p[s:s + 8192 + 2 * hw], 2 * hw + 1), axis=1)
+WIN: {'lat': -22.5691, 'lon': 17.0915, 'dist_km': 3101.106741535508, 'az': 161.7911883063125, 'qc_common': 14478, 'det_common': 377, 'qc_all': 14478, 'det_all': 377, 'span': '2022-03-01..2024-02-29'}
+/workspace/research2/pulse26/tidelib.py:28: RuntimeWarning: All-NaN slice encountered
+  with np.errstate(all="ignore"): out[s:s + 8192] = np.nanmedian(swv(p[s:s + 8192 + 2 * hw], 2 * hw + 1), axis=1)
+SACV: {'lat': 14.9702, 'lon': -23.6085, 'dist_km': 3670.23799294859, 'az': 291.46700673003056, 'qc_common': 12158, 'det_common': 939, 'qc_all': 12158, 'det_all': 939, 'span': '2022-03-26..2024-02-06'}
+EDA M2 peak / median 146.66660701327461 95% band-max 8.676056097092513
+TAM M2 peak / median 129.73184419874806 95% band-max 6.647397140660749
+fig2 done
+EXIT 0

@@ -1,0 +1,35 @@
+Toy-model M2 power modulation (dB amplitude; + = max at high water), tide a = 0.59 m
+-- swell period 14 s
+   h0(m)              bottom pressure |         bed orbital velocity | primary microseism, F_B~k^-2 | primary microseism, F_B~k^-3 |     depth-limited (breaking)
+       3                       -0.460 |                       -1.308 |                       +0.388 |                       +0.812 |                       +1.731
+       5                       -0.285 |                       -0.782 |                       +0.212 |                       +0.460 |                       +1.030
+      10                       -0.158 |                       -0.396 |                       +0.080 |                       +0.200 |                       +0.513
+      20                       -0.097 |                       -0.207 |                       +0.012 |                       +0.066 |                       +0.256
+      30                       -0.080 |                       -0.146 |                       -0.014 |                       +0.019 |                       +0.171
+      50                       -0.073 |                       -0.104 |                       -0.042 |                       -0.027 |                       +0.102
+      75                       -0.079 |                       -0.092 |                       -0.066 |                       -0.059 |                       +0.068
+     100                       -0.088 |                       -0.094 |                       -0.083 |                       -0.080 |                       +0.051
+-- swell period 26 s
+   h0(m)              bottom pressure |         bed orbital velocity | primary microseism, F_B~k^-2 | primary microseism, F_B~k^-3 |     depth-limited (breaking)
+       3                       -0.440 |                       -1.301 |                       +0.420 |                       +0.850 |                       +1.731
+       5                       -0.265 |                       -0.775 |                       +0.245 |                       +0.499 |                       +1.030
+      10                       -0.136 |                       -0.388 |                       +0.115 |                       +0.241 |                       +0.513
+      20                       -0.072 |                       -0.195 |                       +0.051 |                       +0.112 |                       +0.256
+      30                       -0.051 |                       -0.131 |                       +0.029 |                       +0.069 |                       +0.171
+      50                       -0.035 |                       -0.081 |                       +0.011 |                       +0.034 |                       +0.102
+      75                       -0.027 |                       -0.056 |                       +0.002 |                       +0.016 |                       +0.068
+     100                       -0.024 |                       -0.044 |                       -0.004 |                       +0.006 |                       +0.051
+-- wave-current (standing tide, U = a*w*L/h0, opposing ebb current peaks +3.1 h after HW), swell 26 s
+   L=20 km h0= 10 m: U=0.17 m/s, cg=9.6 m/s -> 0.075 dB at +3.1 h (opposing peak)
+   L=20 km h0= 20 m: U=0.08 m/s, cg=13.2 m/s -> 0.027 dB at +3.1 h (opposing peak)
+   L=20 km h0= 50 m: U=0.03 m/s, cg=19.0 m/s -> 0.008 dB at +3.1 h (opposing peak)
+   L=50 km h0= 10 m: U=0.41 m/s, cg=9.6 m/s -> 0.187 dB at +3.1 h (opposing peak)
+   L=50 km h0= 20 m: U=0.21 m/s, cg=13.2 m/s -> 0.068 dB at +3.1 h (opposing peak)
+   L=50 km h0= 50 m: U=0.08 m/s, cg=19.0 m/s -> 0.019 dB at +3.1 h (opposing peak)
+-- exponential (threshold-like) triggering: rate ~ exp(dp/p0), tidal bottom-pressure amplitude rho*g*a = 5.9 kPa
+   observed 0.40 dB -> d ln(power) = 0.092 -> p0 = 64 kPa
+   observed 0.55 dB -> d ln(power) = 0.127 -> p0 = 47 kPa
+-- phasor: height term at 0 h + opposing-current term at +3.1 h reproduce the +1.7-2.0 h lag if A_current/A_height = tan(lag*2pi/12.42):
+   lag 1.7 h -> ratio 1.16
+   lag 2.0 h -> ratio 1.60
+   lag 2.4 h -> ratio 2.68

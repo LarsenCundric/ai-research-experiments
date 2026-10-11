@@ -1,0 +1,295 @@
+==== A. TIDE GAUGES (UTide, despiked; 25-h running median removed) [0.0 min]
+  Port Sonara          2008-06-23..2011-06-25 n=21836: M2 0.583 m; S2/M2 0.344 (eq 0.466); N2/M2 0.221 (eq 0.191); K2/M2 0.092 (eq 0.127); L2/M2 0.019 (eq 0.028); MU2/M2 0.036 (eq 0.031); NU2/M2 0.038 (eq 0.036); 2N2/M2 0.037 (eq 0.025)
+  Sao Tome             1985-12-04..1988-11-30 n=14444: M2 0.499 m; S2/M2 0.311 (eq 0.466); N2/M2 0.214 (eq 0.191); K2/M2 0.091 (eq 0.127); L2/M2 0.020 (eq 0.028); MU2/M2 0.038 (eq 0.031); NU2/M2 0.036 (eq 0.036); 2N2/M2 0.040 (eq 0.025)
+  Lagos                1992-08-02..1996-10-06 n=27285: M2 0.399 m; S2/M2 0.334 (eq 0.466); N2/M2 0.223 (eq 0.191); K2/M2 0.089 (eq 0.127); L2/M2 0.024 (eq 0.028); MU2/M2 0.027 (eq 0.031); NU2/M2 0.042 (eq 0.036); 2N2/M2 0.042 (eq 0.025)
+  Praia (SACV island)  1984-03-02..1996-01-31 n=20195: M2 0.374 m; S2/M2 0.327 (eq 0.466); N2/M2 0.213 (eq 0.191); K2/M2 0.096 (eq 0.127); L2/M2 0.006 (eq 0.028); MU2/M2 0.024 (eq 0.031); NU2/M2 0.033 (eq 0.036); 2N2/M2 0.030 (eq 0.025)
+  Port Sonara prediction used in all analyses (joint fit on 2019-26 grid): M2 0.5608 m, S2 0.2022 m, N2 0.1206 m, K2 0.0642 m, L2 0.0130 m, MU2 0.0243 m, NU2 0.0203 m, 2N2 0.0200 m
+  NOTE: Port Sonara observations cover only 2008-06..2011-06 (RQ and fast files identical) -> no observed gauge envelope overlaps the seismic data; all envelopes are harmonic predictions (gauge constants + UTide nodal corrections).
+
+==== B. NOISE-FREE SYNTHETIC TESTS OF THE gamma ESTIMATOR (EDA mask, Limbe envelope model) [0.1 min]
+  true response proportional to [Limbe itself (control)        ] -> gamma estimated with Limbe envelope = 1.008
+  true response proportional to [Limbe, S2 x0.8                ] -> gamma estimated with Limbe envelope = 0.889
+  true response proportional to [Limbe, S2 x1.2                ] -> gamma estimated with Limbe envelope = 1.124
+  true response proportional to [Limbe, N2 x0.8                ] -> gamma estimated with Limbe envelope = 0.981
+  true response proportional to [Limbe envelope delayed 12 h   ] -> gamma estimated with Limbe envelope = 0.986
+  true response proportional to [Limbe envelope delayed 24 h   ] -> gamma estimated with Limbe envelope = 0.923
+  true response proportional to [Limbe envelope delayed 48 h   ] -> gamma estimated with Limbe envelope = 0.687
+  true response proportional to [Sao Tome tide (true site)     ] -> gamma estimated with Limbe envelope = 0.930
+  true response proportional to [Lagos tide (true site)        ] -> gamma estimated with Limbe envelope = 0.942
+  -- transforms of tide height h (lagged 2 h). Observed EDA full span: gamma 0.70 [0.41,0.99] (robustness.txt), M4/M2 0.071; Port Sonara tide itself M4/M2 0.054
+  linear in log power: dB = k*h                              gamma +1.01   M4/M2 0.053
+  linear in power: dB = 10log10(1+k h), 0.5 dB at mean range gamma +1.01   M4/M2 0.076
+  linear in power: dB = 10log10(1+k h), 1.5 dB at mean range gamma +1.07   M4/M2 0.136
+  linear in power: dB = 10log10(1+k h), 3.0 dB at mean range gamma +1.80   M4/M2 0.369
+  current-like, linear: u = dh/dt                            gamma +1.02   M4/M2 0.094
+  quadratic friction: u|u|                                   gamma +1.86   M4/M2 0.145
+  symmetric saturation: tanh(h/0.3 m)                        gamma +0.40   M4/M2 0.041
+  symmetric saturation: tanh(h/0.6 m)                        gamma +0.70   M4/M2 0.046
+  symmetric saturation: tanh(h/1.0 m)                        gamma +0.86   M4/M2 0.049
+  one-sided clipping at high water: min(h, 0.2 m)            gamma +0.74   M4/M2 0.247
+  one-sided clipping at high water: min(h, 0.4 m)            gamma +0.75   M4/M2 0.139
+  one-sided threshold: max(h - (-0.2) m, 0)                  gamma +0.79   M4/M2 0.180
+  one-sided threshold: max(h - (0.0) m, 0)                   gamma +1.04   M4/M2 0.320
+  depth-limited power ~ (D+h)^2, D=5 m, in dB                gamma +1.01   M4/M2 0.077
+
+==== CAVEAT 1: gamma in short windows / SACV [0.1 min]
+  EDA 2019-26   observed gamma +0.70 | if true 0.7: mean 0.70 sd 0.17, P(gamma_hat<=obs) 0.503, P(CI excludes 0) 0.98 | if true 1.0: sd 0.17, P(<=obs) 0.043, P(excl 0) 1.00
+  EDA 2022-24   observed gamma +0.46 | if true 0.7: mean 0.68 sd 0.32, P(gamma_hat<=obs) 0.277, P(CI excludes 0) 0.53 | if true 1.0: sd 0.32, P(<=obs) 0.040, P(excl 0) 0.88
+  TAM 2022-26   observed gamma +0.68 | if true 0.7: mean 0.67 sd 0.20, P(gamma_hat<=obs) 0.513, P(CI excludes 0) 0.91 | if true 1.0: sd 0.20, P(<=obs) 0.043, P(excl 0) 1.00
+  TAM 2022-24   observed gamma +0.33 | if true 0.7: mean 0.72 sd 0.27, P(gamma_hat<=obs) 0.053, P(CI excludes 0) 0.73 | if true 1.0: sd 0.28, P(<=obs) 0.003, P(excl 0) 0.96
+  SACV 2022-24  observed gamma -0.26 | if true 0.7: mean 0.71 sd 0.44, P(gamma_hat<=obs) 0.013, P(CI excludes 0) 0.34 | if true 1.0: sd 0.50, P(<=obs) 0.003, P(excl 0) 0.49
+  -- rolling 2-yr windows (3-month step) and calendar years [0.2 min]
+  EDA 2yr 2019-05..2021-05: gamma +0.99±0.27 (M2+S2 env +1.36); M2 0.525 dB; coverage 0.75; det 0.284; envelope sd 0.293; tide M2 0.574 m; noise-free proportional synthetic -> gamma 1.008
+  EDA 2yr 2019-08..2021-08: gamma +0.96±0.26 (M2+S2 env +1.26); M2 0.542 dB; coverage 0.75; det 0.287; envelope sd 0.296; tide M2 0.572 m; noise-free proportional synthetic -> gamma 1.008
+  EDA 2yr 2019-11..2021-11: gamma +0.95±0.26 (M2+S2 env +1.23); M2 0.529 dB; coverage 0.75; det 0.286; envelope sd 0.296; tide M2 0.571 m; noise-free proportional synthetic -> gamma 1.008
+  EDA 2yr 2020-02..2022-01: gamma +1.00±0.25 (M2+S2 env +1.33); M2 0.523 dB; coverage 0.74; det 0.293; envelope sd 0.298; tide M2 0.568 m; noise-free proportional synthetic -> gamma 1.008
+  EDA 2yr 2020-05..2022-05: gamma +1.00±0.24 (M2+S2 env +1.33); M2 0.537 dB; coverage 0.74; det 0.292; envelope sd 0.296; tide M2 0.567 m; noise-free proportional synthetic -> gamma 1.008
+  EDA 2yr 2020-08..2022-08: gamma +0.93±0.26 (M2+S2 env +1.19); M2 0.555 dB; coverage 0.71; det 0.305; envelope sd 0.298; tide M2 0.565 m; noise-free proportional synthetic -> gamma 1.008
+  EDA 2yr 2020-10..2022-10: gamma +0.89±0.23 (M2+S2 env +1.20); M2 0.506 dB; coverage 0.71; det 0.310; envelope sd 0.297; tide M2 0.564 m; noise-free proportional synthetic -> gamma 1.008
+  EDA 2yr 2021-01..2023-01: gamma +0.58±0.19 (M2+S2 env +0.78); M2 0.553 dB; coverage 0.69; det 0.294; envelope sd 0.298; tide M2 0.562 m; noise-free proportional synthetic -> gamma 1.008
+  EDA 2yr 2021-05..2023-05: gamma +0.63±0.21 (M2+S2 env +0.82); M2 0.584 dB; coverage 0.62; det 0.282; envelope sd 0.295; tide M2 0.560 m; noise-free proportional synthetic -> gamma 1.008
+  EDA 2yr 2021-07..2023-07: gamma +0.60±0.20 (M2+S2 env +0.91); M2 0.593 dB; coverage 0.60; det 0.269; envelope sd 0.297; tide M2 0.559 m; noise-free proportional synthetic -> gamma 1.008
+  EDA 2yr 2021-10..2023-10: gamma +0.50±0.22 (M2+S2 env +0.81); M2 0.547 dB; coverage 0.60; det 0.307; envelope sd 0.300; tide M2 0.558 m; noise-free proportional synthetic -> gamma 1.008
+  EDA 2yr 2022-01..2024-01: gamma +0.48±0.27 (M2+S2 env +0.85); M2 0.513 dB; coverage 0.52; det 0.328; envelope sd 0.304; tide M2 0.557 m; noise-free proportional synthetic -> gamma 1.008
+  EDA 2yr 2022-04..2024-04: gamma +0.37±0.30 (M2+S2 env +0.69); M2 0.481 dB; coverage 0.50; det 0.351; envelope sd 0.311; tide M2 0.556 m; noise-free proportional synthetic -> gamma 1.008
+  EDA 2yr 2022-07..2024-07: gamma +0.37±0.30 (M2+S2 env +0.67); M2 0.465 dB; coverage 0.43; det 0.341; envelope sd 0.319; tide M2 0.556 m; noise-free proportional synthetic -> gamma 1.008
+  EDA 2yr 2022-10..2024-10: gamma +0.05±0.24 (M2+S2 env +0.28); M2 0.454 dB; coverage 0.40; det 0.352; envelope sd 0.329; tide M2 0.554 m; noise-free proportional synthetic -> gamma 1.008
+  EDA 2yr 2023-01..2025-01: gamma +0.48±0.29 (M2+S2 env +0.95); M2 0.383 dB; coverage 0.40; det 0.370; envelope sd 0.329; tide M2 0.554 m; noise-free proportional synthetic -> gamma 1.008
+  EDA 2yr 2023-04..2025-04: gamma +0.32±0.24 (M2+S2 env +0.71); M2 0.378 dB; coverage 0.45; det 0.345; envelope sd 0.330; tide M2 0.554 m; noise-free proportional synthetic -> gamma 1.008
+  EDA 2yr 2023-07..2025-07: gamma +0.18±0.29 (M2+S2 env +0.12); M2 0.355 dB; coverage 0.45; det 0.339; envelope sd 0.331; tide M2 0.553 m; noise-free proportional synthetic -> gamma 1.008
+  EDA 2yr 2023-10..2025-10: gamma +0.27±0.28 (M2+S2 env +0.37); M2 0.374 dB; coverage 0.43; det 0.314; envelope sd 0.331; tide M2 0.553 m; noise-free proportional synthetic -> gamma 1.008
+  EDA 2yr 2024-01..2026-01: gamma +0.41±0.28 (M2+S2 env +0.38); M2 0.357 dB; coverage 0.50; det 0.324; envelope sd 0.324; tide M2 0.553 m; noise-free proportional synthetic -> gamma 1.008
+  EDA 2yr 2024-04..2026-04: gamma +0.15±0.36 (M2+S2 env +0.07); M2 0.340 dB; coverage 0.51; det 0.334; envelope sd 0.318; tide M2 0.552 m; noise-free proportional synthetic -> gamma 1.008
+  EDA 2yr 2024-07..2026-07: gamma +0.34±0.37 (M2+S2 env +0.42); M2 0.338 dB; coverage 0.57; det 0.335; envelope sd 0.313; tide M2 0.552 m; noise-free proportional synthetic -> gamma 1.008
+  EDA 1yr 2019-05..2020-01: gamma +0.40±0.29 (M2+S2 env +0.84); M2 0.547 dB; coverage 0.74; det 0.261; envelope sd 0.273; tide M2 0.578 m; noise-free proportional synthetic -> gamma 1.007
+  EDA 1yr 2020-01..2021-01: gamma +1.39±0.41 (M2+S2 env +1.91); M2 0.602 dB; coverage 0.76; det 0.268; envelope sd 0.302; tide M2 0.573 m; noise-free proportional synthetic -> gamma 1.008
+  EDA 1yr 2021-01..2022-01: gamma +0.44±0.31 (M2+S2 env +0.56); M2 0.483 dB; coverage 0.73; det 0.311; envelope sd 0.294; tide M2 0.565 m; noise-free proportional synthetic -> gamma 1.008
+  EDA 1yr 2022-01..2023-01: gamma +0.67±0.30 (M2+S2 env +0.83); M2 0.561 dB; coverage 0.68; det 0.280; envelope sd 0.300; tide M2 0.560 m; noise-free proportional synthetic -> gamma 1.008
+  EDA 1yr 2023-01..2024-01: gamma -0.09±0.51 (M2+S2 env +0.37); M2 0.450 dB; coverage 0.40; det 0.391; envelope sd 0.307; tide M2 0.554 m; noise-free proportional synthetic -> gamma 1.008
+  EDA 1yr 2024-01..2025-01: gamma +0.91±0.34 (M2+S2 env +1.25); M2 0.387 dB; coverage 0.38; det 0.360; envelope sd 0.349; tide M2 0.553 m; noise-free proportional synthetic -> gamma 1.008
+  EDA 1yr 2025-01..2026-01: gamma +0.17±0.39 (M2+S2 env +0.09); M2 0.356 dB; coverage 0.58; det 0.297; envelope sd 0.308; tide M2 0.552 m; noise-free proportional synthetic -> gamma 1.008
+  EDA 1yr 2026-01..2026-10: gamma +0.89±1.67 (M2+S2 env +0.75); M2 0.284 dB; coverage 0.54; det 0.388; envelope sd 0.310; tide M2 0.556 m; noise-free proportional synthetic -> gamma 1.007
+  TAM 2yr 2022-03..2024-02: gamma +0.32±0.20 (M2+S2 env +0.57); M2 0.443 dB; coverage 0.71; det 0.148; envelope sd 0.304; tide M2 0.557 m; noise-free proportional synthetic -> gamma 1.008
+  TAM 2yr 2022-05..2024-05: gamma +0.57±0.24 (M2+S2 env +0.75); M2 0.435 dB; coverage 0.72; det 0.153; envelope sd 0.308; tide M2 0.555 m; noise-free proportional synthetic -> gamma 1.008
+  TAM 2yr 2022-08..2024-08: gamma +0.65±0.24 (M2+S2 env +0.64); M2 0.444 dB; coverage 0.72; det 0.160; envelope sd 0.309; tide M2 0.555 m; noise-free proportional synthetic -> gamma 1.008
+  TAM 2yr 2022-11..2024-11: gamma +0.67±0.25 (M2+S2 env +0.56); M2 0.434 dB; coverage 0.73; det 0.158; envelope sd 0.312; tide M2 0.554 m; noise-free proportional synthetic -> gamma 1.008
+  TAM 2yr 2023-02..2025-02: gamma +0.79±0.24 (M2+S2 env +0.63); M2 0.434 dB; coverage 0.73; det 0.159; envelope sd 0.311; tide M2 0.554 m; noise-free proportional synthetic -> gamma 1.008
+  TAM 2yr 2023-05..2025-05: gamma +0.69±0.27 (M2+S2 env +0.64); M2 0.442 dB; coverage 0.73; det 0.146; envelope sd 0.311; tide M2 0.553 m; noise-free proportional synthetic -> gamma 1.008
+  TAM 2yr 2023-08..2025-08: gamma +0.84±0.27 (M2+S2 env +0.87); M2 0.428 dB; coverage 0.73; det 0.135; envelope sd 0.311; tide M2 0.553 m; noise-free proportional synthetic -> gamma 1.008
+  TAM 2yr 2023-11..2025-11: gamma +0.90±0.27 (M2+S2 env +0.98); M2 0.413 dB; coverage 0.72; det 0.136; envelope sd 0.310; tide M2 0.553 m; noise-free proportional synthetic -> gamma 1.008
+  TAM 2yr 2024-02..2026-02: gamma +0.99±0.28 (M2+S2 env +1.02); M2 0.377 dB; coverage 0.73; det 0.133; envelope sd 0.312; tide M2 0.553 m; noise-free proportional synthetic -> gamma 1.008
+  TAM 2yr 2024-05..2026-05: gamma +0.97±0.35 (M2+S2 env +1.07); M2 0.342 dB; coverage 0.72; det 0.129; envelope sd 0.310; tide M2 0.553 m; noise-free proportional synthetic -> gamma 1.008
+  TAM 2yr 2024-08..2026-08: gamma +1.01±0.35 (M2+S2 env +1.33); M2 0.325 dB; coverage 0.72; det 0.116; envelope sd 0.310; tide M2 0.552 m; noise-free proportional synthetic -> gamma 1.008
+  TAM 1yr 2022-01..2023-01: gamma +0.24±0.32 (M2+S2 env +0.77); M2 0.492 dB; coverage 0.59; det 0.133; envelope sd 0.305; tide M2 0.560 m; noise-free proportional synthetic -> gamma 1.007
+  TAM 1yr 2023-01..2024-01: gamma +0.33±0.29 (M2+S2 env +0.20); M2 0.421 dB; coverage 0.73; det 0.156; envelope sd 0.304; tide M2 0.554 m; noise-free proportional synthetic -> gamma 1.008
+  TAM 1yr 2024-01..2025-01: gamma +1.11±0.34 (M2+S2 env +0.83); M2 0.456 dB; coverage 0.74; det 0.164; envelope sd 0.318; tide M2 0.553 m; noise-free proportional synthetic -> gamma 1.008
+  TAM 1yr 2025-01..2026-01: gamma +0.62±0.51 (M2+S2 env +1.37); M2 0.327 dB; coverage 0.71; det 0.106; envelope sd 0.305; tide M2 0.552 m; noise-free proportional synthetic -> gamma 1.008
+  TAM 1yr 2026-01..2026-10: gamma +1.41±0.65 (M2+S2 env +1.73); M2 0.293 dB; coverage 0.72; det 0.143; envelope sd 0.310; tide M2 0.556 m; noise-free proportional synthetic -> gamma 1.008
+  EDA: calendar-year gammas 2019 +0.40±0.29, 2020 +1.39±0.41, 2021 +0.44±0.31, 2022 +0.67±0.30, 2023 -0.09±0.51, 2024 +0.91±0.34, 2025 +0.17±0.39, 2026 +0.89±1.67; weighted mean +0.58; heterogeneity Q=8.5 on 7 dof, p=0.29
+  TAM: calendar-year gammas 2022 +0.24±0.32, 2023 +0.33±0.29, 2024 +1.11±0.34, 2025 +0.62±0.51, 2026 +1.41±0.65; weighted mean +0.60; heterogeneity Q=5.9 on 4 dof, p=0.20
+  EDA 2019-05..2024-12: gamma +0.74 [+0.46,+1.05] (A 0.548 dB, n 30264)
+  EDA 2025-01..2026-09: gamma +0.38 [-0.59,+1.61] (A 0.319 dB, n 8624)
+  TAM 2022-03..2024-12: gamma +0.59 [+0.22,+0.96] (A 0.486 dB, n 18038)
+  TAM 2025-01..2026-09: gamma +0.91 [+0.04,+1.80] (A 0.324 dB, n 10946)
+  -- joint (same-block) bootstrap of gamma, 2022-03..2024-02 [0.2 min]
+  bootstrap correlation of gamma estimates: EDA-TAM +0.37, EDA-SACV +0.06, TAM-SACV +0.37
+  gamma difference SACV-TAM: -0.59, joint-bootstrap 95% [-1.27,+0.07], P(diff>=0) 0.042
+  gamma difference SACV-EDA: -0.72, joint-bootstrap 95% [-1.48,+0.20], P(diff>=0) 0.060
+  gamma difference TAM-EDA: -0.13, joint-bootstrap 95% [-0.55,+0.51], P(diff>=0) 0.384
+  hourly LMB correlation (72-h high-passed, common hours n=7132): EDA-TAM +0.57, EDA-SACV +0.47, TAM-SACV +0.48
+  -- SACV-specific checks and far-station metric comparison [0.2 min]
+  EDA 2022-24 | LMB: gamma +0.46 [-0.11,+0.87] (A 0.566 dB, n 9187) | raw line PSD (no bg regression): gamma +0.59 [+0.01,+1.28] (A 0.613 dB, n 9187) | log SNR: gamma +0.31 [-0.80,+1.11] (A 0.483 dB, n 9187)
+  TAM 2022-24 | LMB: gamma +0.33 [-0.08,+0.73] (A 0.498 dB, n 12534) | raw line PSD (no bg regression): gamma +0.53 [-0.18,+1.78] (A 0.462 dB, n 12534) | log SNR: gamma +0.29 [-0.65,+0.82] (A 0.362 dB, n 12534)
+  MBAR 2022-24 | LMB: gamma +0.24 [-1.62,+3.76] (A 0.128 dB, n 12778) | raw line PSD (no bg regression): gamma -3.30 [-13.50,+16.75] (A 0.066 dB, n 12778) | log SNR: gamma +0.82 [-1.05,+3.54] (A 0.126 dB, n 12778)
+  SHEL 2022-24 | LMB: gamma +0.95 [-0.35,+2.18] (A 0.177 dB, n 13574) | raw line PSD (no bg regression): gamma +14.34 [-13.81,+21.95] (A 0.055 dB, n 13574) | log SNR: gamma +1.06 [-0.82,+3.01] (A 0.141 dB, n 13574)
+  SACV 2022-24 | LMB: gamma -0.26 [-0.88,+0.57] (A 0.303 dB, n 12158) | raw line PSD (no bg regression): gamma +0.85 [-1.29,+3.45] (A 0.269 dB, n 12158) | log SNR: gamma -0.61 [-1.17,+0.12] (A 0.273 dB, n 12158)
+  SACV all QC hours (as in robustness)   : gamma -0.26 [-0.85,+0.52] (A 0.303 dB, n 12158)
+  SACV slow line SNR above median        : gamma -0.59 [-1.52,+0.41] (A 0.329 dB, n 6079)
+  SACV slow line SNR top tercile         : gamma -1.07 [-2.52,-0.17] (A 0.370 dB, n 4049)
+  SACV slow line SNR below median        : gamma -0.10 [-0.99,+1.07] (A 0.286 dB, n 6079)
+  SACV detected-only hours               : gamma +3.09 [-1.72,+5.73] (A 0.272 dB, n 939)
+  SACV with Praia (local) tide envelope/phase: gamma -0.32 [-0.97,+0.67] (A 0.298 dB, n 12158)
+  Praia semidiurnal HW relative to Limbe: +5.86 h (phase of mean zP*conj(zL)); envelope corr 0.955
+  SACV with local-swell (ERA5 15N 23.5W, 3-d mean log Hs) interaction control: gamma -0.27 [-0.86,+0.51] (A 0.303 dB, n 12158)
+  SACV by envelope tercile (neap->spring): mean local Hs 1.38 m, 1.36 m, 1.37 m; mean slow log10 SNR 0.420, 0.413, 0.406; det rate 0.076, 0.078, 0.077
+  SACV 2022-03..2023-02: gamma -0.80 [-2.15,+0.19] (A 0.271 dB, n 6117)
+  SACV 2023-03..2024-02: gamma +0.20 [-0.70,+1.59] (A 0.337 dB, n 6041)
+
+==== CAVEAT 2: sub-proportional gamma [0.2 min]
+  (a) errors-in-variables: gamma using envelopes predicted at other gauges (harmonic predictions; same LMB data)
+  EDA full span, envelope from Port Sonara (pipeline)  : gamma +0.70 [+0.45,+1.00] (A 0.497 dB, n 38888)
+  EDA full span, envelope from Port Sonara             : gamma +0.71 [+0.39,+1.00] (A 0.497 dB, n 38888)
+  EDA full span, envelope from Sao Tome                : gamma +0.77 [+0.45,+1.10] (A 0.496 dB, n 38888)
+  EDA full span, envelope from Lagos                   : gamma +0.69 [+0.39,+1.09] (A 0.497 dB, n 38888)
+  TAM full span, envelope from Port Sonara (pipeline)  : gamma +0.68 [+0.36,+1.09] (A 0.424 dB, n 28984)
+  TAM full span, envelope from Port Sonara             : gamma +0.70 [+0.42,+1.11] (A 0.424 dB, n 28984)
+  TAM full span, envelope from Sao Tome                : gamma +0.75 [+0.37,+1.17] (A 0.423 dB, n 28984)
+  TAM full span, envelope from Lagos                   : gamma +0.69 [+0.41,+1.11] (A 0.424 dB, n 28984)
+  (c) shape fits to 8 envelope bins (in-phase amplitude; covariance from 30-d block bootstrap) [0.3 min]
+  EDA constant         : chi2  25.6/7 (p=0.001), AIC  27.6, params 0.462, implied dlnA/dlnE at mean 0.00
+  EDA proportional     : chi2   7.7/7 (p=0.356), AIC   9.7, params 0.857, implied dlnA/dlnE at mean 1.00
+  EDA linear+offset    : chi2   3.6/6 (p=0.728), AIC   7.6, params 0.147, 0.610, implied dlnA/dlnE at mean 0.71
+  EDA power law        : chi2   4.0/6 (p=0.673), AIC   8.0, params 0.510, 0.701, implied dlnA/dlnE at mean 0.70
+  EDA saturating 1-exp : chi2   4.7/6 (p=0.589), AIC   8.7, params 1.104, 0.928, implied dlnA/dlnE at mean 0.72
+  TAM constant         : chi2  38.6/7 (p=0.000), AIC  40.6, params 0.376, implied dlnA/dlnE at mean 0.00
+  TAM proportional     : chi2  22.8/7 (p=0.002), AIC  24.8, params 0.666, implied dlnA/dlnE at mean 1.00
+  TAM linear+offset    : chi2  21.3/6 (p=0.002), AIC  25.3, params 0.091, 0.522, implied dlnA/dlnE at mean 0.77
+  TAM power law        : chi2  21.0/6 (p=0.002), AIC  25.0, params 0.397, 0.740, implied dlnA/dlnE at mean 0.74
+  TAM saturating 1-exp : chi2  20.6/6 (p=0.002), AIC  24.6, params 0.855, 0.907, implied dlnA/dlnE at mean 0.72
+
+  (d) + caveat 3: sideband decomposition of the response (joint fit incl. K2, L2, MU2, NU2, 2N2; 30-d day-aligned block bootstrap) [0.3 min]
+  EDA 2019-26: g_S2 0.92 [0.64,1.26]  g_MU2(mirror) -0.06 [-0.34,+0.19]  | g_N2 0.68 [0.20,1.08]  g_L2(mirror) -0.37 [-0.75,+0.10]  | g_K2 0.83 [-0.01,1.69]
+      implied gamma: spring-neap (S2 pair) main +0.84 [0.28, 1.51], mirror +0.87 [0.32, 1.39], pair +0.86 [0.48, 1.28] | perigean (N2 pair) main +0.36 [-0.6, 1.17], mirror +0.26 [-0.5, 1.2], pair +0.31 [-0.27, 0.94]
+      AM consistency (mirror - (main-1); 0 expected): N2/L2 -0.05 [-0.58,+0.69], S2/MU2 +0.01 [-0.45,+0.40]; |L2| 0.049 dB (tide-following 0.011), |MU2| 0.019 dB (tide-following 0.021)
+  TAM 2022-26: g_S2 0.97 [0.67,1.30]  g_MU2(mirror) -0.22 [-0.59,+0.12]  | g_N2 0.95 [0.45,1.53]  g_L2(mirror) -0.19 [-0.78,+0.31]  | g_K2 1.35 [0.29,2.52]
+      implied gamma: spring-neap (S2 pair) main +0.94 [0.33, 1.59], mirror +0.56 [-0.18, 1.23], pair +0.75 [0.38, 1.13] | perigean (N2 pair) main +0.91 [-0.11, 2.06], mirror +0.61 [-0.55, 1.62], pair +0.76 [-0.0, 1.54]
+      AM consistency (mirror - (main-1); 0 expected): N2/L2 -0.15 [-0.96,+0.59], S2/MU2 -0.19 [-0.76,+0.34]; |L2| 0.045 dB (tide-following 0.009), |MU2| 0.052 dB (tide-following 0.017)
+  EDA 2022-24: g_S2 1.04 [0.52,1.61]  g_MU2(mirror) -0.42 [-1.11,+0.06]  | g_N2 0.73 [-0.29,1.45]  g_L2(mirror) -0.37 [-1.27,+0.51]  | g_K2 2.06 [0.57,4.05]
+      implied gamma: spring-neap (S2 pair) main +1.08 [0.03, 2.22], mirror +0.17 [-1.23, 1.11], pair +0.62 [-0.1, 1.17] | perigean (N2 pair) main +0.47 [-1.59, 1.9], mirror +0.27 [-1.54, 2.01], pair +0.37 [-0.66, 1.18]
+      AM consistency (mirror - (main-1); 0 expected): N2/L2 -0.10 [-1.52,+1.51], S2/MU2 -0.45 [-1.47,+0.37]; |L2| 0.073 dB (tide-following 0.012), |MU2| 0.096 dB (tide-following 0.022)
+  TAM 2022-24: g_S2 1.18 [0.78,1.60]  g_MU2(mirror) -0.57 [-1.11,-0.08]  | g_N2 0.99 [0.26,1.96]  g_L2(mirror) -0.67 [-1.49,-0.06]  | g_K2 1.48 [-0.13,3.21]
+      implied gamma: spring-neap (S2 pair) main +1.35 [0.55, 2.2], mirror -0.14 [-1.21, 0.84], pair +0.61 [0.04, 1.14] | perigean (N2 pair) main +0.98 [-0.49, 2.92], mirror -0.34 [-1.97, 0.87], pair +0.32 [-0.77, 1.51]
+      AM consistency (mirror - (main-1); 0 expected): N2/L2 -0.66 [-1.95,+0.15], S2/MU2 -0.74 [-1.54,-0.02]; |L2| 0.077 dB (tide-following 0.010), |MU2| 0.149 dB (tide-following 0.019)
+  SACV 2022-24: g_S2 0.54 [-0.28,1.31]  g_MU2(mirror) -0.94 [-1.97,+0.12]  | g_N2 1.52 [0.19,3.07]  g_L2(mirror) -0.94 [-2.34,+0.38]  | g_K2 0.57 [-1.91,2.93]
+      implied gamma: spring-neap (S2 pair) main +0.08 [-1.56, 1.63], mirror -0.89 [-2.94, 1.25], pair -0.40 [-1.47, 0.73] | perigean (N2 pair) main +2.03 [-0.62, 5.15], mirror -0.87 [-3.68, 1.75], pair +0.58 [-1.03, 2.44]
+      AM consistency (mirror - (main-1); 0 expected): N2/L2 -1.45 [-3.74,+0.55], S2/MU2 -0.49 [-2.01,+1.10]; |L2| 0.068 dB (tide-following 0.006), |MU2| 0.120 dB (tide-following 0.012)
+
+==== CAVEAT 3: the L2 term [0.3 min]
+  EDA 2019-26: |L2| 0.049 dB; block-resampled nulls p15=0.277, p30=0.120; local rank among 1524 off-line frequencies 1.80-2.10 cpd p=0.127 (x~5 sidebands that could have been blamed -> look-elsewhere p~0.63); max |corr| of L2 regressors with others 0.020
+      estimator check on this mask, noise-free response |z|^(g-1) z (true AM, full Limbe tide): g=1.0: g_L2 -0.00 (theory +0.00), g_N2 1.00 (1.00), g_MU2 +0.00, g_S2 1.00; g=0.5: g_L2 -0.23 (theory -0.25), g_N2 0.83 (0.75), g_MU2 -0.26, g_S2 0.76; g=0.3: g_L2 -0.32 (theory -0.35), g_N2 0.76 (0.65), g_MU2 -0.36, g_S2 0.66
+  TAM 2022-26: |L2| 0.045 dB; block-resampled nulls p15=0.326, p30=0.216; local rank among 907 off-line frequencies 1.80-2.10 cpd p=0.198 (x~5 sidebands that could have been blamed -> look-elsewhere p~0.99); max |corr| of L2 regressors with others 0.014
+      estimator check on this mask, noise-free response |z|^(g-1) z (true AM, full Limbe tide): g=1.0: g_L2 -0.01 (theory +0.00), g_N2 1.00 (1.00), g_MU2 +0.00, g_S2 1.01; g=0.5: g_L2 -0.22 (theory -0.25), g_N2 0.82 (0.75), g_MU2 -0.26, g_S2 0.78; g=0.3: g_L2 -0.31 (theory -0.35), g_N2 0.75 (0.65), g_MU2 -0.37, g_S2 0.67
+  EDA 2-yr windows (1-yr step): g_L2(mirror) / g_N2: 2019-05 -0.38/0.78; 2020-05 -0.30/0.85; 2021-05 -0.65/0.89; 2022-05 -0.38/0.68; 2023-05 +0.41/-0.21; 2024-05 -0.11/0.48
+  3-h Hann^2 window transfer of a power modulation: M2 0.9772, L2 0.9763 (ratio 0.9991) -> smoothing cannot enhance L2
+  EDA 2019-26: lunar envelope M2+N2 (as before): gamma +0.21 [-0.35,+0.79] (A 0.481 dB, n 38888) | gauge lunar set M2+N2+L2+NU2+2N2: gamma +0.45 [-0.20,+1.16] (A 0.481 dB, n 38888)
+  TAM 2022-26: lunar envelope M2+N2 (as before): gamma +0.61 [-0.16,+1.47] (A 0.404 dB, n 28984) | gauge lunar set M2+N2+L2+NU2+2N2: gamma +0.88 [+0.07,+1.72] (A 0.404 dB, n 28984)
+  SACV 2022-24: lunar envelope M2+N2 (as before): gamma +0.42 [-1.21,+2.09] (A 0.287 dB, n 12158) | gauge lunar set M2+N2+L2+NU2+2N2: gamma +0.32 [-1.54,+2.53] (A 0.287 dB, n 12158)
+
+==== UNIFIED: envelope = full harmonic prediction from gauge constants, metric = continuous LMB (all QC hours), EIV range [0.5 min]
+  EDA 2019-26: gamma +0.70 [+0.42,+1.00] (A 0.497 dB, n 38888); divided by the gauge/constituent-error attenuation range 0.89-1.12: +0.62 to +0.79
+  TAM 2022-26: gamma +0.68 [+0.35,+1.05] (A 0.424 dB, n 28984); divided by the gauge/constituent-error attenuation range 0.89-1.12: +0.60 to +0.76
+  SACV 2022-24: gamma -0.26 [-0.90,+0.55] (A 0.303 dB, n 12158); divided by the gauge/constituent-error attenuation range 0.89-1.12: -0.23 to -0.29
+  EDA 2022-24: gamma +0.46 [-0.15,+0.93] (A 0.566 dB, n 9187); divided by the gauge/constituent-error attenuation range 0.89-1.12: +0.41 to +0.52
+  TAM 2022-24: gamma +0.33 [-0.11,+0.71] (A 0.498 dB, n 12534); divided by the gauge/constituent-error attenuation range 0.89-1.12: +0.29 to +0.37
+
+==== EXTRA TESTS [0.6 min]
+  EDA envelope-delay scan (response follows E(t-lag)): -48h +0.23, -36h +0.38, -24h +0.50, -12h +0.61, +0h +0.70, +12h +0.76, +24h +0.79, +36h +0.79, +48h +0.75, +60h +0.67, +72h +0.57, +84h +0.44, +96h +0.29, +108h +0.13, +120h -0.05, +132h -0.22, +144h -0.38; best lag by RSS +24 h (gamma +0.79, dRSS vs lag 0 -59.2 dB^2)
+  TAM envelope-delay scan (response follows E(t-lag)): -48h +0.44, -36h +0.54, -24h +0.60, -12h +0.64, +0h +0.68, +12h +0.70, +24h +0.69, +36h +0.64, +48h +0.57, +60h +0.48, +72h +0.37, +84h +0.25, +96h +0.11, +108h -0.02, +120h -0.15, +132h -0.28, +144h -0.38; best lag by RSS -12 h (gamma +0.64, dRSS vs lag 0 -1.9 dB^2)
+  EDA 2022-24 background bands | 20-24 s band: Q/P -0.85 [-5.13,+4.03], M2-band A 0.131 dB, spring-neap amplitude |Q| 0.117 dB | 29-34 s band: Q/P +1.04 [-1.49,+8.13], M2-band A 0.159 dB, spring-neap amplitude |Q| 0.184 dB | LMB regression weights b1 0.23, b2 0.36
+  TAM 2022-24 background bands | 20-24 s band: Q/P +0.03 [-4.79,+2.80], M2-band A 0.168 dB, spring-neap amplitude |Q| 0.231 dB | 29-34 s band: Q/P +7.13 [-7.15,+13.23], M2-band A 0.035 dB, spring-neap amplitude |Q| 0.257 dB | LMB regression weights b1 0.29, b2 0.42
+  SACV 2022-24 background bands | 20-24 s band: Q/P +1.66 [-8.83,+11.66], M2-band A 0.100 dB, spring-neap amplitude |Q| 0.345 dB | 29-34 s band: Q/P +2.05 [-14.15,+15.56], M2-band A 0.082 dB, spring-neap amplitude |Q| 0.465 dB | LMB regression weights b1 0.33, b2 0.51
+  -- joint power simulation 2022-03..2024-02 (shared random-start 15-d blocks; inverse-variance mean of EDA, TAM, SACV gamma) [0.6 min]
+  true gamma 0.7: weighted-mean gamma_hat 0.70 ± 0.23; observed weighted mean +0.26; P(<= observed) 0.020
+  true gamma 1.0: weighted-mean gamma_hat 0.99 ± 0.25; observed weighted mean +0.26; P(<= observed) 0.003
+  EDA 2019-26 lunar envelope M2+N2            : boot P(gamma<=0) 0.206, P(gamma>=1) 0.008; envelope e 5-95% -0.22..+0.20; corr with M2+N2 env 1.000
+  EDA 2019-26 lunar envelope M2+N2+L2+NU2+2N2 : boot P(gamma<=0) 0.072, P(gamma>=1) 0.040; envelope e 5-95% -0.19..+0.22; corr with M2+N2 env 0.970
+  TAM 2022-26 lunar envelope M2+N2            : boot P(gamma<=0) 0.056, P(gamma>=1) 0.190; envelope e 5-95% -0.22..+0.20; corr with M2+N2 env 1.000
+  TAM 2022-26 lunar envelope M2+N2+L2+NU2+2N2 : boot P(gamma<=0) 0.028, P(gamma>=1) 0.428; envelope e 5-95% -0.19..+0.22; corr with M2+N2 env 0.970
+  EDA post-hoc split: 2019-05..2021-12 gamma +0.90 [+0.51,+1.34] (A 0.558 dB, n 17414) | 2022-01..2026-09 gamma +0.50 [+0.09,+0.92] (A 0.448 dB, n 21474) | difference z=1.34 (nominal two-sided p=0.179; NOT corrected for choosing the split)
+  EDA 2019-26: S2 excess over AM prediction (= -consistency) -0.01 [-0.40,+0.45] x |a_M T_S2| 0.171 dB -> additive S2 bound +0.076 dB (95% upper)
+  TAM 2022-26: S2 excess over AM prediction (= -consistency) +0.19 [-0.34,+0.76] x |a_M T_S2| 0.143 dB -> additive S2 bound +0.108 dB (95% upper)
+done [0.6 min]
+
+==== ADD-ON (caveats_bg.py): where does the LMB envelope term come from? in-phase Q (dB per unit e, projected on LMB M2 phase) = raw line - w1*bg(20-24 s) - w2*bg(29-34 s)
+  EDA 2022-03..2024-02: raw line: P +0.613 [+0.463,+0.774], Q +0.364 [+0.013,+0.791] | bg 20-24 s: P -0.126 [-0.278,-0.003], Q +0.117 [-0.390,+0.805] | bg 29-34 s: P +0.158 [+0.028,+0.293], Q +0.156 [-0.351,+0.864] | LMB: P +0.566 [+0.462,+0.683], Q +0.259 [-0.054,+0.604] | weights w1 0.23, w2 0.36; line - w.bg = +0.281; gamma_LMB = Q/P = +0.46, gamma_line = +0.59
+  TAM 2022-03..2024-02: raw line: P +0.460 [+0.363,+0.593], Q +0.186 [-0.177,+0.697] | bg 20-24 s: P -0.138 [-0.249,-0.019], Q +0.126 [-0.353,+0.730] | bg 29-34 s: P +0.005 [-0.103,+0.145], Q -0.034 [-0.436,+0.555] | LMB: P +0.498 [+0.433,+0.589], Q +0.163 [-0.049,+0.353] | weights w1 0.29, w2 0.42; line - w.bg = +0.164; gamma_LMB = Q/P = +0.33, gamma_line = +0.41
+  SACV 2022-03..2024-02: raw line: P +0.262 [+0.137,+0.381], Q +0.115 [-0.289,+0.673] | bg 20-24 s: P -0.061 [-0.182,+0.065], Q +0.137 [-0.259,+0.679] | bg 29-34 s: P -0.041 [-0.190,+0.116], Q +0.290 [-0.141,+0.866] | LMB: P +0.303 [+0.223,+0.364], Q -0.079 [-0.239,+0.128] | weights w1 0.33, w2 0.51; line - w.bg = -0.079; gamma_LMB = Q/P = -0.26, gamma_line = +0.44
+  EDA 2019-05..2026-09: raw line: P +0.558 [+0.471,+0.637], Q +0.564 [+0.302,+0.797] | bg 20-24 s: P -0.058 [-0.161,+0.032], Q +0.282 [-0.066,+0.595] | bg 29-34 s: P +0.152 [+0.037,+0.242], Q +0.301 [-0.069,+0.586] | LMB: P +0.497 [+0.446,+0.558], Q +0.347 [+0.203,+0.507] | weights w1 0.24, w2 0.49; line - w.bg = +0.347; gamma_LMB = Q/P = +0.70, gamma_line = +1.01
+  TAM 2022-03..2026-09: raw line: P +0.493 [+0.417,+0.575], Q +0.158 [-0.057,+0.453] | bg 20-24 s: P +0.009 [-0.085,+0.098], Q -0.129 [-0.437,+0.260] | bg 29-34 s: P +0.157 [+0.076,+0.250], Q -0.215 [-0.489,+0.121] | LMB: P +0.424 [+0.369,+0.483], Q +0.287 [+0.137,+0.442] | weights w1 0.30, w2 0.42; line - w.bg = +0.287; gamma_LMB = Q/P = +0.68, gamma_line = +0.32
+
+==== ADD-ON 2 (caveats_bg2.py): sideband test per series (raw line / bg 20-24 s / bg 29-34 s / LMB). g_X = Re[P_X/(a_M T_X)], a_M from the LMB M2 term; gamma_S = g_S2+g_MU2, gamma_N = g_N2+g_L2; 'S2 excess' = g_S2-(g_MU2+1) (solar S2 contamination -> excess != 0). Amplitudes in dB; [95% joint block-bootstrap].
+  EDA 2019-05..2026-09:
+    raw line    |M2| 0.549  |S2| 0.208  |S1| 0.108  |S3| 0.037  g_S2 +1.130 [+0.60,+1.93]  g_MU2 +0.374 [-0.07,+0.67]  g_N2 +1.029 [+0.04,+1.52]  g_L2 -0.809 [-1.31,-0.20]  gamma_S +1.505 [+0.79,+2.31]  gamma_N +0.220 [-0.77,+0.89]  S2 excess -0.244 [-0.77,+0.69]
+    bg 20-24 s  |M2| 0.128  |S2| 0.048  |S1| 0.154  |S3| 0.032  g_S2 +0.122 [-0.52,+0.90]  g_MU2 +0.645 [+0.07,+1.13]  g_N2 +0.393 [-0.68,+1.05]  g_L2 -0.209 [-0.93,+0.64]  gamma_S +0.767 [-0.10,+1.66]  gamma_N +0.184 [-1.03,+1.15]  S2 excess -1.523 [-2.30,-0.52]
+    bg 29-34 s  |M2| 0.208  |S2| 0.069  |S1| 0.043  |S3| 0.024  g_S2 +0.362 [-0.29,+1.20]  g_MU2 +0.575 [+0.03,+0.90]  g_N2 +0.519 [-0.66,+1.14]  g_L2 -0.792 [-1.47,-0.03]  gamma_S +0.937 [-0.01,+1.81]  gamma_N -0.274 [-1.57,+0.64]  S2 excess -1.212 [-1.88,-0.16]
+    LMB         |M2| 0.474  |S2| 0.166  |S1| 0.053  |S3| 0.017  g_S2 +0.922 [+0.65,+1.27]  g_MU2 -0.065 [-0.34,+0.18]  g_N2 +0.679 [+0.23,+1.06]  g_L2 -0.369 [-0.73,+0.13]  gamma_S +0.858 [+0.50,+1.28]  gamma_N +0.310 [-0.27,+0.92]  S2 excess -0.013 [-0.37,+0.44]
+  TAM 2022-03..2026-09:
+    raw line    |M2| 0.472  |S2| 0.170  |S1| 0.216  |S3| 0.127  g_S2 +0.822 [+0.31,+1.35]  g_MU2 -0.327 [-0.89,+0.25]  g_N2 +0.775 [-0.27,+1.79]  g_L2 -0.461 [-1.27,+0.31]  gamma_S +0.495 [-0.27,+1.25]  gamma_N +0.313 [-1.04,+1.66]  S2 excess +0.149 [-0.61,+0.94]
+    bg 20-24 s  |M2| 0.018  |S2| 0.087  |S1| 0.249  |S3| 0.152  g_S2 +0.117 [-0.55,+0.78]  g_MU2 -0.185 [-1.04,+0.59]  g_N2 -0.735 [-2.03,+0.61]  g_L2 +0.149 [-0.97,+1.23]  gamma_S -0.068 [-1.14,+0.96]  gamma_N -0.586 [-2.42,+1.19]  S2 excess -0.698 [-1.74,+0.33]
+    bg 29-34 s  |M2| 0.174  |S2| 0.094  |S1| 0.661  |S3| 0.128  g_S2 -0.437 [-1.03,+0.17]  g_MU2 -0.118 [-0.83,+0.54]  g_N2 +0.088 [-1.10,+1.18]  g_L2 -0.740 [-1.70,+0.20]  gamma_S -0.556 [-1.46,+0.36]  gamma_N -0.652 [-2.13,+0.75]  S2 excess -1.319 [-2.20,-0.37]
+    LMB         |M2| 0.396  |S2| 0.155  |S1| 0.134  |S3| 0.066  g_S2 +0.972 [+0.68,+1.30]  g_MU2 -0.222 [-0.58,+0.11]  g_N2 +0.955 [+0.44,+1.57]  g_L2 -0.193 [-0.76,+0.33]  gamma_S +0.750 [+0.35,+1.13]  gamma_N +0.761 [+0.01,+1.56]  S2 excess +0.194 [-0.33,+0.76]
+  SACV 2022-03..2024-02:
+    raw line    |M2| 0.238  |S2| 0.136  |S1| 0.136  |S3| 0.047  g_S2 +0.877 [-0.22,+2.36]  g_MU2 -0.362 [-2.23,+2.36]  g_N2 +1.485 [-0.90,+3.72]  g_L2 -0.205 [-2.43,+2.15]  gamma_S +0.515 [-1.55,+3.67]  gamma_N +1.280 [-2.07,+4.92]  S2 excess +0.238 [-2.73,+2.54]
+    bg 20-24 s  |M2| 0.079  |S2| 0.075  |S1| 0.163  |S3| 0.061  g_S2 +0.484 [-0.64,+2.26]  g_MU2 +0.700 [-1.02,+3.47]  g_N2 -0.716 [-3.97,+1.67]  g_L2 -0.207 [-2.97,+2.74]  gamma_S +1.184 [-0.87,+4.59]  gamma_N -0.923 [-5.03,+3.10]  S2 excess -1.216 [-4.19,+0.99]
+    bg 29-34 s  |M2| 0.066  |S2| 0.075  |S1| 0.205  |S3| 0.074  g_S2 +0.343 [-0.60,+1.71]  g_MU2 +0.685 [-0.83,+2.96]  g_N2 +0.402 [-1.99,+2.73]  g_L2 +1.558 [-0.43,+4.08]  gamma_S +1.027 [-0.59,+4.03]  gamma_N +1.960 [-0.94,+5.75]  S2 excess -1.342 [-3.55,+0.63]
+    LMB         |M2| 0.272  |S2| 0.074  |S1| 0.080  |S3| 0.031  g_S2 +0.541 [-0.25,+1.27]  g_MU2 -0.944 [-1.97,+0.20]  g_N2 +1.515 [+0.06,+3.02]  g_L2 -0.936 [-2.44,+0.27]  gamma_S -0.403 [-1.40,+0.72]  gamma_N +0.579 [-1.30,+2.38]  S2 excess +0.485 [-1.21,+1.94]
+
+==== VERDICTS (written by hand from the numbers above; 10 Oct 2026 PT) ====
+CAVEAT 1 - weak gamma in the 2022-24 window (EDA 0.46, TAM 0.33), SACV -0.26
+ (a) Power: RULED IN as a major factor. In 2 yr the gamma sd is 0.27-0.32 (EDA/TAM) and 0.44-0.50 (SACV), against 0.17 for EDA over 7 yr.
+     If the true gamma is 0.7, a 2-yr window excludes 0 only 53% (EDA), 73% (TAM) and 34% (SACV) of the time.
+ But power alone does not explain all of it. If gamma = 0.7, the three common-window values are jointly as low as observed only 2% of the time
+     (joint simulation with shared blocks, so the 0.37 correlation between stations is kept). If gamma = 1, this falls to 0.3%.
+ (b) Real time variation: NOT DEMONSTRATED. Calendar-year heterogeneity p = 0.29 (EDA) and p = 0.20 (TAM).
+     The EDA 2-yr windows fall from ~1.0 (2019-22) to 0.05-0.5 (2022-26). The post-hoc split gives 0.90 vs 0.50, z = 1.34, uncorrected.
+     TAM moves the opposite way: 0.32 in 2022-24, rising to ~1.0 in 2024-26.
+     Not linked to the 2024-26 amplitude drop (TAM gamma ~1 while its M2 fell to 0.33 dB) or to the 2025 doublet switch
+     (EDA 2025-26: 0.38 [-0.59, 1.61]; TAM: 0.91 [0.04, 1.80]).
+     The gaps (EDA coverage 0.40-0.50 in 2022-25) add noise but no bias: the noise-free synthetic gives 1.008 in every window.
+ (c) Nodal or perigee change in the envelope mix: RULED OUT. The tidal M2 amplitude changes by only 4% (0.574 to 0.552 m).
+     The envelope sd changes 0.29 to 0.33. The noise-free gamma stays at 1.007-1.008 in every window.
+ (d) SACV:
+     Local tide RULED OUT: the Praia envelope gives -0.32, and the Praia/Limbe envelope correlation is 0.955.
+     Local swell RULED OUT: the control gives -0.27, and Hs is flat at 1.38/1.36/1.37 m across the terciles.
+     Selection RULED OUT: the detection rate is flat across the terciles, and the metric is continuous.
+     Higher-SNR hours do NOT help: the top tercile gives -1.07.
+     The metric matters: raw line +0.44 (in-phase Q +0.115) vs LMB -0.26. The two background bands carry positive envelope terms
+     (Q +0.14 and +0.29; not individually significant), and the LMB regression subtracts them (weights 0.33, 0.51).
+     The two halves differ: -0.80 and +0.20.
+     The SACV-TAM difference is -0.59 [-1.27, +0.07]. The hourly LMB correlation is 0.47-0.57 between stations,
+     so the three stations are not independent replicates.
+ (e) Far-station metric: background regression changes gamma by +-0.3-0.7 at the strong stations
+     (EDA 2022-24: line 0.59 / LMB 0.46; TAM: 0.53 / 0.33; SACV: 0.85 / -0.26).
+     At MBAR and SHEL the raw line is unusable (CIs of +-10 or more), and LMB and log SNR are uninformative.
+ BEST EXPLANATION: the 2-yr window has low power. On top of that there is a shared (source- or ambient-noise) fluctuation in 2022-24 that
+     pushes all three stations low together (joint p ~ 0.02 under constant gamma = 0.7), plus a background-subtraction systematic of a few
+     tenths. No physical driver was found.
+ PAPER: "In 2-yr windows gamma is poorly constrained (sd 0.3-0.5). The 2022-24 values are low at all stations, partly because the stations
+     share noise. We cannot distinguish this from a modest real change in the source's tidal sensitivity."
+
+CAVEAT 2 - gamma < 1
+ (a) Errors in variables: MINOR. With the true tide at Sao Tome or Lagos, the recovered gamma is 0.93-0.94; with S2 off by +-20%, 0.89/1.12.
+     The observed Port Sonara S2/M2 (2008-11) is 0.344, vs 0.361 in the prediction.
+     Using other gauges' envelopes gives EDA 0.69-0.77 and TAM 0.69-0.75. This explains at most ~0.05-0.1.
+ (b) dB/log compression: RULED OUT as a cause of gamma < 1. Linear-in-power responses give gamma 1.01-1.80 (always >= 1).
+ (c) Shape: EDA bins accept proportional (chi2 7.7/7, p = 0.36). Power law (0.70), linear+offset (offset 0.15 dB) and saturating fits are
+     marginally better (dAIC ~ 1-2), and constant is rejected (p = 0.001). TAM bins scatter beyond their errors, so all fits fail
+     (p = 0.002) and the shape is undecidable.
+     Symmetric saturation tanh(h/0.6 m) reproduces gamma 0.70 with M4/M2 0.046 (observed 0.071, tide 0.054): ALLOWED.
+     One-sided clipping or thresholds: RULED OUT (M4/M2 0.14-0.32).
+ (d) Constant non-tidal component: a solar/thermal S2 is NOT SUPPORTED. The S2 excess over the AM prediction is -0.01 [-0.40, 0.45] (EDA)
+     and +0.19 [-0.34, 0.76] (TAM); the additive S2 is <= 0.08-0.11 dB. A range-independent M2-locked part (linear+offset) is ALLOWED
+     but not required.
+ (e) Current vs height mix: RULED OUT as a cause. Linear current gives 1.02 and u|u| gives 1.86, so any mix gives gamma >= 1.
+     A delayed response is not a consistent explanation: gamma peaks at only 0.79 for a +24-36 h lag at EDA, and the best TAM lag is -12 h.
+ Decomposition: the deficit comes mostly from the perigean (N2/L2) part at EDA (N2 pair 0.31 vs S2 pair 0.86; M2+S2 envelope 0.96).
+     It is also metric-dependent: EDA raw line full span 1.01 vs LMB 0.70; TAM 0.32 vs 0.68.
+     The EDA background bands carry significant MU2/L2-type terms (bg 20-24 s g_MU2 +0.65 [0.07, 1.13]; bg 29-34 s g_L2 -0.79 [-1.47, -0.03]).
+ BEST EXPLANATION: sub-proportionality is NOT robust. The spring-neap leg alone is consistent with gamma = 1 at EDA and TAM. Below-1 values
+     come from the noisy perigean leg and the background treatment. Mild symmetric saturation is the only physical mechanism tested that
+     could give gamma ~ 0.7 without violating M4.
+ PAPER: "The response scales with tidal range with gamma ~ 0.7-1 (EDA 0.70 [0.41, 0.99]; spring-neap-only 0.96 [0.56, 1.37]).
+     Proportional scaling is not excluded. The apparent shortfall is within metric and estimation systematics."
+
+CAVEAT 3 - lunar-envelope gamma 0.21 at EDA / L2 term
+ (a) Fluke: LIKELY. L2 is 0.049 dB (tide-following 0.011). Block nulls give p15 = 0.28 and p30 = 0.12. Its local rank among 1524 off-line
+     frequencies is p = 0.13, and ~0.6 after the look-elsewhere correction. TAM has a similar L2 (0.045 dB, p30 = 0.22).
+     Across 2-yr windows it is negative in 5 of 6 (overlapping) windows.
+ (b) Physically enhanced L2: RULED OUT. Gauge L2/M2 is 0.019 (Port Sonara), 0.020 (Sao Tome) and 0.024 (Lagos), all below equilibrium 0.028.
+ (c) Leakage/aliasing: RULED OUT. The regressor correlation is <= 0.02, and the 3-h window transfer ratio L2/M2 is 0.999.
+     The AM estimator recovers the theory on the real mask.
+ The AM consistency g_L2 = g_N2 - 1 holds (-0.05 [-0.58, 0.69]), but this is weak.
+     The L2 term is present in the EDA raw line (g_L2 -0.81 [-1.31, -0.20]) AND in the 29-34 s background band (-0.79), so it is partly broadband.
+ (d) Rebuilt lunar envelope (M2+N2+L2+NU2+2N2; the earlier M2+N2 envelope omitted the tide's own L2):
+     EDA 0.21 -> 0.45 [-0.20, 1.16], P(gamma >= 1) 0.008 -> 0.040, P(gamma <= 0) = 0.07.
+     TAM 0.61 -> 0.88 [0.07, 1.72], P(gamma <= 0) = 0.028. SACV 0.32 (uninformative).
+     The lunar test now passes at TAM and is inconclusive at EDA.
+ BEST EXPLANATION: the lunar-only envelope varies only +-0.2, vs +-0.5 for the full envelope, so the test has little power. The original
+     envelope was incomplete, and the L2 term is a ~1.5 sigma fluctuation, partly shared with the background noise.
+ PAPER: "The lunar-only (perigean) test is weak. With a complete lunar envelope it is consistent with proportional scaling at TAM and
+     inconclusive at EDA."
+
+UNIFIED (real-tide full envelope, continuous LMB metric, errors-in-variables bracket 0.89-1.12):
+     EDA 0.70 [0.42, 1.00] -> 0.62-0.79; TAM 0.68 [0.35, 1.05] -> 0.60-0.76; SACV 2022-24 -0.26 [-0.90, 0.55] -> -0.23 to -0.29
+     (Praia envelope -0.32).
+     Metric systematic (raw line instead of LMB): EDA 1.01, TAM 0.32, SACV +0.44.

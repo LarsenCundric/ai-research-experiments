@@ -1,0 +1,171 @@
+windows total 52547, QC-pass 38888 (74.0%)
+control-band SNR thresholds: 1% FAR 5.99, 0.1% FAR 12.15
+detection rate (1% FAR): 12044/38888 = 31.0%;  strict (0.1% FAR): 7.4%
+July 2023: QC windows 534, detected 179 (33.5%); median period 26.355 s (95% day-block bootstrap CI 26.312-26.391); robust spread (1.4826*MAD) 0.201 s
+monthly median period (s) [95% CI] n_det det_rate:
+  2019-05  26.347 [26.323,26.373]  n=219  rate=0.46
+  2019-06  26.329 [26.274,26.422]  n=177  rate=0.34
+  2019-07  26.306 [26.282,26.360]  n=192  rate=0.36
+  2019-08  26.287 [26.267,26.324]  n=190  rate=0.32
+  2019-09  26.283 [26.239,26.343]  n=83  rate=0.16
+  2019-10  26.295 [26.247,26.341]  n=109  rate=0.18
+  2019-11  26.350 [26.254,26.428]  n=84  rate=0.16
+  2019-12  26.297 [26.226,26.337]  n=87  rate=0.15
+  2020-01  26.284 [26.246,26.369]  n=83  rate=0.15
+  2020-02  26.293 [26.246,26.332]  n=116  rate=0.21
+  2020-03  26.321 [26.275,26.346]  n=159  rate=0.28
+  2020-04  26.324 [26.298,26.343]  n=218  rate=0.37
+  2020-05  26.358 [26.307,26.394]  n=142  rate=0.25
+  2020-06  26.332 [26.253,26.412]  n=143  rate=0.28
+  2020-07  26.292 [26.244,26.327]  n=185  rate=0.32
+  2020-08  26.314 [26.276,26.371]  n=102  rate=0.19
+  2020-09  26.336 [26.301,26.365]  n=165  rate=0.31
+  2020-10  26.297 [26.278,26.340]  n=137  rate=0.26
+  2020-11  26.348 [26.294,26.380]  n=150  rate=0.26
+  2020-12  26.313 [26.244,26.374]  n=180  rate=0.30
+  2021-01  26.341 [26.296,26.407]  n=169  rate=0.31
+  2021-02  26.267 [26.228,26.337]  n=167  rate=0.34
+  2021-03  26.338 [26.285,26.369]  n=208  rate=0.40
+  2021-04  26.317 [26.277,26.348]  n=255  rate=0.48
+  2021-05  26.326 [26.310,26.369]  n=165  rate=0.32
+  2021-06  26.298 [26.266,26.333]  n=262  rate=0.46
+  2021-07  26.308 [26.285,26.349]  n=248  rate=0.45
+  2021-08  26.300 [26.227,26.366]  n=101  rate=0.20
+  2021-09  26.307 [26.282,26.338]  n=115  rate=0.21
+  2021-10  26.318 [26.264,26.387]  n=100  rate=0.18
+  2021-11  26.307 [26.258,26.385]  n=143  rate=0.28
+  2021-12  26.286 [26.251,26.305]  n=55  rate=0.11
+  2022-01  26.313 [26.273,26.333]  n=130  rate=0.24
+  2022-02  26.271 [26.193,26.285]  n=105  rate=0.22
+  2022-03  26.266 [26.234,26.347]  n=163  rate=0.30
+  2022-04  26.314 [26.273,26.352]  n=173  rate=0.33
+  2022-05  26.292 [26.263,26.336]  n=213  rate=0.42
+  2022-06  26.272 [26.247,26.361]  n=58  rate=0.31
+  2022-07  26.299 [26.276,26.324]  n=255  rate=0.45
+  2022-08  26.307 [26.254,26.371]  n=188  rate=0.36
+  2022-09  26.261 [26.200,26.307]  n=109  rate=0.22
+  2022-10  26.260 [26.218,26.284]  n=164  rate=0.28
+  2022-11  26.307 [26.226,26.352]  n=66  rate=0.14
+  2022-12  26.326 [26.298,26.444]  n=49  rate=0.09
+  2023-01  26.301 [26.236,26.324]  n=69  rate=0.23
+  2023-03  26.410 [26.284,26.580]  n=33  rate=0.44
+  2023-04  26.375 [26.306,26.418]  n=122  rate=0.44
+  2023-05  26.334 [26.300,26.405]  n=97  rate=0.42
+  2023-06  26.365 [26.320,26.438]  n=164  rate=0.32
+  2023-07  26.355 [26.312,26.391]  n=179  rate=0.34
+  2023-08  26.342 [26.321,26.372]  n=300  rate=0.58
+  2023-09  26.352 [26.323,26.402]  n=228  rate=0.46
+  2023-10  26.418 [26.340,26.474]  n=143  rate=0.29
+  2024-01  26.363 [26.331,26.408]  n=107  rate=0.51
+  2024-02  26.369 [26.335,26.392]  n=234  rate=0.46
+  2024-03  26.338 [26.308,26.412]  n=160  rate=0.39
+  2024-04  26.350 [26.308,26.385]  n=107  rate=0.47
+  2024-08  26.354 [26.282,26.420]  n=101  rate=0.40
+  2024-09  26.399 [26.303,26.428]  n=116  rate=0.31
+  2024-10  26.354 [26.317,26.418]  n=155  rate=0.33
+  2024-11  26.303 [26.274,26.341]  n=130  rate=0.31
+  2024-12  26.330 [26.273,26.439]  n=103  rate=0.21
+  2025-01  26.344 [26.260,26.411]  n=71  rate=0.16
+  2025-02  26.542 [26.506,26.627]  n=44  rate=0.10
+  2025-03  26.517 [26.470,26.558]  n=115  rate=0.26
+  2025-04  26.466 [26.434,26.491]  n=170  rate=0.36
+  2025-05  26.483 [26.450,26.536]  n=120  rate=0.27
+  2025-06  26.515 [26.437,26.556]  n=101  rate=0.36
+  2025-07  26.377 [26.338,26.403]  n=81  rate=0.24
+  2025-08  26.467 [26.402,26.486]  n=125  rate=0.29
+  2025-09  26.406 [26.322,26.434]  n=133  rate=0.33
+  2025-10  26.450 [26.390,26.492]  n=139  rate=0.35
+  2025-11  26.415 [26.375,26.458]  n=217  rate=0.47
+  2025-12  26.356 [26.308,26.420]  n=196  rate=0.35
+  2026-01  26.418 [26.384,26.442]  n=227  rate=0.43
+  2026-02  26.425 [26.397,26.453]  n=292  rate=0.59
+  2026-03  26.390 [26.333,26.494]  n=120  rate=0.30
+  2026-04  26.409 [26.376,26.440]  n=255  rate=0.57
+  2026-05  26.415 [26.358,26.481]  n=162  rate=0.42
+  2026-06  26.410 [26.381,26.437]  n=95  rate=0.29
+  2026-07  26.378 [26.317,26.448]  n=107  rate=0.27
+  2026-08  26.289 [26.239,26.396]  n=68  rate=0.25
+  2026-09  26.389 [26.293,26.496]  n=43  rate=0.16
+  year 2019: median 26.312 s [26.296,26.330] n=1141 rate=0.26
+  year 2020: median 26.320 s [26.303,26.331] n=1780 rate=0.27
+  year 2021: median 26.310 s [26.301,26.324] n=1988 rate=0.31
+  year 2022: median 26.286 s [26.275,26.299] n=1673 rate=0.28
+  year 2023: median 26.354 s [26.339,26.378] n=1368 rate=0.39
+  year 2024: median 26.352 s [26.332,26.366] n=1213 rate=0.36
+  year 2025: median 26.443 s [26.423,26.457] n=1512 rate=0.30
+  year 2026: median 26.408 s [26.390,26.424] n=1369 rate=0.39
+ALL: median period 26.341 s [day-bootstrap 95% CI 26.336,26.347], spread (1.4826 MAD) 0.209 s
+period trend 15.69 ms/yr (95% block-bootstrap CI 11.74 to 20.73); annual amplitude 16.1 ms [5.5,32.4]; n_days 1516
+corr(daily period, daily log amplitude) = -0.122 (n=1516)
+/workspace/research2/pulse26/analysis.py:119: RuntimeWarning: All-NaN slice encountered
+  L = 10 * np.log10(full); L = L - np.nanmedian(L, axis=1, keepdims=True)
+M2 amplitude in prediction 0.561 m
+/workspace/research2/pulse26/analysis.py:161: RuntimeWarning: All-NaN slice encountered
+  with np.errstate(all="ignore"): out[s:s + len(blk)] = np.nanmedian(blk, axis=1)
+[freq/short] M2: P/median_local=6.16  p(red-noise surrogate)=0.017  p(local rank)=0.024  p(shuffle)=0.010
+[freq/short] N2: P/median_local=2.67  p(red-noise surrogate)=0.199  p(local rank)=0.163  p(shuffle)=0.168
+[freq/short] O1: P/median_local=3.35  p(red-noise surrogate)=0.219  p(local rank)=0.103  p(shuffle)=0.188
+[freq/short] Q1: P/median_local=3.35  p(red-noise surrogate)=0.209  p(local rank)=0.090  p(shuffle)=0.119
+[freq/short] M4: P/median_local=1.09  p(red-noise surrogate)=0.757  p(local rank)=0.474  p(shuffle)=0.693
+[freq/short] S2: P/median_local=3.39  p(red-noise surrogate)=0.163  p(local rank)=0.118  p(shuffle)=0.228
+[freq/short] K1: P/median_local=2.09  p(red-noise surrogate)=0.412  p(local rank)=0.243  p(shuffle)=0.347
+/workspace/research2/pulse26/analysis.py:166: RuntimeWarning: All-NaN slice encountered
+  with np.errstate(all="ignore"): sm = np.nanmedian(swv(p, 2 * days_hw + 1), axis=1)
+[freq/long] MSf: P/median_local=2.40  p(red-noise surrogate)=0.272  p(local rank)=0.184  p(shuffle)=0.149
+[freq/long] Mf: P/median_local=3.03  p(red-noise surrogate)=0.123  p(local rank)=0.114  p(shuffle)=0.069
+[logamp/short] M2: P/median_local=21.83  p(red-noise surrogate)=0.003  p(local rank)=0.001  p(shuffle)=0.010
+[logamp/short] N2: P/median_local=2.19  p(red-noise surrogate)=0.355  p(local rank)=0.210  p(shuffle)=0.337
+[logamp/short] O1: P/median_local=1.94  p(red-noise surrogate)=0.482  p(local rank)=0.283  p(shuffle)=0.347
+[logamp/short] Q1: P/median_local=0.57  p(red-noise surrogate)=0.887  p(local rank)=0.693  p(shuffle)=0.822
+[logamp/short] M4: P/median_local=4.22  p(red-noise surrogate)=0.100  p(local rank)=0.053  p(shuffle)=0.119
+[logamp/short] S2: P/median_local=3.26  p(red-noise surrogate)=0.243  p(local rank)=0.084  p(shuffle)=0.158
+[logamp/short] K1: P/median_local=1.64  p(red-noise surrogate)=0.482  p(local rank)=0.346  p(shuffle)=0.396
+[logamp/long] MSf: P/median_local=0.80  p(red-noise surrogate)=0.518  p(local rank)=0.579  p(shuffle)=0.020
+[logamp/long] Mf: P/median_local=0.84  p(red-noise surrogate)=0.502  p(local rank)=0.559  p(shuffle)=0.020
+[logsnr/short] M2: P/median_local=126.89  p(red-noise surrogate)=0.003  p(local rank)=0.001  p(shuffle)=0.010
+[logsnr/short] N2: P/median_local=4.42  p(red-noise surrogate)=0.093  p(local rank)=0.047  p(shuffle)=0.010
+[logsnr/short] O1: P/median_local=0.68  p(red-noise surrogate)=0.934  p(local rank)=0.612  p(shuffle)=0.604
+[logsnr/short] Q1: P/median_local=3.27  p(red-noise surrogate)=0.173  p(local rank)=0.097  p(shuffle)=0.020
+[logsnr/short] M4: P/median_local=2.58  p(red-noise surrogate)=0.355  p(local rank)=0.165  p(shuffle)=0.228
+[logsnr/short] S2: P/median_local=22.27  p(red-noise surrogate)=0.003  p(local rank)=0.001  p(shuffle)=0.010
+[logsnr/short] K1: P/median_local=6.66  p(red-noise surrogate)=0.010  p(local rank)=0.009  p(shuffle)=0.010
+[logsnr/long] MSf: P/median_local=4.68  p(red-noise surrogate)=0.007  p(local rank)=0.056  p(shuffle)=0.010
+[logsnr/long] Mf: P/median_local=1.68  p(red-noise surrogate)=0.468  p(local rank)=0.334  p(shuffle)=0.010
+[det/short] M2: P/median_local=95.35  p(red-noise surrogate)=0.003  p(local rank)=0.001  p(shuffle)=0.010
+[det/short] N2: P/median_local=5.32  p(red-noise surrogate)=0.030  p(local rank)=0.020  p(shuffle)=0.010
+[det/short] O1: P/median_local=0.42  p(red-noise surrogate)=0.980  p(local rank)=0.742  p(shuffle)=0.842
+[det/short] Q1: P/median_local=4.07  p(red-noise surrogate)=0.103  p(local rank)=0.056  p(shuffle)=0.030
+[det/short] M4: P/median_local=1.34  p(red-noise surrogate)=0.754  p(local rank)=0.375  p(shuffle)=0.723
+[det/short] S2: P/median_local=12.23  p(red-noise surrogate)=0.003  p(local rank)=0.001  p(shuffle)=0.010
+[det/short] K1: P/median_local=1.69  p(red-noise surrogate)=0.528  p(local rank)=0.291  p(shuffle)=0.277
+harmonic fit freq anomaly M2: 14.400 µHz  (= 9.986 ms in period)
+harmonic fit freq anomaly N2: 4.951 µHz  (= 3.433 ms in period)
+harmonic fit freq anomaly O1: 11.358 µHz  (= 7.877 ms in period)
+harmonic fit freq anomaly M4: 5.690 µHz  (= 3.946 ms in period)
+harmonic fit freq anomaly S1: 7.448 µHz  (= 5.165 ms in period)
+harmonic fit freq anomaly S2: 10.267 µHz  (= 7.120 ms in period)
+  M2 red-noise surrogate amplitude 95th pct 10.319 µHz; p=0.000
+[freq] max|xcorr(tide)| = 0.0386 at lag -8 h, p=0.003; M2-phase 1st-harmonic amp = 13.44 (= 0.041 SD), p=0.030; spring-neap quintile range = 22.9, p=0.219; UTC-hour range = 72.01
+[logamp] max|xcorr(tide)| = 0.0613 at lag -2 h, p=0.003; M2-phase 1st-harmonic amp = 0.01322 (= 0.080 SD), p=0.003; spring-neap quintile range = 0.005619, p=0.977; UTC-hour range = 0.0302
+[logsnr] max|xcorr(tide)| = 0.1114 at lag -8 h, p=0.003; M2-phase 1st-harmonic amp = 0.03876 (= 0.144 SD), p=0.003; spring-neap quintile range = 0.01939, p=0.608; UTC-hour range = 0.04101
+[det] max|xcorr(tide)| = 0.0854 at lag -2 h, p=0.003; M2-phase 1st-harmonic amp = 0.05523 (= 0.113 SD), p=0.003; spring-neap quintile range = 0.05035, p=0.043; UTC-hour range = 0.05042
+/workspace/research2/pulse26/analysis.py:299: RuntimeWarning: Mean of empty slice
+  tp_d = np.array([np.nanmean(tp[eday == k]) if np.any(eday == k) else np.nan for k in range(ndays)])
+daily det-rate vs ERA5 Hs (lag 0 d): r=0.200; vs ERA5 peak period: r=0.229
+daily det-rate vs ERA5 Hs (lag 1 d): r=0.146; vs ERA5 peak period: r=0.157
+daily det-rate vs ERA5 Hs (lag 2 d): r=0.088; vs ERA5 peak period: r=0.101
+month  det_rate  ERA5_Hs  ERA5_Tp  median_period
+   1   0.28   0.93   11.9   26.342
+   2   0.33   0.94   11.6   26.359
+   3   0.32   1.01   11.8   26.358
+   4   0.42   1.10   12.5   26.351
+   5   0.35   1.18   12.6   26.350
+   6   0.35   1.32   12.1   26.359
+   7   0.35   1.43   12.9   26.312
+   8   0.33   1.45   12.8   26.331
+   9   0.28   1.30   12.1   26.335
+  10   0.27   1.12   12.0   26.340
+  11   0.27   1.02   11.9   26.351
+  12   0.20   0.92   11.6   26.316
+daily median period vs ERA5 Hs: r=-0.014
+done

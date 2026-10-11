@@ -1,0 +1,5 @@
+
+== springneap_L2.py ==
+tide (Port Sonara prediction, joint fit): M2 0.561 m, N2 0.120 m, S2 0.202 m, L2 0.013 m, K2 0.064 m
+EDA: L2 response 0.049 dB (bootstrap s.d. per component 0.023 dB; expected if proportional 0.011 dB); envelope-gamma decomposition: N2 part +0.69 [+0.25,+1.08], L2 part -0.37 [-0.81,+0.11], sum +0.31 (cf. M2+N2 envelope gamma in robustness.txt)
+TAM: L2 response 0.044 dB (bootstrap s.d. per component 0.024 dB; expected if proportional 0.009 dB); envelope-gamma decomposition: N2 part +0.96 [+0.42,+1.58], L2 part +0.07 [-0.52,+0.64], sum +1.02 (cf. M2+N2 envelope gamma in robustness.txt)

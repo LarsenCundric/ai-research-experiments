@@ -1,0 +1,48 @@
+== G.EDA.00.LHZ 2019-05..2026-09: QC windows 38888, detected 12044 (31.0%; control-band 1% FAR threshold 5.99)
+/workspace/research2/pulse26/source_vs_site.py:35: RuntimeWarning: All-NaN slice encountered
+  with np.errstate(all="ignore"): out[s:s + 8192] = np.nanmedian(swv(p[s:s + 8192 + 2 * hw], 2 * hw + 1), axis=1)
+  fixband 26 s line PSD (37.5-38.6 mHz)    n= 38888  M2 0.548 dB (null95 0.11, p=0.010, +1.3±0.2 h after HW)  S2 0.21 (p=0.010, +2.3 h)  N2 0.137 (p=0.010)  S1 0.11
+  background 20-24 s                       n= 38888  M2 0.129 dB (null95 0.13, p=0.069, +10.2±0.8 h after HW)  S2 0.0492 (p=0.683, +3.8 h)  N2 0.0858 (p=0.178)  S1 0.15
+  background 29-34 s                       n= 38888  M2 0.208 dB (null95 0.13, p=0.010, +0.2±0.5 h after HW)  S2 0.0701 (p=0.366, +2.5 h)  N2 0.103 (p=0.099)  S1 0.043
+  background 33-50 s (20-30 mHz)           n= 38888  M2 0.176 dB (null95 0.1, p=0.010, +12.2±0.5 h after HW)  S2 0.0785 (p=0.139, +1.3 h)  N2 0.0672 (p=0.228)  S1 0.029
+  SNR (Welch)                              n= 38888  M2 0.391 dB (null95 0.069, p=0.010, +1.7±0.1 h after HW)  S2 0.145 (p=0.010, +1.9 h)  N2 0.0716 (p=0.020)  S1 0.028
+  (regression of line PSD on background bands: coefs 0.24, 0.49)
+  line PSD minus background (regressed)    n= 38888  M2 0.473 dB (null95 0.061, p=0.010, +1.6±0.1 h after HW)  S2 0.168 (p=0.010, +2.2 h)  N2 0.0751 (p=0.010)  S1 0.053
+  detection (fraction)                     n= 38888  M2 5.51 %pts (null95 1, p=0.010, +1.6±0.2 h after HW)  S2 1.81 (p=0.010, +2.0 h)  N2 1.17 (p=0.010)  S1 0.16
+  peak frequency (detected)                n= 12044  M2 14.3 µHz (null95 9.5, p=0.010, +7.3±0.5 h after HW)  S2 10.4 (p=0.089, +8.7 h)  N2 4.85 (p=0.574)  S1 8
+== G.TAM.00.LHZ 2022-03..2026-09: QC windows 28984, detected 4083 (14.1%; control-band 1% FAR threshold 6.65)
+  fixband 26 s line PSD (37.5-38.6 mHz)    n= 28984  M2 0.473 dB (null95 0.1, p=0.010, +1.6±0.2 h after HW)  S2 0.17 (p=0.010, +3.2 h)  N2 0.16 (p=0.010)  S1 0.22
+  background 20-24 s                       n= 28984  M2 0.0164 dB (null95 0.12, p=1.000, +0.8±6.2 h after HW)  S2 0.0861 (p=0.257, +4.3 h)  N2 0.175 (p=0.010)  S1 0.25
+  background 29-34 s                       n= 28984  M2 0.174 dB (null95 0.12, p=0.010, +1.1±0.6 h after HW)  S2 0.0951 (p=0.149, +6.0 h)  N2 0.144 (p=0.010)  S1 0.66
+  background 33-50 s (20-30 mHz)           n= 28984  M2 0.143 dB (null95 0.092, p=0.010, +0.7±0.5 h after HW)  S2 0.0922 (p=0.040, +6.6 h)  N2 0.0727 (p=0.188)  S1 0.82
+  SNR (Welch)                              n= 28984  M2 0.279 dB (null95 0.059, p=0.010, +1.7±0.2 h after HW)  S2 0.133 (p=0.010, +1.9 h)  N2 0.0687 (p=0.059)  S1 0.29
+  (regression of line PSD on background bands: coefs 0.30, 0.42)
+  line PSD minus background (regressed)    n= 28984  M2 0.398 dB (null95 0.054, p=0.010, +1.7±0.1 h after HW)  S2 0.155 (p=0.010, +2.5 h)  N2 0.0903 (p=0.010)  S1 0.13
+  detection (fraction)                     n= 28984  M2 2.5 %pts (null95 0.92, p=0.010, +2.0±0.3 h after HW)  S2 1.44 (p=0.010, +2.2 h)  N2 0.378 (p=0.634)  S1 2.9
+  peak frequency (detected)                n=  4083  M2 38.4 µHz (null95 26, p=0.010, +8.1±0.6 h after HW)  S2 20.6 (p=0.208, +7.0 h)  N2 19.9 (p=0.158)  S1 13
+== G.EDA.00.LHZ (overlap 2022-03..2026-09): QC windows 20463, detected 6900 (33.7%; control-band 1% FAR threshold 5.99)
+  fixband 26 s line PSD (37.5-38.6 mHz)    n= 20463  M2 0.492 dB (null95 0.16, p=0.010, +1.1±0.3 h after HW)  S2 0.261 (p=0.010, +2.3 h)  N2 0.108 (p=0.257)  S1 0.16
+  background 20-24 s                       n= 20463  M2 0.161 dB (null95 0.19, p=0.139, +10.3±1.0 h after HW)  S2 0.118 (p=0.366, +2.9 h)  N2 0.12 (p=0.386)  S1 0.14
+  background 29-34 s                       n= 20463  M2 0.249 dB (null95 0.2, p=0.030, +12.1±0.7 h after HW)  S2 0.191 (p=0.030, +2.6 h)  N2 0.132 (p=0.297)  S1 0.051
+  background 33-50 s (20-30 mHz)           n= 20463  M2 0.207 dB (null95 0.16, p=0.020, +11.7±0.7 h after HW)  S2 0.165 (p=0.119, +1.6 h)  N2 0.113 (p=0.356)  S1 0.065
+  SNR (Welch)                              n= 20463  M2 0.336 dB (null95 0.095, p=0.010, +1.9±0.2 h after HW)  S2 0.112 (p=0.020, +1.5 h)  N2 0.0732 (p=0.238)  S1 0.079
+  (regression of line PSD on background bands: coefs 0.25, 0.53)
+  line PSD minus background (regressed)    n= 20463  M2 0.413 dB (null95 0.084, p=0.010, +1.7±0.2 h after HW)  S2 0.136 (p=0.010, +1.9 h)  N2 0.065 (p=0.149)  S1 0.1
+  detection (fraction)                     n= 20463  M2 5.56 %pts (null95 1.7, p=0.010, +1.9±0.3 h after HW)  S2 1.58 (p=0.059, +1.9 h)  N2 1.46 (p=0.069)  S1 1
+  peak frequency (detected)                n=  6900  M2 6.28 µHz (null95 15, p=0.505, +7.4±1.8 h after HW)  S2 3.9 (p=0.792, +9.2 h)  N2 10.7 (p=0.218)  S1 9.7
+hourly corr of 72-h high-passed log SNR, EDA vs TAM: r=0.482 (n=18601)
+hourly corr of raw log SNR, EDA vs TAM: r=0.592
+  G.EDA (240 km) 2019: stacked-spectrum peak period 26 s line 26.283 s; 28 s band peak 27.905 s
+  G.EDA (240 km) 2020: stacked-spectrum peak period 26 s line 26.283 s; 28 s band peak 27.905 s
+  G.EDA (240 km) 2021: stacked-spectrum peak period 26 s line 26.283 s; 28 s band peak 27.905 s
+  G.EDA (240 km) 2022: stacked-spectrum peak period 26 s line 26.283 s; 28 s band peak 27.905 s
+  G.EDA (240 km) 2023: stacked-spectrum peak period 26 s line 26.309 s; 28 s band peak 27.905 s
+  G.EDA (240 km) 2024: stacked-spectrum peak period 26 s line 26.309 s; 28 s band peak 27.935 s
+  G.EDA (240 km) 2025: stacked-spectrum peak period 26 s line 26.522 s; 28 s band peak 27.935 s
+  G.EDA (240 km) 2026: stacked-spectrum peak period 26 s line 26.522 s; 28 s band peak 27.935 s
+  G.TAM (2096 km) 2022: stacked-spectrum peak period 26 s line 26.204 s; 28 s band peak 27.728 s
+  G.TAM (2096 km) 2023: stacked-spectrum peak period 26 s line 26.283 s; 28 s band peak 27.846 s
+  G.TAM (2096 km) 2024: stacked-spectrum peak period 26 s line 26.309 s; 28 s band peak 27.817 s
+  G.TAM (2096 km) 2025: stacked-spectrum peak period 26 s line 26.549 s; 28 s band peak 27.905 s
+  G.TAM (2096 km) 2026: stacked-spectrum peak period 26 s line 26.549 s; 28 s band peak 27.728 s
+done
