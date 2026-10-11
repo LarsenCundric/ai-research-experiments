@@ -1,0 +1,8 @@
+def qa "?msd_7 n>0 & s+9=22*n+RQF[n]";
+def qb3 "?msd_7 Es $qa(n,s) & (7*t=s+3 | 7*t=s+4 | 7*t=s+5)";
+def qb2 "?msd_7 Es,t $qa(n,s) & $qb3(n,t) & ((7*t=s+3 & u+1=t) | (7*t=s+4 & u+1=t) | (7*t=s+5 & u+2=t))";
+def qb1 "?msd_7 Es,t $qa(n,s) & $qb3(n,t) & ((7*t=s+3 & u+2=t) | (7*t=s+4 & u+3=t) | (7*t=s+5 & u+3=t))";
+def qB "?msd_7 $qb1(n,x) | $qb2(n,x) | $qb3(n,x)";
+eval q_disj12 "?msd_7 ~(Ex,m,p $qb1(m,x) & $qb2(p,x))";
+eval q_disj13 "?msd_7 ~(Ex,m,p $qb1(m,x) & $qb3(p,x))";
+eval q_disj23 "?msd_7 ~(Ex,m,p $qb2(m,x) & $qb3(p,x))";

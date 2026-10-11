@@ -1,0 +1,13 @@
+def RFVa "?msd_6 n>0 & s+7=13*n+RFV[n]";
+def RFVb2 "?msd_6 Es $RFVa(n,s) & (6*t=s+1 | 6*t=s+2)";
+def RFVb1 "?msd_6 Es,t $RFVa(n,s) & $RFVb2(n,t) & 1*u+5*t=s";
+eval RFV_totB "?msd_6 An (n>0) => ((Eu $RFVb1(n,u)) & (Et $RFVb2(n,t)))";
+eval RFV_init "?msd_6 $RFVb1(1,1) & $RFVb2(1,2) & $RFVa(1,11)";
+eval RFV_incB "?msd_6 An,u,t,v ($RFVb1(n,u) & $RFVb2(n,t) & $RFVb1(n+1,v)) => (u<t & t<v)";
+eval RFV_lin "?msd_6 An,s,u,t ($RFVa(n,s) & $RFVb1(n,u) & $RFVb2(n,t)) => s=1*u+5*t";
+eval RFV_totA "?msd_6 An (n>0) => (Es $RFVa(n,s))";
+eval RFV_incA "?msd_6 An,s,t ($RFVa(n,s) & $RFVa(n+1,t)) => s<t";
+eval RFV_cover "?msd_6 Ax (x>0) => (Em ($RFVa(m,x) | $RFVb1(m,x) | $RFVb2(m,x)))";
+eval RFV_disj "?msd_6 ~(Ex,m,p ($RFVa(m,x) & ($RFVb1(p,x) | $RFVb2(p,x))))";
+eval RFV_ctrl_false "?msd_6 $RFVa(1,12)";
+eval RFV_disjB "?msd_6 ~(Ex,m,p ($RFVb1(m,x) & $RFVb2(p,x)))";

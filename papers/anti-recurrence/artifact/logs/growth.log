@@ -1,0 +1,16 @@
+a=(1,4) N=200000 obs=[-6,1] S3mism=0 windows=26 Wconfl=0 
+a=(1,4) N=2000000 obs=[-6,1] S3mism=0 windows=26 Wconfl=0 
+a=(1,12) N=200000 obs=[-16,6] S3mism=0 windows=76 Wconfl=0 
+a=(1,12) N=2000000 obs=[-17,6] S3mism=0 windows=79 Wconfl=0 
+a=(12,1) N=200000 obs=[-24,-2] S3mism=0 windows=76 Wconfl=0 
+a=(12,1) N=2000000 obs=[-24,-1] S3mism=0 windows=79 Wconfl=0 
+a=(1,1,5) N=200000 obs=[-9,-1] S3mism=0 windows=31 Wconfl=0 
+a=(1,1,5) N=2000000 obs=[-9,-1] S3mism=0 windows=31 Wconfl=0 
+a=(2,7) N=200000 obs=[-12,3] S3mism=0 windows=51 Wconfl=0 
+a=(2,7) N=2000000 obs=[-12,3] S3mism=0 windows=54 Wconfl=0 
+a=(12,1,1,1,1) N=200000 obs=[-61,-43] S3mism=0 windows=70 Wconfl=0 
+a=(12,1,1,1,1) N=2000000 obs=[-61,-43] S3mism=0 windows=70 Wconfl=0 
+a=(1,1,1,1,12) N=200000 obs=[-24,-7] S3mism=0 windows=67 Wconfl=0 
+a=(1,1,1,1,12) N=2000000 obs=[-24,-7] S3mism=0 windows=67 Wconfl=0 
+a=(12,12,12,12,12) N=200000 obs=[-162,-89] S3mism=0 windows=270 Wconfl=0 
+a=(12,12,12,12,12) N=2000000 obs=[-162,-89] S3mism=0 windows=270 Wconfl=0 

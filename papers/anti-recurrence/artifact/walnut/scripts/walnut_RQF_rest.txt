@@ -1,0 +1,9 @@
+def RQFa "?msd_7 n>0 & s+9=22*n+RQF[n]";
+def RQFb3 "?msd_7 Es $RQFa(n,s) & (7*t=s+3 | 7*t=s+4 | 7*t=s+5)";
+def RQFb2 "?msd_7 Es,t $RQFa(n,s) & $RQFb3(n,t) & ((7*t=s+3 & u+1=t) | (7*t=s+4 & u+1=t) | (7*t=s+5 & u+2=t))";
+def RQFb1 "?msd_7 Es,t $RQFa(n,s) & $RQFb3(n,t) & ((7*t=s+3 & u+2=t) | (7*t=s+4 & u+3=t) | (7*t=s+5 & u+3=t))";
+eval RQF_totA "?msd_7 An (n>0) => (Es $RQFa(n,s))";
+eval RQF_incA "?msd_7 An,s,t ($RQFa(n,s) & $RQFa(n+1,t)) => s<t";
+eval RQF_cover "?msd_7 Ax (x>0) => (Em ($RQFa(m,x) | $RQFb1(m,x) | $RQFb2(m,x) | $RQFb3(m,x)))";
+eval RQF_disj "?msd_7 ~(Ex,m,p ($RQFa(m,x) & ($RQFb1(p,x) | $RQFb2(p,x) | $RQFb3(p,x))))";
+eval RQF_ctrl_false "?msd_7 $RQFa(1,19)";

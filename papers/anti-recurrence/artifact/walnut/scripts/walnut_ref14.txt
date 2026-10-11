@@ -1,0 +1,15 @@
+def fa "?msd_5 n>0 & s+6=11*n+RUS[n]";
+def fb2 "?msd_5 Es $fa(n,s) & (5*t=s+1 | 5*t=s+2)";
+def fb1 "?msd_5 Es,t $fa(n,s) & $fb2(n,t) & u+4*t=s";
+eval r_func "?msd_5 An,s,t ($fa(n,s) & $fa(n,t)) => s=t";
+eval r_totA "?msd_5 An (n>0) => (Es $fa(n,s))";
+eval r_totB "?msd_5 An (n>0) => ((Eu $fb1(n,u)) & (Et $fb2(n,t)))";
+eval r_noZero "?msd_5 ~(Eu $fb1(0,u) | $fb2(0,u) | $fa(0,u))";
+eval r_pos "?msd_5 An,u (n>0 & $fb1(n,u)) => u>0";
+eval r_incA "?msd_5 An,s,t ($fa(n,s) & $fa(n+1,t)) => s<t";
+eval r_incB "?msd_5 An,u,t,v ($fb1(n,u) & $fb2(n,t) & $fb1(n+1,v)) => (u<t & t<v)";
+eval r_lin "?msd_5 An,s,u,t ($fa(n,s) & $fb1(n,u) & $fb2(n,t)) => s=u+4*t";
+eval r_cover "?msd_5 Ax (x>0) => (Em ($fa(m,x) | $fb1(m,x) | $fb2(m,x)))";
+eval r_disj "?msd_5 ~(Ex,m,p ($fa(m,x) & ($fb1(p,x) | $fb2(p,x))))";
+eval r_ctrl_should_be_false "?msd_5 Ax (x>0) => (Em ($fb1(m,x) | $fb2(m,x)))";
+eval r_ctrl2_should_be_false "?msd_5 An,s,t ($fa(n,s) & $fa(n+1,t)) => s+11<t";

@@ -1,0 +1,10 @@
+(1, 3) {'exact': (-5, 0), 'minbox': (-5, 0), 'star': (-6, 1), 'excess': 2, 'boxeq': True, 'states': 21, 'min_ours': 13, 'min_fj': 6, 'V1in': True, 'gapK': 3}
+(1, 4) {'exact': (-6, 1), 'minbox': (-6, 1), 'star': (-7, 1), 'excess': 1, 'boxeq': True, 'states': 28, 'min_ours': 17, 'min_fj': 9, 'V1in': True, 'gapK': 4}
+(1, 5) {'exact': (-7, 1), 'minbox': (-7, 1), 'star': (-8, 2), 'excess': 2, 'boxeq': True, 'states': 32, 'min_ours': 19, 'min_fj': 11, 'V1in': True, 'gapK': 5}
+(2, 7) {'exact': (-12, 3), 'minbox': (-12, 3), 'star': (-13, 3), 'excess': 1, 'boxeq': True, 'states': 56, 'min_ours': 37, 'min_fj': 20, 'V1in': True, 'gapK': 6}
+(1, 1, 5) {'exact': (-9, -1), 'minbox': (-9, -1), 'star': (-10, -1), 'excess': 1, 'boxeq': True, 'states': 33, 'min_ours': 24, 'min_fj': 9, 'V1in': True, 'gapK': 12}
+(1, 1) {'exact': (-2, -1), 'minbox': (-2, -1), 'star': (-3, -1), 'excess': 1, 'boxeq': True, 'states': 7, 'min_ours': 3, 'min_fj': 2, 'V1in': True, 'gapK': 2}
+(1, 2) {'exact': (-3, -1), 'minbox': (-3, -1), 'star': (-4, 0), 'excess': 2, 'boxeq': True, 'states': 11, 'min_ours': 5, 'min_fj': 3, 'V1in': True, 'gapK': 3}
+(2, 1) {'exact': (-4, -1), 'minbox': (-4, -1), 'star': (-5, -1), 'excess': 1, 'boxeq': True, 'states': 14, 'min_ours': 10, 'min_fj': 4, 'V1in': True, 'gapK': 2}
+(1, 1, 1) {'exact': (-5, -3), 'minbox': (-5, -3), 'star': (-5, -2), 'excess': 1, 'boxeq': True, 'states': 11, 'min_ours': 7, 'min_fj': 3, 'V1in': True, 'gapK': 4}
+(1, 1, 1, 1) {'exact': (-8, -5), 'minbox': (-8, -5), 'star': (-9, -5), 'excess': 1, 'boxeq': True, 'states': 15, 'min_ours': 10, 'min_fj': 4, 'V1in': True, 'gapK': 8}

@@ -1,0 +1,13 @@
+def RTSa "?msd_9 n>0 & s+12=19*n+RTS[n]";
+def RTSb2 "?msd_9 Es $RTSa(n,s) & (9*t=s+2 | 9*t=s+4)";
+def RTSb1 "?msd_9 Es,t $RTSa(n,s) & $RTSb2(n,t) & 2*u+7*t=s";
+eval RTS_totB "?msd_9 An (n>0) => ((Eu $RTSb1(n,u)) & (Et $RTSb2(n,t)))";
+eval RTS_init "?msd_9 $RTSb1(1,1) & $RTSb2(1,2) & $RTSa(1,16)";
+eval RTS_incB "?msd_9 An,u,t,v ($RTSb1(n,u) & $RTSb2(n,t) & $RTSb1(n+1,v)) => (u<t & t<v)";
+eval RTS_lin "?msd_9 An,s,u,t ($RTSa(n,s) & $RTSb1(n,u) & $RTSb2(n,t)) => s=2*u+7*t";
+eval RTS_totA "?msd_9 An (n>0) => (Es $RTSa(n,s))";
+eval RTS_incA "?msd_9 An,s,t ($RTSa(n,s) & $RTSa(n+1,t)) => s<t";
+eval RTS_cover "?msd_9 Ax (x>0) => (Em ($RTSa(m,x) | $RTSb1(m,x) | $RTSb2(m,x)))";
+eval RTS_disj "?msd_9 ~(Ex,m,p ($RTSa(m,x) & ($RTSb1(p,x) | $RTSb2(p,x))))";
+eval RTS_ctrl_false "?msd_9 $RTSa(1,17)";
+eval RTS_disjB "?msd_9 ~(Ex,m,p ($RTSb1(m,x) & $RTSb2(p,x)))";

@@ -1,0 +1,137 @@
+Welcome to Walnut v7.1.0! Type "help;" to see all available commands.
+Starting Walnut session: Session/2026_10_09_19_07/
+
+[Walnut]$ Converted from brics:1 states - 123ms
+Converted from brics:2 states - 1ms
+
+[Walnut]$ 
+[Walnut]$ 
+[Walnut]$ ____
+TRUE
+
+[Walnut]$ ____
+TRUE
+
+[Walnut]$ ____
+TRUE
+
+[Walnut]$ ____
+TRUE
+
+[Walnut]$ ____
+TRUE
+
+[Walnut]$ ____
+TRUE
+
+[Walnut]$ ____
+TRUE
+
+[Walnut]$ ____
+TRUE
+
+[Walnut]$ ____
+FALSE
+
+[Walnut]$ ____
+TRUE
+
+[Walnut]$ Converted from brics:1 states - 1ms
+Converted from brics:2 states - 1ms
+
+[Walnut]$ 
+[Walnut]$ 
+[Walnut]$ ____
+TRUE
+
+[Walnut]$ ____
+TRUE
+
+[Walnut]$ ____
+TRUE
+
+[Walnut]$ ____
+TRUE
+
+[Walnut]$ ____
+TRUE
+
+[Walnut]$ ____
+TRUE
+
+[Walnut]$ ____
+TRUE
+
+[Walnut]$ ____
+TRUE
+
+[Walnut]$ ____
+FALSE
+
+[Walnut]$ ____
+TRUE
+
+[Walnut]$ Converted from brics:1 states - 1ms
+Converted from brics:2 states - 1ms
+
+[Walnut]$ 
+[Walnut]$ 
+[Walnut]$ ____
+TRUE
+
+[Walnut]$ ____
+TRUE
+
+[Walnut]$ ____
+TRUE
+
+[Walnut]$ ____
+TRUE
+
+[Walnut]$ ____
+TRUE
+
+[Walnut]$ ____
+TRUE
+
+[Walnut]$ ____
+TRUE
+
+[Walnut]$ ____
+TRUE
+
+[Walnut]$ ____
+FALSE
+
+[Walnut]$ ____
+TRUE
+
+[Walnut]$ Converted from brics:1 states - 1ms
+Converted from brics:2 states - 1ms
+
+[Walnut]$ 
+[Walnut]$ 
+[Walnut]$ 
+[Walnut]$ ____
+TRUE
+
+[Walnut]$ ____
+TRUE
+
+[Walnut]$ ____
+TRUE
+
+[Walnut]$ Exception in thread "main" java.lang.OutOfMemoryError: Java heap space
+	at Automata.FA.ProductStrategies.computeAllInputsOfAxB(ProductStrategies.java:318)
+	at Automata.FA.ProductStrategies.createBasicAutomaton(ProductStrategies.java:263)
+	at Automata.FA.ProductStrategies.crossProductAndMinimize(ProductStrategies.java:224)
+	at Automata.AutomatonLogicalOps.totalizeCrossProduct(AutomatonLogicalOps.java:126)
+	at Automata.AutomatonLogicalOps.imply(AutomatonLogicalOps.java:117)
+	at Main.EvalComputations.Token.LogicalOperator.act(LogicalOperator.java:87)
+	at Main.EvalComputer.compute(EvalComputer.java:78)
+	at Main.Prover.evalDefCommands(Prover.java:639)
+	at Main.Prover.processCommand(Prover.java:523)
+	at Main.Prover.dispatch(Prover.java:451)
+	at Main.Prover.readBuffer(Prover.java:417)
+	at Main.Prover.run(Prover.java:374)
+	at Main.Prover.main(Prover.java:320)

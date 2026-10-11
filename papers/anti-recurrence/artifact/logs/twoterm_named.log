@@ -1,0 +1,12 @@
+(1, 1) {'U': 0, 'lo': -2, 'hi': -1, 'states': 7, 'minstates': 3}
+(1, 2) {'U': 1, 'lo': -3, 'hi': -1, 'states': 11, 'minstates': 5}
+(2, 1) {'U': 0, 'lo': -4, 'hi': -1, 'states': 14, 'minstates': 10}
+(1, 3) {'U': 2, 'lo': -5, 'hi': 0, 'states': 21, 'minstates': 13}
+(1, 4) {'U': 3, 'lo': -6, 'hi': 1, 'states': 28, 'minstates': 17}
+(1, 5) {'U': 4, 'lo': -7, 'hi': 1, 'states': 32, 'minstates': 19}
+(2, 7) {'U': 6, 'lo': -12, 'hi': 2, 'states': 56, 'minstates': 37}
+(1, 1, 1) {'U': -1, 'lo': -5, 'hi': -3, 'states': 11, 'minstates': 7}
+(1, 1, 5) {'U': 3, 'lo': -9, 'hi': -1, 'states': 33, 'minstates': 24}
+(1, 1, 1, 1) {'U': -3, 'lo': -8, 'hi': -5, 'states': 15, 'minstates': 10}
+(1, 12) {'U': 11, 'lo': -16, 'hi': 5, 'states': 84, 'minstates': 46}
+(12, 1) {'U': 0, 'lo': -23, 'hi': -2, 'states': 84, 'minstates': 60}

@@ -1,0 +1,11 @@
+def ra "?msd_5 n>0 & s+6=11*n+RUS[n]";
+def rb2 "?msd_5 Es $ra(n,s) & (5*t=s+1 | 5*t=s+2)";
+def rb1 "?msd_5 Es,t $ra(n,s) & $rb2(n,t) & u+4*t=s";
+eval sane1 "?msd_5 $ra(1,9) & $ra(2,19) & $ra(5,54)";
+eval sane2_false "?msd_5 $ra(1,10)";
+eval sane3_false "?msd_5 $ra(1741,19146)";
+eval cover2 "?msd_5 Ax (x>0) => (Em ($ra(m,x) | $rb1(m,x) | $rb2(m,x)))";
+eval disjAB2 "?msd_5 ~(Ex,m,p ($ra(m,x) & ($rb1(p,x) | $rb2(p,x))))";
+eval uniqA "?msd_5 An,s,t ($ra(n,s) & $ra(n,t)) => s=t";
+eval b2gap "?msd_5 An,u,t ($rb1(n,u) & $rb2(n,t)) => (t=u+1 | t=u+2)";
+eval cover_false_check "?msd_5 Ax (x>0) => (Em ($rb1(m,x) | $rb2(m,x)))";

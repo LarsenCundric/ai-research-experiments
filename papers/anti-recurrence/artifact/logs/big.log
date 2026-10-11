@@ -1,0 +1,7 @@
+a=(200,1) k=2 tau=201 K=402 N=3000000 gen_bad=0 obs=[-369,-51] L4=[-402,0] tau-k=199 lemma4_ok=1 inbox=1 minGapToMinusK=33 B_chk=3000000 B_mism=0 H_mism=0 states=1400 outside=0 bound=2.18e+08
+a=(200,1,1,1,1,1,1,1) k=8 tau=207 K=1656 N=3000000 gen_bad=0 obs=[-1472,-1238] L4=[-1656,-1215] tau-k=199 lemma4_ok=1 inbox=1 minGapToMinusK=184 B_chk=3000000 B_mism=0 H_mism=0 states=914 outside=0 bound=6.39e+09
+a=(1,1,1,1,1,1,1,200) k=8 tau=207 K=1656 N=3000000 gen_bad=0 obs=[-232,-1] L4=[-1656,178] tau-k=199 lemma4_ok=1 inbox=1 minGapToMinusK=1424 B_chk=3000000 B_mism=0 H_mism=0 states=914 outside=0 bound=6.39e+09
+a=(100,100,100,100,100,100,100,100) k=8 tau=800 K=6400 N=3000000 gen_bad=0 obs=[-3293,-2395] L4=[-6400,-2001] tau-k=792 lemma4_ok=1 inbox=1 minGapToMinusK=3107 B_chk=3000000 B_mism=0 H_mism=0 states=3538 outside=0 bound=3.72e+11
+a=(37,1,99,2,64,5,80,3) k=8 tau=291 K=2328 N=3000000 gen_bad=0 obs=[-1226,-900] L4=[-2328,-760] tau-k=283 lemma4_ok=1 inbox=1 minGapToMinusK=1102 B_chk=3000000 B_mism=0 H_mism=0 states=1283 outside=0 bound=1.78e+10
+a=(1,200) k=2 tau=201 K=402 N=3000000 gen_bad=0 obs=[-219,98] L4=[-402,199] tau-k=199 lemma4_ok=1 inbox=1 minGapToMinusK=183 B_chk=3000000 B_mism=0 H_mism=0 states=1397 outside=0 bound=2.18e+08
+a=(150,149,1,1,1,1) k=6 tau=303 K=1818 N=3000000 gen_bad=0 obs=[-1467,-1115] L4=[-1818,-1050] tau-k=297 lemma4_ok=1 inbox=1 minGapToMinusK=351 B_chk=3000000 B_mism=0 H_mism=0 states=1391 outside=0 bound=9.47e+09

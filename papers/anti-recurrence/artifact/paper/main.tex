@@ -1,0 +1,554 @@
+\documentclass[11pt]{amsart}
+\usepackage[margin=1.1in]{geometry}
+\usepackage{amssymb,amsmath,amsthm}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage[hidelinks]{hyperref}
+\usepackage{xcolor}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem*{theoremA}{Theorem A}
+\newtheorem*{theoremB}{Theorem B}
+\newtheorem*{theoremC}{Theorem C}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+
+\emergencystretch=3em
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Iv}[1]{[\,#1\,]}
+\newcommand{\todo}[1]{\textcolor{red}{[TODO: #1]}}
+
+\title{Linear anti-recurrence sequences are linear plus automatic}
+
+\author{Larsen Cundric}
+\address{\todo{affiliation}}
+\email{\todo{email}}
+
+\date{Draft of October 9, 2026}
+
+\subjclass[2020]{11B85 (primary); 11B37, 68R15, 68Q45}
+\keywords{anti-recurrence sequence, anti-Fibonacci numbers, complementary sequences, automatic sequences, Walnut}
+
+
+
+\begin{document}
+\begin{abstract}
+Let $\mathbf a=(a_1,\dots,a_k)$ be a vector of positive integers, $k\ge 2$, with $\tau=\sum a_j$. The anti-recurrence sequence of $\mathbf a$ is the unique increasing sequence $(A_n)$ such that $A_n=\sum_j a_jB_{k(n-1)+j}$, where $(B_m)$ enumerates the complement of $\{A_n\}$ in $\N$. The case $\mathbf a=(1,1)$ is the anti-Fibonacci sequence (OEIS A075326). Fokkink and Joshi conjectured that $A_n-\kappa n$ is always $\tau$-automatic, where $\kappa=k\tau+1$. They proved this under a restriction on $\mathbf a$ (``$A_1$-boundedness'') and asked in particular about the ``rusty numbers'' $\mathbf a=(1,d)$, $d\ge4$. We prove the conjecture for every $\mathbf a$; thus every such $A_n$ is a linear sequence plus a $\tau$-automatic sequence. More precisely, we show that $-k\tau\le A_n-\kappa n\le \tau-k$ for all $n$. We also show that $d(n)=A_n-\kappa n$ satisfies an explicit two-term recursion $d(\tau q+r+1)=G_r(d(q),d(q+1))$, which yields a most-significant-digit-first $\tau$-automaton with at most $1+(k\tau+\tau-k+1)^3$ states. For the $4$-rusty numbers $\mathbf a=(1,4)$ we give the minimal automaton ($17$ states in our indexing convention, $9$ in that of Fokkink and Joshi) and an independent machine-checked proof in the theorem prover Walnut. As a corollary we explain why the arithmetic progression $A_{5q+1}=9+55q$ observed by Fokkink and Joshi first fails at $A_{1741}$. We also give Walnut proofs for $(1,5)$, $(2,7)$ and $(1,1,5)$, and report an extensive computational check of the steps of the proof on more than two thousand forms.
+\end{abstract}
+\maketitle
+
+\section{Introduction}
+
+\subsection{Anti-recurrence sequences}
+The \emph{anti-Fibonacci numbers} $0,3,9,13,18,23,29,\dots$ form OEIS sequence A075326 \cite{A075326}. According to the OEIS record, the sequence was entered by A.~Murthy in 2002 (originally defined via the pairs of A075325); the present definition is due to P.~Lallouet (2008), and the name ``anti-Fibonacci numbers'' to D.~R.~Hofstadter (2014), whose note \cite{Hof} records observations about it. Each new term is the sum of the two smallest positive integers that are neither terms of the sequence nor already used in an earlier sum. Zaslavsky \cite[Thm.~1]{Zas} gave a closed formula: indexing so that $\bar F_0=3$, one has $\bar F_n=5n+3$ for even $n$, while for odd $n$ the value is $5n+3$ or $5n+4$ according to whether $(n-1)/2$ is \emph{utterly odd}, i.e.\ whether the terminal run of $1$'s in its binary expansion has odd length.\footnote{Read literally with the definition of ``utterly odd'' given in \cite{Zas}, the two odd cases of \cite[Thm.~1]{Zas} are interchanged: for example $\bar F_1=9=5\cdot1+4$, although $0$ is not utterly odd. The correct reading, $\bar F_n=5n+4$ for odd $n$ exactly when $(n-1)/2$ is \emph{not} utterly odd, agrees with the sequence as listed in \cite{Zas} and with the period-doubling form below; we checked both against the first $3000$ terms.} Equivalently, $A_n=5n-2+\mathrm{PD}_{n-1}$ for $n\ge1$, where $\mathrm{PD}=0,1,0,0,0,1,0,1,\dots$ is the period-doubling sequence (OEIS A096268, indexed from $0$) \cite[eq.~(2)]{FJarxiv}, \cite[\S1]{FJ}. Bosma et al.\ \cite[\S3]{Bosma} verified Zaslavsky's description with Walnut. Kimberling and Moses \cite{KM} placed this example inside a general theory of systems of complementary equations, generalised it to anti-$m$-nacci systems, and conjectured substitutions generating the difference sequences. Bosma, Bruin, Fokkink, Grube, Reuijl and Tromp \cite{Bosma} proved the anti-tribonacci and anti-tetranacci cases with the automatic theorem prover Walnut \cite{Mousavi}. They also formulated what they called the \emph{Clergyman's Conjecture} for anti-$k$-naccis.
+
+Fokkink and Joshi \cite{FJarxiv,FJ} introduced the general notion. Let $\mathbf a=(a_1,\dots,a_k)$ be a positive integral linear form of dimension $k\ge2$. Its \emph{trace} is $\tau=\sum_j a_j$. Put $K=k\tau$ and $\kappa=K+1$. The \emph{anti-recurrence sequence} of $\mathbf a$ is the pair of complementary, strictly increasing sequences $(A_n)_{n\ge1}$, $(B_m)_{m\ge1}$ in $\N=\{1,2,\dots\}$ such that
+\begin{equation}\label{eq:def}
+A_n=\sum_{j=1}^k a_j\,B_{k(n-1)+j}\qquad(n\ge1).
+\end{equation}
+Equivalently, $B$ is generated greedily by the mex rule. Such a pair exists and is unique \cite[Lemma~3]{FJarxiv}, \cite[Lemma~2]{FJ}. The first term is $A_1=\sum_j j\,a_j$, which we denote by $\mathsf A_1$.
+
+\begin{conjecture}[Fokkink--Joshi {\cite[Conj.~4]{FJarxiv}}, {\cite[Conj.~2]{FJ}}]\label{conj:FJ}
+For every positive integral linear form $\mathbf a$ of dimension $k>1$, the sequence $A_n-\kappa n$ is $\tau$-automatic.
+\end{conjecture}
+
+The two versions number this differently: it is Conjecture~4 in arXiv v1 and Conjecture~2 in the published Integers version. Both versions call the statement ``$A_n-\kappa n$ is bounded'' its \emph{weak form}, and observe that Kimberling and Moses phrase their conjectures in this form. Fokkink and Joshi proved Conjecture~\ref{conj:FJ} in the following cases:
+\begin{itemize}
+\item anti-$k$-bonaccis, $\mathbf a=(1,\dots,1)$ \cite[Thm.~8]{FJarxiv}, \cite[Thm.~3]{FJ};
+\item $A_1$-bounded forms, $\mathsf A_1\le(k-1)\tau+2$ \cite[Thm.~12]{FJarxiv}, \cite[Thm.~4]{FJ};
+\item the anti-Pell form $(1,2)$ and the anti-Jacobsthal form $(2,1)$, by Walnut.
+\end{itemize}
+For $k=2$, $A_1$-boundedness means $a_2\le 2$. Their final section asks: ``Does the conjecture hold without the restriction of $A_1$-boundedness? Are the rusty numbers sums of linear sequences and automatic sequences?'' \cite[\S6]{FJ}.
+
+\subsection{The rusty puzzle}
+For $\mathbf a=(1,d)$, Fokkink and Joshi call the $A_n$ the \emph{$d$-rusty numbers}. For $d=3$ they display a guessed $4$-DFAO, i.e.\ an automaton reading base-$4$ input ($\tau=4$), with $6$ states \cite[Fig.~7]{FJ}, and remark that their Walnut method can be applied to it. Note that $(1,3)$ is not $A_1$-bounded. For $d=4$ the sequence begins
+\[
+9,19,29,39,54,64,74,84,98,109,119,129,139,154,\dots
+\]
+They observe that $A_{5n+1}=9+55n$ holds ``up until $n=348$, when $A_{1741}\neq 9+55\cdot348$''. They also note that the structural feature behind their $(1,3)$ automaton, namely all $0$-transitions returning to the initial state, fails for $(1,4)$. Indeed, ``proving or disproving the conjecture for the rusty numbers remains a challenge'' \cite[\S5]{FJ}.
+
+\subsection{Results}
+Throughout, $d(n):=A_n-\kappa n$ for $n\ge1$, and $d(0):=0$ (the convention $A_0=0$).
+
+\begin{theoremA}[Boundedness]
+For every positive integral linear form of dimension $k\ge2$ and every $n\ge1$,
+\[
+-k\tau\;\le\; A_n-\kappa n\;\le\;\tau-k .
+\]
+Moreover, there is a finite list of explicit inequalities (Proposition~\ref{prop:box}) whose integer solutions $[L,U]$ all satisfy $L\le d(n)\le U$. In every form we tested, the narrowest such box equals the exact range of $d$ (Remark~\ref{rem:boxes}).
+\end{theoremA}
+
+\begin{theoremB}[Two-term recursion]
+For $0\le r<\tau$ and $y_0,y_1\in\Z$ put
+\[
+G_r(y_0,y_1)=\mathsf A_1-K-1-r-\tau+\sum_{j=1}^k a_j\Big(\Iv{y_0\le kr+j-1}+\Iv{y_1\le kr+j-1-K}\Big),
+\]
+where $\Iv{P}\in\{0,1\}$ is the Iverson bracket. Then $d(\tau q+r+1)=G_r\big(d(q),d(q+1)\big)$ for all $q\ge0$ and $0\le r<\tau$.
+\end{theoremB}
+
+\begin{theoremC}[Automaticity]
+$(d(n))_{n\ge0}$ is $\tau$-automatic. It is generated by an explicit msd-first $\tau$-DFAO with at most $1+(k\tau+\tau-k+1)^3$ states. In particular Conjecture~\ref{conj:FJ}, and hence its weak form, holds for all positive integral linear forms.
+\end{theoremC}
+
+For the $4$-rusty numbers, Theorem~B specialises to
+\begin{equation}\label{eq:rec14}
+d(5q+j)=-j-6+\Iv{d(q)\le 2j-2}+4\Iv{d(q)\le 2j-1}+\Iv{d(q+1)\le 2j-12}+4\Iv{d(q+1)\le 2j-11}
+\end{equation}
+for $q\ge0$ and $1\le j\le5$, and $d$ takes values in $[-6,1]$. In Section~\ref{sec:rusty} we show:
+\begin{itemize}
+\item from \eqref{eq:rec14}, $A_{5q+1}=9+55q$ if and only if $d(q)\neq1$;
+\item the first index with $d(q)=1$ is $q=348$, reached by the chain $3\to14\to70\to348$ (Corollary~\ref{cor:1741});
+\item the minimal automaton has $17$ states in our convention (Table~\ref{tab:RUS}), and $9$ states in the convention of \cite{FJ} (Section~\ref{sec:rusty});
+\item Walnut certifies directly, without using Theorems~A--C, that this automaton generates the anti-recurrence sequence of $(1,4)$ (Theorem~\ref{thm:walnut14}).
+\end{itemize}
+
+\subsection{Method}
+The proof is elementary. Section~\ref{sec:general} rests on a counting identity (Lemma~\ref{lem:count}): $B_m=m+\#\{i:A_i<B_m\}$, and $A_i<B_m$ holds exactly when $Ki+d(i)\le m-1$. This turns \eqref{eq:def} into a self-referential formula expressing $d(n)$ through counts of earlier $d(i)$ below thresholds. An induction gives an invariant box. A short estimate shows that $[-K,\tau-k]$ is always such a box. With that box, all but two terms of each count are determined, which gives Theorem~B. Theorem~C follows by a standard argument: triples of consecutive values form the state of an automaton.
+
+\section{Preliminaries}\label{sec:prelim}
+We use the notation of the introduction: $\mathbf a=(a_1,\dots,a_k)$ with $k\ge2$ and $a_j\ge1$; $\tau=\sum_ja_j\ge k\ge2$; $K=k\tau$; $\kappa=K+1$; $\mathsf A_1=\sum_j j a_j$. Then
+\begin{equation}\label{eq:A1range}
+\tau\;\le\;\mathsf A_1\;\le\;K-(k-1),
+\end{equation}
+since $K-\mathsf A_1=\sum_j(k-j)a_j\ge\sum_{j<k}(k-j)\ge k-1$. The first block is $B_j=j$ for $j\le k$, hence $A_1=\mathsf A_1$ and $d(1)=\mathsf A_1-K-1$. We use the gap bound $A_{n+1}-A_n\ge K$ \cite[Lemma~2]{FJarxiv}, \cite[Lemma~1]{FJ}. In fact only $A_{n+1}-A_n\ge2$ is needed below.
+
+A sequence $(s(n))_{n\ge0}$ is \emph{$\tau$-automatic} if there is a deterministic finite automaton with output (DFAO) that, reading the base-$\tau$ representation of $n$, ends in a state whose output is $s(n)$. Our automata read the most significant digit first and allow leading zeros, as Walnut does. The reading direction does not affect the class of automatic sequences \cite[Thm.~5.2.3]{AS}. Our automata handle leading zeros explicitly (Theorem~C), so no further citation is needed for them. Equivalently, $s$ is $\tau$-automatic if and only if its \emph{$\tau$-kernel} $\{(s(\tau^e n+b))_{n\ge0}: e\ge0,\ 0\le b<\tau^e\}$ is finite \cite[Thm.~6.6.2]{AS}; see also \cite{Cobham}. We use the kernel characterisation only in Remark~\ref{rem:kernel}.
+% NOTE (author): theorem numbers 5.2.3 and 6.6.2 of [AS] were checked only against several independent secondary citations and the Crossref chapter list (Ch.5 Automatic Sequences pp.152-172; Ch.6 pp.173-211), not against the book itself. Check before submission.
+
+\section{The general theorem}\label{sec:general}
+
+\subsection{A counting identity}
+For $m\ge1$ let $c(m):=\#\{i\ge1: A_i<B_m\}$.
+
+\begin{lemma}\label{lem:count}
+\leavevmode
+\begin{enumerate}
+\item[(a)] $B_m=m+c(m)$. Moreover $A_i<B_m$ if and only if $Ki+d(i)\le m-1$.
+\item[(b)] Let $n\ge1$ and $m_j:=k(n-1)+j$ for $1\le j\le k$. Then no index $i\ge n$ satisfies $A_i<B_{m_j}$.
+\item[(c)] Write $n-1=\tau q+r$ with $0\le r<\tau$, and put $u_j:=kr+j-1\in[0,K-1]$. Then $m_j-1=Kq+u_j$, and
+\begin{equation}\label{eq:star}
+d(n)=\mathsf A_1-K-n+\sum_{j=1}^k a_j\,c(m_j),\qquad c(m_j)=\#\{i\ge1:\ d(i)\le K(q-i)+u_j\}.
+\end{equation}
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+(a) The integers in $[1,B_m)$ are the $m-1$ numbers $B_{m'}$ with $m'<m$, together with the $c(m)$ numbers $A_i<B_m$. Hence $B_m-1=(m-1)+c(m)$. Since $A$ is strictly increasing, exactly $A_i-i$ of the $B$'s lie below $A_i$. So $A_i<B_m$ if and only if $A_i-i\le m-1$, and $A_i-i=Ki+d(i)$.
+
+(b) Because $k\ge2$ and every $a_j\ge1$, we have $A_n\ge B_{kn}+B_{kn-1}>B_{kn}$. So at least $kn$ of the $B$'s lie below $A_n$, and $A_n-n\ge kn\ge m_j>m_j-1$. Since $A_{i+1}-A_i\ge2$, the quantity $A_i-i$ is strictly increasing in $i$. So $A_i-i>m_j-1$ for every $i\ge n$, and (a) applies.
+
+(c) By \eqref{eq:def} and (a), $A_n=\sum_ja_j(m_j+c(m_j))$, and $\sum_ja_jm_j=K(n-1)+\mathsf A_1$. Subtracting $\kappa n=(K+1)n$ gives the first formula. The second is (a) with $m_j-1=Kq+u_j$. As $(r,j)$ ranges over $[0,\tau-1]\times[1,k]$, the number $u_j$ takes each value in $[0,K-1]$ exactly once.
+\end{proof}
+
+\subsection{Invariant boxes}
+For $0\le r<\tau$ and $x\in\Z$ define
+\[
+\Phi(r,x):=\mathsf A_1-K-1-r+\sum_{j=1}^ka_j\Big\lfloor\frac{kr+j-1-x}{K}\Big\rfloor .
+\]
+
+\begin{proposition}[Box criterion]\label{prop:box}
+Let $L\le U$ be integers with
+\begin{enumerate}
+\item[(i)] $\Phi(r,L)\le U$ for all $r$;
+\item[(ii)] $\Phi(r,U)\ge L$ for all $r$;
+\item[(iii)] $U\ge-k(\tau-1)$;
+\item[(iv)] $L\le0$.
+\end{enumerate}
+Then $L\le d(n)\le U$ for all $n\ge1$.
+\end{proposition}
+
+\begin{proof}
+We use strong induction on $n$, including the base case $n=1$ (where the hypothesis is empty). Let $n=\tau q+r+1$. By Lemma~\ref{lem:count}(b), $c(m_j)=\#\{1\le i<n: Ki\le Kq+u_j-d(i)\}$.
+
+\emph{Upper bound.} By induction $d(i)\ge L$ for $i<n$, so $c(m_j)\le\#\{i\ge1:Ki\le Kq+u_j-L\}$. By (iv), $Kq+u_j-L\ge0$. Hence the count is $\lfloor (Kq+u_j-L)/K\rfloor=q+\lfloor(u_j-L)/K\rfloor$.
+
+\emph{Lower bound.} By induction $d(i)\le U$ for $i<n$. So every $i\ge1$ with $i<n$ and $Ki\le Kq+u_j-U$ is counted, i.e.\ every $i<n$ with $1\le i\le q+\lfloor(u_j-U)/K\rfloor$. We claim that all such $i$ satisfy $i<n$.
+\begin{itemize}
+\item By (iii), $u_j-U\le (K-1)+(K-k)<2K$, so $i\le q+1$.
+\item If $q\ge1$, then $q+1\le\tau q<n$.
+\item If $q=0$ and $r\ge1$, then $i\le1<n$.
+\item If $q=r=0$, then $u_j\le k-1$, and (iii) gives $u_j-U\le K-1$, so no $i\ge1$ qualifies.
+\end{itemize}
+Hence $c(m_j)\ge q+\lfloor(u_j-U)/K\rfloor$.
+
+Inserting both bounds into \eqref{eq:star}, with $n=\tau q+r+1$ and $\sum_ja_jq=\tau q$, gives $\Phi(r,U)\le d(n)\le\Phi(r,L)$. Then (i) and (ii) close the induction.
+\end{proof}
+
+Put $c_0:=\mathsf A_1-K-1+(\mathsf A_1-\tau)/K$. We have $\sum_ja_j\,kr/K=r$ and $\sum_ja_j(j-1)=\mathsf A_1-\tau$. Summing $y-1<\lfloor y\rfloor\le y$ with weights $a_j$ therefore gives
+\begin{equation}\label{eq:Phibounds}
+c_0-\frac{x}{k}-\tau\;<\;\Phi(r,x)\;\le\;c_0-\frac xk\qquad(0\le r<\tau,\ x\in\Z).
+\end{equation}
+Since $k\ge2$, the map $x\mapsto c_0-x/k$ is a contraction, so boxes exist. Explicitly:
+
+\begin{proposition}\label{prop:explicit}
+Let
+\[
+L^*=\min\Big\{0,\ \Big\lfloor\tfrac{c_0(1-1/k)-\tau+1}{1-1/k^2}\Big\rfloor,\ \big\lfloor k(c_0-1)+k^2(\tau-1)\big\rfloor,\ \Big\lfloor\tfrac{k(c_0-1)}{k+1}\Big\rfloor\Big\}
+\]
+and $U^*=\lfloor c_0-L^*/k\rfloor$. Then $(L^*,U^*)$ satisfies (i)--(iv) and $L^*\le U^*$.
+\end{proposition}
+
+\begin{proof}
+(i) By \eqref{eq:Phibounds}, $\Phi(r,L^*)\le c_0-L^*/k$, and $\Phi$ is an integer, so $\Phi(r,L^*)\le U^*$.
+
+(ii) By \eqref{eq:Phibounds}, $\Phi(r,U^*)>c_0-U^*/k-\tau\ge c_0(1-1/k)+L^*/k^2-\tau$. The right-hand side is $\ge L^*-1$ by the second entry of the minimum. Since $\Phi$ is an integer, $\Phi(r,U^*)\ge L^*$.
+
+(iii) We have $U^*>c_0-L^*/k-1\ge-k(\tau-1)-1$ by the third entry; $U^*$ is an integer, so $U^*\ge-k(\tau-1)$.
+
+$L^*\le U^*$: similarly, $U^*>c_0-L^*/k-1\ge L^*-1$ by the fourth entry.
+
+(iv) holds because $0$ is in the minimum.
+\end{proof}
+
+This already proves the weak form of Conjecture~\ref{conj:FJ}. The following uniform box is sharper and is what makes Theorem~B work.
+
+\begin{lemma}[Universal box]\label{lem:universal}
+Let $L=-K$ and $U=\max\{-k(\tau-1),\ \max_r\Phi(r,-K)\}$. Then (i)--(iv) hold, $L<U$, and $U\le\tau-k$. Consequently $-K\le d(n)\le\tau-k$ for all $n\ge1$, and also for $n=0$ since $d(0)=0$ and $\tau\ge k$.
+\end{lemma}
+
+\begin{proof}
+Conditions (i), (iii) and (iv) hold by construction. Also $L=-K<-K+k=-k(\tau-1)\le U$.
+
+\emph{$U\le\tau-k$.} By \eqref{eq:Phibounds} and \eqref{eq:A1range}, using $(\mathsf A_1-\tau)/K<1$,
+\[
+\Phi(r,-K)\le c_0+\tau<\mathsf A_1-K+\tau\le\tau-k+1 .
+\]
+Since $\Phi$ is an integer, $\Phi(r,-K)\le\tau-k$. Also $-k(\tau-1)\le0\le\tau-k$.
+
+\emph{Condition (ii).} By \eqref{eq:Phibounds}, $\Phi(r,U)>c_0-U/k-\tau$. By \eqref{eq:A1range}, $c_0\ge\tau-K-1$.
+\begin{itemize}
+\item If $U=\max_r\Phi(r,-K)$, then $U\le c_0+\tau$, and since $1-1/k>0$,
+\[
+\Phi(r,U)>c_0\Big(1-\frac1k\Big)-\tau\Big(1+\frac1k\Big)\ge(\tau-K-1)\Big(1-\frac1k\Big)-\tau\Big(1+\frac1k\Big)=-K-1+\tau\Big(1-\frac2k\Big)+\frac1k .
+\]
+The right-hand side exceeds $-K-1$.
+\item If $U=-k(\tau-1)$, then $\Phi(r,U)>c_0+(\tau-1)-\tau\ge\tau-K-2\ge-K-1$.
+\end{itemize}
+In both cases the integer $\Phi(r,U)$ exceeds $-K-1$, so $\Phi(r,U)\ge-K=L$.
+\end{proof}
+
+\begin{proof}[Proof of Theorem A]
+Combine Lemma~\ref{lem:universal} with Proposition~\ref{prop:box}.
+\end{proof}
+
+\begin{remark}\label{rem:boxes}
+(a) \emph{Narrowest boxes.} For fixed $L\le 0$ the least admissible $U$ is $\max\{-k(\tau-1),\max_r\Phi(r,L)\}$, so a narrowest box satisfying (i)--(iv) can be found by a one-dimensional search over $L$. Every such box contains the range of $d$. The \emph{exact} range of $d$ can be computed from the automaton of Theorem~C (the set of output values of its reachable states); finite prefixes are not reliable for this, since the extreme values can first occur very late. On the $10$ named forms of Section~\ref{sec:comp} and on $736$ further forms (all $k=2$ forms with $a_j\le20$, all $k=3$ forms with $a_j\le6$, and $120$ random forms with $4\le k\le6$), the narrowest box found by the search equals the exact range of $d$; an independently written second implementation found the same on $1682$ forms. For $(1,4)$ both are $[-6,1]$.
+
+\begin{conjecture}\label{conj:box}
+For every positive integral linear form, the narrowest box satisfying (i)--(iv) is exactly $[\min d,\max d]$.
+\end{conjecture}
+
+(b) \emph{The explicit box.} The box $(L^*,U^*)$ of Proposition~\ref{prop:explicit} can exceed the narrowest box by up to $2$ units of total width. For example, for $(1,2)$ it is $[-4,0]$, whereas the exact range is $[-3,-1]$. In the $736$-form sweep the excess is $0$, $1$, $2$ for $49$, $277$, $410$ forms respectively, and never more than $2$.
+
+(c) \emph{Sharpness of Lemma~\ref{lem:universal}.} Lemma~\ref{lem:universal} bounds the range of $d$. Its lower end is nearly sharp: in every tested form $\min d\ge-K+2$, and in our $736$-form sweep equality holds exactly for the $20$ forms $(a,1)$, $1\le a\le 20$ (for example $(1,1)$ and $(2,1)$). We have not proved $d\ge-K+2$ in general. The upper end $\tau-k$ is far from sharp; the second implementation found $\max d\le0.66(\tau-k)$ on all its forms.
+\end{remark}
+
+\subsection{The two-term recursion}
+\begin{proof}[Proof of Theorem B]
+Let $n=\tau q+r+1$ and apply \eqref{eq:star}. Write $i=q-t$.
+\begin{itemize}
+\item Every $i\le q-1$ ($t\ge1$) is counted, because by Lemma~\ref{lem:universal}, $d(i)\le\tau-k<K\le Kt+u_j$.
+\item No $i\ge q+2$ is counted, because $K(q-i)+u_j\le-2K+K-1<-K\le d(i)$.
+\end{itemize}
+Hence, for $q\ge1$,
+\[
+c(m_j)=(q-1)+\Iv{d(q)\le u_j}+\Iv{d(q+1)\le u_j-K}.
+\]
+For $q=0$ the count is $c(m_j)=\Iv{d(1)\le u_j-K}$. This agrees with the same formula, because $d(0)=0\le u_j$. Substituting into \eqref{eq:star}, with $\sum_ja_j(q-1)=\tau q-\tau$ and $n=\tau q+r+1$, gives $d(n)=G_r(d(q),d(q+1))$.
+\end{proof}
+
+\subsection{Automaticity}
+\begin{proof}[Proof of Theorem C]
+For $m\ge1$ let $V(m):=(d(m-1),d(m),d(m+1))\in\Z^3$. By Lemma~\ref{lem:universal} (including $d(0)=0$), $V(m)\in[-K,\tau-k]^3$ for all $m\ge1$. Fix a digit $0\le c<\tau$ and $m\ge1$. The coordinates of $V(\tau m+c)$ are $d(\tau m+c+e)$ for $e\in\{-1,0,1\}$. Write $\tau m+c+e=\tau q'+r'+1$ with $0\le r'<\tau$.
+\begin{itemize}
+\item If $c+e-1\ge0$, then $q'=m$ and $r'=c+e-1$.
+\item If $c+e-1\in\{-2,-1\}$, then $q'=m-1$ and $r'=\tau+c+e-1$, which lies in $[0,\tau-1]$ because $\tau\ge2$.
+\end{itemize}
+In either case $q'\ge0$. By Theorem~B, each coordinate is $G_{r'}$ applied to two consecutive entries of $V(m)$. So there are maps $H_c:\Z^3\to\Z^3$, depending only on $c$ and $\mathbf a$, with
+\begin{equation}\label{eq:H}
+V(\tau m+c)=H_c(V(m))\qquad(m\ge1,\ 0\le c<\tau).
+\end{equation}
+
+Define a DFAO as follows.
+\begin{itemize}
+\item States: a start state $S$, plus the vectors $V(m)$ for $m\ge1$. These lie in $\{S\}\cup[-K,\tau-k]^3$, which has at most $1+(K+\tau-k+1)^3$ elements.
+\item Transitions: $S\xrightarrow{0}S$; $S\xrightarrow{c}V(c)$ for $1\le c<\tau$; and $V\xrightarrow{c}H_c(V)$.
+\item Outputs: $S$ outputs $0=d(0)$; a vector outputs its middle coordinate.
+\end{itemize}
+Feed in the base-$\tau$ digits of $n$, most significant first, with leading zeros allowed. By \eqref{eq:H} and induction on the number of digits after the leading zeros, the automaton ends in $S$ if $n=0$ and in $V(n)$ otherwise. So it outputs $d(n)$. The sequence $(A_n-\kappa n)_{n\ge1}$ is the restriction of $(d(n))_{n\ge0}$ to $n\ge1$, and the same automaton computes it.
+\end{proof}
+
+\begin{remark}[A version with an arbitrary box]\label{rem:kernel}
+The argument does not depend on the specific box of Lemma~\ref{lem:universal}. Let $[L,U]$ be any box satisfying (i)--(iv). Let $T=\max(1,\lceil U/K\rceil)$, and let $T'$ be the least integer with $KT'>K-1-L$. By \eqref{eq:star}, for $q\ge T$,
+\[
+d(\tau q+r+1)=\mathsf A_1-K-1-r-\tau T+\sum_ja_j\sum_{t=-T+1}^{T'-1}\Iv{d(q+t)\le u_j-Kt}.
+\]
+Put $o=-2T$, $W=2T+2T'+1$, $P_0=2T+1$, and $V(p)=(d(p+o),\dots,d(p+o+W-1))$. Then $o\le0\le o+W-1$, and the containment conditions
+\[
+\lfloor(o-1)/\tau\rfloor-T+1\ge o,\qquad \lfloor(\tau+o+W-3)/\tau\rfloor+T'-1\le o+W-1
+\]
+hold for all $\tau\ge2$. Hence $V(\tau p+c)=H_c(V(p))$ for $p\ge P_0$, with maps $H_c$ on $[L,U]^W$. Iterating, with $b=\sum_{i<e}c_i\tau^i$ ($c_0$ the least significant digit),
+\[
+V(\tau^ep+b)=H_{c_0}\circ H_{c_1}\circ\cdots\circ H_{c_{e-1}}(V(p))\qquad (p\ge P_0).
+\]
+So each kernel sequence $p\mapsto d(\tau^ep+b)$ is determined by finitely many data: the map $\pi\circ H_{c_0}\circ\cdots\circ H_{c_{e-1}}$, where $\pi$ is the coordinate at offset $0$, and its first $P_0$ values. The $\tau$-kernel is therefore finite, and \cite[Thm.~6.6.2]{AS} applies. With the universal box, $T=1$ and $T'=2$.
+\end{remark}
+
+\section{The 4-rusty numbers}\label{sec:rusty}
+Here $\mathbf a=(1,4)$: $k=2$, $\tau=5$, $K=10$, $\kappa=11$, $\mathsf A_1=9$. With $u_1=2r$, $u_2=2r+1$ and $j=r+1$, Theorem~B becomes \eqref{eq:rec14}. Conditions (i)--(iv) of Proposition~\ref{prop:box} hold for $[L,U]=[-6,1]$. The range of $d$ is exactly $[-6,1]$ (the output set of the automaton below), so this is the narrowest possible box. Evaluating \eqref{eq:rec14} with $d\in[-6,1]$ gives, for all $q\ge0$:
+\begin{align*}
+d(5q+1)&=-3+\Iv{d(q)\le0},\qquad d(5q+2)=-3,\\
+d(5q+3)&=-4+\Iv{d(q+1)\le-6}+4\Iv{d(q+1)\le-5},\\
+d(5q+4)&=-5+\Iv{d(q+1)\le-4}+4\Iv{d(q+1)\le-3},\\
+d(5q+5)&=-6+\Iv{d(q+1)\le-2}+4\Iv{d(q+1)\le-1}.
+\end{align*}
+In particular $A_{5q+2}=19+55q$ for every $q\ge0$.
+
+\begin{corollary}\label{cor:1741}
+$A_{5q+1}=9+55q$ if and only if $d(q)\ne1$. The least $q$ with $d(q)=1$ is $q=348$. Hence $A_{5q+1}=9+55q$ for $q<348$, and $A_{1741}=19148\ne 9+55\cdot348$.
+\end{corollary}
+
+\begin{proof}
+$A_{5q+1}=9+55q$ means $d(5q+1)=-2$, i.e.\ $d(q)\le0$, i.e.\ $d(q)\neq1$. From the displayed formulas:
+\begin{itemize}
+\item $d(n)=1$ if and only if $n=5q+3$ with $d(q+1)=-6$;
+\item $d(n)=-6$ if and only if $n=5p$ with $d(p)\ge0$;
+\item $d(n)\ge0$ if and only if either $n=5q+4$ with $d(q+1)\le-4$, or $n=5q+3$ with $d(q+1)\le-5$.
+\end{itemize}
+Since $d(1),d(2),d(3),d(4)=-2,-3,-4,-5$, the least $n$ with $d(n)\ge0$ is $5\cdot2+4=14$. Then the least $n$ with $d(n)=-6$ is $5\cdot14=70$, and the least $n$ with $d(n)=1$ is $5\cdot69+3=348$. In base $5$ the chain is $3\to24\to240\to2343$, and the first failure is at index $5\cdot348+1=1741=(23431)_5$. The value $A_{1741}=11\cdot1741-3=19148$ follows from $d(1741)=-3$.
+\end{proof}
+
+\begin{table}[ht]
+\centering
+\caption{Minimal msd-first $5$-DFAO for $d(n)=A_n-11n$, $\mathbf a=(1,4)$, in our convention (input $n\ge0$, leading zeros allowed, state $0$ is initial, $d(0)=0$). This is the Walnut word automaton \texttt{RUS}, whose stored outputs are $d+6$.}\label{tab:RUS}
+\begin{tabular}{c c c c c c c @{\qquad} c c c c c c c}
+\toprule
+state & out & 0&1&2&3&4 & state & out & 0&1&2&3&4\\
+\midrule
+0 & $0$ & 0&2&4&7&8 & 9 & $-5$ & 1&2&3&14&12\\
+1 & $-1$ & 15&2&4&7&8 & 10 & $-6$ & 1&2&4&5&1\\
+2 & $-2$ & 1&2&4&5&1 & 11 & $-6$ & 1&2&4&7&8\\
+3 & $-3$ & 1&2&4&7&9 & 12 & $0$ & 11&2&4&7&8\\
+4 & $-3$ & 1&2&4&6&12 & 13 & $0$ & 11&2&4&7&9\\
+5 & $-4$ & 1&2&4&7&8 & 14 & $1$ & 10&16&4&7&9\\
+6 & $-4$ & 1&2&4&7&9 & 15 & $-2$ & 1&2&4&7&8\\
+7 & $-4$ & 1&2&3&13&12 & 16 & $-3$ & 1&2&4&5&1\\
+8 & $-5$ & 1&2&4&7&8 & & & & & & & \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The automaton of Theorem~C for $(1,4)$ has $28$ reachable states, and it minimises to the $17$ states of Table~\ref{tab:RUS}.
+
+\emph{Indexing conventions.} Automaton sizes depend on the indexing. Throughout, ``minimal'' refers to the minimal msd-first DFAO that reads the base-$\tau$ expansion of $n\ge0$, with leading zeros allowed, and outputs $d(n)$, where $d(0)=0$. Fokkink and Joshi instead feed in $n-1$, i.e.\ they describe $s(m)=d(m+1)$, $m\ge0$, up to an additive constant \cite[Fig.~7]{FJ}. An automaton for $s$ is obtained from the one of Theorem~C by letting $S$ output $d(1)$ and letting each triple output its last coordinate. In that convention the minimal automata are smaller: $9$ states for $(1,4)$, and $6$ states for $(1,3)$, matching the $6$-state automaton of \cite[Fig.~7]{FJ}. Table~\ref{tab:walnut} lists both sizes.
+
+\begin{theorem}\label{thm:walnut14}
+Let $W(n)$ be the output of the DFAO in Table~\ref{tab:RUS} on the base-$5$ expansion of $n$. Then $A_n=11n+W(n)$ is the $4$-rusty sequence. This statement is certified by Walnut, independently of Theorems~A--C.
+\end{theorem}
+
+\begin{proof}
+In Walnut (v7.1) we define the following predicates.
+\begin{itemize}
+\item $\mathrm{ra}(n,s)$: $n>0\wedge s+6=11n+\texttt{RUS}[n]$.
+\item $\mathrm{rb2}(n,t)$: $\exists s\ \mathrm{ra}(n,s)\wedge(5t=s+1\vee 5t=s+2)$.
+\item $\mathrm{rb1}(n,u)$: $\exists s,t\ \mathrm{ra}(n,s)\wedge\mathrm{rb2}(n,t)\wedge u+4t=s$.
+\end{itemize}
+Walnut returns \texttt{TRUE} for each of the following.
+\begin{itemize}
+\item Initial values: $\mathrm{rb1}(1,1)$, $\mathrm{rb2}(1,2)$ and $\mathrm{ra}(1,9)$.
+\item Totality: $\mathrm{ra}$ and $\mathrm{rb2}$ are defined for all $n>0$.
+\item Monotonicity: $\mathrm{ra}$ is strictly increasing, and $B_1(n)<B_2(n)<B_1(n+1)$.
+\item Disjointness: the range of $\mathrm{ra}$ meets neither range of $\mathrm{rb1}$, $\mathrm{rb2}$.
+\item Cover: every $x>0$ lies in one of the three ranges.
+\item Bounds: $11n-6\le A_n\le 11n+1$.
+\item First failure: the first failure of $A_{5n+1}=9+55n$ is at $n=348$.
+\end{itemize}
+Control queries, e.g.\ $\mathrm{ra}(1,10)$, and a cover statement omitting $\mathrm{ra}$, return \texttt{FALSE}. The relation $A_n=B_1(n)+4B_2(n)$ holds by construction of $\mathrm{rb1}$. The interleaving makes $(B_m)$, defined by $B_{2n-1}=B_1(n)$ and $B_{2n}=B_2(n)$, strictly increasing. So $(A,B)$ is a complementary pair of strictly increasing sequences satisfying \eqref{eq:def}, and by uniqueness \cite[Lemma~3]{FJarxiv}, \cite[Lemma~2]{FJ} it is the anti-recurrence pair of $(1,4)$. A second, independently written query set gives the same verdicts (artifact files \texttt{walnut\_ref14.*}).
+\end{proof}
+
+\section{Computational verification}\label{sec:comp}
+None of the following is needed for the proofs. Its purpose is to rule out slips in the hand arguments. All computations ran on a single CPU core under a 500\,MB memory cap. Every check generates $(A,B)$ by brute force directly from the definition (mex plus linear form), independently of the formulas being tested.
+
+\begin{enumerate}
+\item \emph{Large-scale check for $(1,4)$.}
+  \begin{itemize}
+  \item $10^7$ terms: $d\in[-6,1]$, and \eqref{eq:rec14} holds for every $n\le10^7$.
+  \item The $17$-state DFAO agrees with $d(n)$ for every $n\le2\cdot10^6$.
+  \end{itemize}
+\item \emph{Step-by-step recheck on $50$ forms ($20$ not $A_1$-bounded), $6\cdot10^4$ terms each.} Checked:
+  \begin{itemize}
+  \item $B_m=m+c(m)$ and identity \eqref{eq:star};
+  \item conditions (i)--(iv) for the explicit box, and the pointwise bounds $\Phi(r,U)\le d(n)\le\Phi(r,L)$;
+  \item the window recursion.
+  \end{itemize}
+  No failures.
+\item \emph{An independently written second implementation ($585$ forms).} This and item~5 were written separately from our code, as a check against implementation errors; they are not peer review.
+  \begin{itemize}
+  \item Forms: all $k=2$ with $a_j\le12$; all $k=3$ with $a_j\le6$; $25$ adversarial forms; $200$ random forms with $k\in\{3,4,5\}$ and $a_j\le12$. Of these, $178$ are not $A_1$-bounded.
+  \item Up to $10^5$ terms per form, and $2\cdot10^6$ terms for $8$ forms.
+  \item Code: a C generator written separately from our code.
+  \item Checked: the identity, the box, the window recursion, and determinism of the window map. No failures.
+  \end{itemize}
+\item \emph{Checks of the present formulation.}
+  \begin{itemize}
+  \item $433$ forms, $6000$ terms each: Lemma~\ref{lem:universal}, the bound $U\le\tau-k$, and Theorem~B for all $q\ge0$ with $d(0)=0$. Forms: all $k=2$ with $a_j\le12$; all $k=3$ with $a_j\le5$; $150$ random forms with $k\in\{3,4,5\}$ and $a_j\le12$; extremal forms $(1,\dots,1)$, $(1,\dots,1,20)$, $(20,1,\dots,1)$. No failures.
+  \item $17$ forms, $2\cdot10^4$ terms: the explicit constants of Proposition~\ref{prop:explicit} and Remark~\ref{rem:kernel}, verified coordinate by coordinate.
+  \item $12$ named forms: the automaton of Theorem~C reproduces $d(0),\dots,d(2\cdot10^4)$ exactly. After minimisation it has $17$, $19$, $37$ and $24$ states for $(1,4)$, $(1,5)$, $(2,7)$ and $(1,1,5)$ respectively. These numbers match the Walnut-certified automata of Section~\ref{sec:walnut}.
+  \item $10$ named forms and $736$ further forms (Remark~\ref{rem:boxes}): exact ranges from the reachable states of the automaton of Theorem~C, narrowest boxes, the excess of $(L^*,U^*)$, $V(1)\in[-K,\tau-k]^3$, and minimal sizes in both conventions.
+  \end{itemize}
+\item \emph{A second pass of the separately written implementation ($2270$ forms).}
+  \begin{itemize}
+  \item Forms with $2\le k\le8$, entries up to $200$ and $\tau$ up to $1600$.
+  \item Checked: Lemma~\ref{lem:universal}, Theorem~B for all $q\ge0$, the maps $H_c$ of \eqref{eq:H}, and that the reachable triples of Theorem~C lie in $[-K,\tau-k]^3$. No failures.
+  \item $3\cdot10^6$ terms for $7$ large forms; for $(1,4)$, $A_{1741}=19148$ and $A_{5q+2}=19+55q$ for all $5q+2\le2\cdot10^6$.
+  \item Exact rational recheck of the constants of Proposition~\ref{prop:explicit} and Remark~\ref{rem:kernel} on $1420$ forms.
+  \end{itemize}
+\end{enumerate}
+
+\section{Further Walnut certificates}\label{sec:walnut}
+For the forms in Table~\ref{tab:walnut}, a DFAO was built from the window recursion and minimised. Its outputs were stored as a Walnut word automaton, and the analogue of the query set in Theorem~\ref{thm:walnut14} was run:
+\begin{itemize}
+\item initial block, totality, monotonicity of $A$, interleaving of the $B$'s;
+\item disjointness of $A$ from the $B$'s, and cover of $\N$;
+\item the linear relation, plus control queries.
+\end{itemize}
+All verdicts were as expected. The $B$'s are pairwise disjoint because of the interleaving query $B_1(n)<\dots<B_k(n)<B_1(n+1)$. For $(1,1,5)$ the separately written implementation also ran the three pairwise disjointness queries for $B_1,B_2,B_3$ directly, with its own predicate definitions; all return \texttt{TRUE} (artifact files \texttt{walnut\_rqf\_disjB.*}). None of these forms is $A_1$-bounded, so none is covered by \cite{FJarxiv,FJ}.
+
+\begin{table}[ht]
+\centering
+\caption{Walnut-certified forms (Walnut v7.1). ``States'' is the size of the minimal msd-first DFAO in our convention (input $n\ge0$, output $d(n)$, $d(0)=0$); ``FJ'' is the size in the convention of \cite{FJ} (input $n-1$). The range of $d$ is exact.}\label{tab:walnut}
+\begin{tabular}{l c c c c c l}
+\toprule
+$\mathbf a$ & $\tau$ & $\kappa$ & states & FJ & range of $d$ & Walnut automaton \\
+\midrule
+$(1,4)$ & 5 & 11 & 17 & 9 & $[-6,1]$ & \texttt{RUS}\\
+$(1,5)$ & 6 & 13 & 19 & 11 & $[-7,1]$ & \texttt{RFV}\\
+$(2,7)$ & 9 & 19 & 37 & 20 & $[-12,3]$ & \texttt{RTS}\\
+$(1,1,5)$ & 7 & 22 & 24 & 9 & $[-9,-1]$ & \texttt{RQF}\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+For $(1,1,5)$ the direct query for the linear relation exceeded a $400$\,MB heap. It was replaced by an equivalent reformulation that first defines the sum $B_1+B_2+5B_3$ as a predicate; both resulting queries return \texttt{TRUE}. For $(1,5)$, $(2,7)$ and $(1,1,5)$ the relation is checked by an explicit Walnut query, not just by construction. These certificates are not needed given Theorem~C; they serve as an independent check of it.
+
+\section{Related work}\label{sec:related}
+\subsection*{Prior art search}
+We searched for any earlier proof of boundedness or automaticity for general linear forms (arXiv, zbMATH Open, OEIS, publisher pages; October 9, 2026). Except where noted, we read each source listed here.
+\begin{itemize}
+\item \emph{Kimberling--Moses} \cite{KM}. Theorem~2.1 and Theorem~3.2 determine growth rates for linear complementary equations. Section~6 introduces the anti-Fibonacci system and its anti-$m$-nacci generalisations, with conjectured morphisms for the difference sequences, and asks whether the anti-$m$-nacci sequence is the fixed point of a morphism (``The conjectured answer is yes!''). Example~12 conjectures bounded discrepancy for a related system. No general boundedness or automaticity theorem is stated.
+\item \emph{Kimberling--Moses 2021} \cite{KM21}. Theorem~1 gives existence and uniqueness for complementary equations $a_n=f(b_{g(n)},b_{h(n)})$, including $a_n=b_{2n}+b_{2n+1}$; explicit results are proved for $a_n=b_{2n}+b_{4n}$. Section~6 studies $a_n=ub_n+vb_{n+k}+c$, where tables and experiments are said to suggest that $a_n-(u+v+1)n$ is unbounded unless $u=v=1$. There is no general boundedness result for the block equations \eqref{eq:def}.
+\item \emph{Bosma et al.} \cite{Bosma}. Section~3 proves the anti-tribonacci and anti-tetranacci conjectures of Kimberling by Walnut verification of guessed automata, and states the Clergyman's Conjecture for anti-$k$-naccis.
+\item \emph{Fokkink--Joshi} \cite{FJarxiv,FJ}. Both versions prove the $A_1$-bounded case and the anti-$k$-bonacci case, and state that the general case is open \cite[\S6]{FJ}. The published version was received 8/6/25 and published 1/19/26.
+\item \emph{Citation and phrase searches.} We found no paper citing \cite{FJarxiv,FJ} that treats anti-recurrences. Searches of arXiv and zbMATH Open for ``anti-recurrence'', ``anti-Fibonacci'', ``anti-$k$-nacci'', ``anti-bonacci'', and ``Clergyman'' found nothing on anti-recurrences beyond the works cited here.
+\item \emph{OEIS} \cite{A075326,A265389,A299409,A304499,A304502}. The bounds in these entries are stated as conjectures, or have been proved for those specific forms only (by \cite{Bosma,FJarxiv}). The $3$- and $4$-rusty sequences are not in the OEIS.
+\item \emph{Older complementary-equation surveys} \cite{Kim07,Kim08}. These treat equation families such as $b(n)=a(jn)\pm r$, $b(n)=a(jn)+kn$ and Wythoff-type equations, not mex-generated linear forms.
+\item \emph{Walnut and complementarity.} Shallit \cite{ShallitTrib} proved complementarity statements for Tribonacci-based sequences in Walnut; the setting is different. For Walnut in general see \cite{ShallitBook,Mousavi}.
+\item \emph{Mex-defined complementary pairs.} Fraenkel \cite{Fraenkel82}, which \cite{FJ} cites as an origin of complementary sequences, studies P-positions of generalised Wythoff games (we have seen only its opening section). Fraenkel and Peled \cite{FraenkelPeled} study pairs $a_n=\mathrm{mex}\{\dots\}$, $b_n=a_n+c_n$ and show (zbMATH summary; full text not seen) that membership is decidable in polynomial time when $c_n$ is approximately linear. Neither treats \eqref{eq:def}.
+\end{itemize}
+We could not run Google Scholar or MathSciNet searches. To the best of our knowledge, boundedness (the weak form) and automaticity for general linear forms are new. So are the explicit universal box, the two-term recursion, and the explanation of the $A_{1741}$ break. \todo{repeat the search on Google Scholar and MathSciNet, and read Fraenkel 1982 and Fraenkel--Peled in full, immediately before submission.}
+
+\subsection*{Background}
+Counting arguments of the kind in Lemma~\ref{lem:count}(a) go back to Lambek and Moser's work on complementary sequences \cite{LambekMoser}. Automatic sequences go back to Cobham \cite{Cobham}; see \cite{AS} for the theory. Since automatic sequences and linear sequences are $\tau$-regular and $\tau$-regular sequences form a ring \cite{AS92}, Theorem~C also shows that $A_n$ itself is $\tau$-regular.
+
+\subsection*{Relation to the $A_1$-bounded proof}
+Fokkink and Joshi show that under $A_1$-boundedness each interval $I_n=[\kappa(n-1)+1,\kappa n]$ contains exactly one $A$-term. The process is then a uniform substitution on residues, which they handle with Cobham's little theorem. Without $A_1$-boundedness this interval structure breaks down; for example the $6$-state automaton for $(1,3)$ \cite[Fig.~7]{FJ} has all $0$-transitions returning to the initial state, a feature that fails for $(1,4)$ \cite[\S5]{FJ}. For $(1,4)$, $d$ takes the value $1$, so $A_n$ can leave $I_n$. Our counting identity avoids intervals altogether: it reads $d(\tau q+r+1)$ off the two values $d(q)$ and $d(q+1)$.
+
+\section{Data and code availability}
+All scripts, logs and Walnut files are in the reproducibility artifact accompanying this paper (directory \texttt{artifact/}; see its \texttt{README.md} and \texttt{SHA256SUMS}). It contains:
+\begin{itemize}
+\item Python generators and checkers;
+\item two separately written C generators with their checkers (in \texttt{code/referee/} and \texttt{code/referee2/});
+\item the Walnut word automata \texttt{RUS}, \texttt{RFV}, \texttt{RTS}, \texttt{RQF};
+\item the Walnut command files and their output logs;
+\item the scripts that build the automaton of Theorem~C, and the exact-range and automaton-size computations (\texttt{r2checks.py}).
+\end{itemize}
+Walnut is free software \cite{Mousavi}; we used version 7.1. \todo{deposit the artifact (e.g.\ Zenodo) and insert DOI.}
+
+\section*{Use of AI tools}
+\todo{Draft disclosure; the author must edit and complete it before submission.}
+This work was carried out almost entirely by AI agents working under the author's direction. AI agents found and wrote the proofs in Section~\ref{sec:general} and Section~\ref{sec:rusty}, wrote all code (the generators, the checkers, the automaton constructions and the Walnut query files), ran all computations and Walnut verifications, carried out the literature search, and drafted this paper. The two internal review passes and the separately written second implementation mentioned in Section~\ref{sec:comp} were also carried out by AI agents; they are not peer review. The Walnut certificates of Theorem~\ref{thm:walnut14} and Section~\ref{sec:walnut} were produced by Walnut itself and can be re-run from the artifact. \todo{State precisely what the author personally checked, e.g.: ``The author has read and verified the proofs of Lemma~\ref{lem:count}, Proposition~\ref{prop:box}, Lemma~\ref{lem:universal} and Theorems~A--C, re-ran the Walnut files \dots, and checked the citations \dots'' Only list what was actually done.} The author takes full responsibility for the content.
+
+\section*{Acknowledgements}
+\todo{acknowledgements.}
+
+\begin{thebibliography}{99}
+
+\bibitem{AS}
+J.-P. Allouche and J. Shallit, \emph{Automatic Sequences: Theory, Applications, Generalizations}, Cambridge University Press, 2003. doi:10.1017/CBO9780511546563.
+
+\bibitem{AS92}
+J.-P. Allouche and J. Shallit, The ring of $k$-regular sequences, \emph{Theoret. Comput. Sci.} \textbf{98} (1992), 163--197. doi:10.1016/0304-3975(92)90001-V.
+
+\bibitem{Bosma}
+W. Bosma, R. Bruin, R. Fokkink, J. Grube, A. Reuijl, and T. Tromp, Using Walnut to solve problems from the OEIS, arXiv:2503.04122 [math.NT], 2025. Published as J. Integer Seq. \textbf{28} (2025), no.~3, Article 25.3.8.
+
+\bibitem{Cobham}
+A. Cobham, Uniform tag sequences, \emph{Math. Systems Theory} \textbf{6} (1972), 164--192. doi:10.1007/BF01706087.
+
+\bibitem{FJarxiv}
+R. Fokkink and G. Joshi, Anti-recurrence sequences, arXiv:2506.13337v1 [math.NT], 2025.
+
+\bibitem{FJ}
+R. Fokkink and G. Joshi, Anti-recurrence sequences, \emph{Integers} \textbf{26} (2026), \#A24. doi:10.5281/zenodo.18305140.
+
+\bibitem{Fraenkel82}
+A. S. Fraenkel, How to beat your Wythoff games' opponent on three fronts, \emph{Amer. Math. Monthly} \textbf{89} (1982), no.~6, 353--361. doi:10.1080/00029890.1982.11995454.
+
+\bibitem{FraenkelPeled}
+A. S. Fraenkel and U. Peled, Harnessing the unwieldy MEX function, in: R.~J. Nowakowski (ed.), \emph{Games of No Chance 4}, Cambridge University Press, 2015, pp.~77--94. doi:10.1017/9780511820809.008.
+
+\bibitem{Hof}
+D. R. Hofstadter, Anti-Fibonacci numbers, unpublished note, October 2014. Available at \url{https://oeis.org/A075326/a075326_1.pdf}.
+
+\bibitem{Kim07}
+C. Kimberling, Complementary equations, \emph{J. Integer Seq.} \textbf{10} (2007), Article 07.1.4.
+
+\bibitem{Kim08}
+C. Kimberling, Complementary equations and Wythoff sequences, \emph{J. Integer Seq.} \textbf{11} (2008), Article 08.3.3.
+
+\bibitem{KM}
+C. Kimberling and P. J. C. Moses, Linear complementary equations and systems, \emph{Fibonacci Quart.} \textbf{57} (2019), no.~5, 96--110.
+
+\bibitem{KM21}
+C. Kimberling and P. J. C. Moses, Complementary equations with advanced subscripts, \emph{J. Integer Seq.} \textbf{24} (2021), Article 21.3.3.
+
+\bibitem{LambekMoser}
+J. Lambek and L. Moser, Inverse and complementary sequences of natural numbers, \emph{Amer. Math. Monthly} \textbf{61} (1954), no.~7, 454--458. doi:10.1080/00029890.1954.11988496.
+
+\bibitem{Mousavi}
+H. Mousavi, Automatic theorem proving in Walnut, arXiv:1603.06017, 2016.
+
+\bibitem{A075326}
+OEIS Foundation Inc., The On-Line Encyclopedia of Integer Sequences, Sequence A075326 (Anti-Fibonacci numbers), \url{https://oeis.org/A075326}; see also A249031, A249032.
+
+\bibitem{A265389}
+OEIS, Sequence A265389, \url{https://oeis.org/A265389}.
+
+\bibitem{A299409}
+OEIS, Sequence A299409, \url{https://oeis.org/A299409}.
+
+\bibitem{A304499}
+OEIS, Sequence A304499, \url{https://oeis.org/A304499}.
+
+\bibitem{A304502}
+OEIS, Sequence A304502, \url{https://oeis.org/A304502}.
+
+\bibitem{ShallitTrib}
+J. Shallit, Some Tribonacci conjectures, \emph{Fibonacci Quart.} \textbf{61} (2023), no.~3, 214--221. doi:10.1080/00150517.2023.12427399.
+
+\bibitem{ShallitBook}
+J. Shallit, \emph{The Logical Approach to Automatic Sequences: Exploring Combinatorics on Words with Walnut}, Cambridge University Press, 2022. doi:10.1017/9781108775267.
+
+\bibitem{Zas}
+T. Zaslavsky, Anti-Fibonacci numbers: a formula, unpublished note, September 26, 2016. Available at \url{https://oeis.org/A075326/a075326_2.pdf}.
+
+\end{thebibliography}
+
+\end{document}
